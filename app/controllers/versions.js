@@ -78,7 +78,7 @@ exports.create = function(req, res) {
     s3.putObject({
       Body: data
     }, function() {
-      console.log('uploaded ' + file.name);
+      console.log('uploaded mockup: ' + file.name);
 
       var options = {
         screenSize: {
@@ -103,7 +103,7 @@ exports.create = function(req, res) {
           s3.putObject({
             Body: data
           }, function() {
-            console.log('uploaded ' + screenshotName);
+            console.log('uploaded screenshot: ' + screenshotName);
             runTests(linkUrl, fileUrl, testid, version, res);
           });
         });
@@ -134,7 +134,7 @@ var runTests = function(linkURL, fileURL, testid, version, res){
           .on('parsed', function() {
             var data2 = this;
             var totalPixels = data1.height * data1.width;
-            console.log(data1.height + "," + data1.width);
+            console.log("mockup specs: " + data1.width + "w, " + data1.height + "h");
 
             var differenceCount = 0;
             for (var y = 0; y < data1.height; y++) {
@@ -148,7 +148,7 @@ var runTests = function(linkURL, fileURL, testid, version, res){
                     }
                 }
             }
-            console.log("These pictures " + ((1 - (differenceCount/totalPixels)) *100) + "% the same")
+            console.log("These pictures are " + ((1 - (differenceCount/totalPixels)) *100) + "% similar.");
 
             var r = this.pack().pipe(fs.createWriteStream(os.tmpdir()+'out.png'));
 
@@ -159,7 +159,7 @@ var runTests = function(linkURL, fileURL, testid, version, res){
                 s3.putObject({
                   Body: data
                 }, function() {
-                  console.log('uploaded ' + testid +'out.png');
+                  console.log('uploaded comparison: ' + testid + 'out.png');
 
               var percentage = ((1 - (differenceCount/totalPixels)) *100);
               version.percentage = percentage;
