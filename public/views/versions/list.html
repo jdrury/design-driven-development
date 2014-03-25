@@ -1,0 +1,22 @@
+<section data-ng-controller="VersionsController" data-ng-init="find()">
+
+	<a href="{{projectCreate}}">Upload a version</a></p>
+
+	<div class="row row-thumbnails">
+		<div class="col-sm-4 col-thumbnails" data-ng-repeat="version in versions">
+			<div class="version">
+				<a data-ng-href="{{projectView}}{{version._id}}">
+					<img class="thumbnails" src="{{version.compared}}">
+				</a>
+				<div class="versioninfo">
+					<span class="versiondate">Uploaded: {{version.created | date:'MMM d, yyyy @ h:mm a'}}</span>
+					<div class="notecount text-center">
+						{{version.noteCount}}<br>notes
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

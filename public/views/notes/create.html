@@ -1,0 +1,26 @@
+<section data-ng-controller="NotesController">
+
+	<h3>Create Note</h3>
+
+	<form role="form" data-ng-submit="create()">
+		<div class="form-group">
+			<label for="xcoord">X: </label>
+			<input type="text" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x">
+			<label for="ycoord">Y: </label>
+			<input type="text" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y">
+			<label for="content" class="control-label">Content</label>
+			<textarea data-ng-model="content.note" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-default">Save Note</button>
+		</div>
+
+	</form>
+	<form action="{{notifyForm}}" method="post">
+		<div class="form-group">
+			<button type="submit" class="btn btn-default btn-block">Send note notification</button>
+		</div>
+	</form>
+
+</section>

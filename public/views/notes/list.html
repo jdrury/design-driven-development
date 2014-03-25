@@ -1,0 +1,10 @@
+<section data-ng-controller="NotesController" data-ng-init="find()">
+
+	<div data-ng-repeat="note in notes">
+		<span>{{note.created | date:'medium'}}</span> /
+		<div>
+			{{note.content}}
+		</div>
+	</div>
+
+</section>

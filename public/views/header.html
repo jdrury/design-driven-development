@@ -1,0 +1,32 @@
+<div data-ng-controller="HeaderController">
+
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<i class="fa fa-bars fa-2x"></i>
+		</button>
+		<a class="navbar-brand" href="/">DesigNote</a>
+	</div>
+	<div class="navbar-collapse collapse">
+		<ul class="navbar-nav nav">
+			<li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+				<a href="#!/{{item.link}}">{{item.title}}</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav nav pull-right" data-ng-hide="global.authenticated">
+			<li><a href="signup">Signup</a>
+			</li>
+			<li class="divider-vertical"></li>
+			<li class="signout"><a href="signin">Signin</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav nav pull-right" data-ng-show="global.authenticated">
+			<li class="heyuser">
+				Hey, {{global.user.name}}!
+			</li>
+			<li class="signout">
+				<a href="/signout">Signout</a>
+			</li>
+		</ul>
+	</div>
+</div>

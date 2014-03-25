@@ -1,0 +1,14 @@
+<section data-ng-controller="IndexController" data-ng-init="findProjects()">
+	<div data-ng-hide="global.authenticated">
+		<h1>Welcome to DesigNote!</h1>
+		<h1>Please Signin or Signup.</h1>
+	</div>
+	<div data-ng-show="global.authenticated">
+
+		<h1 class="text-center">{{user.name}}'s Projects</h1>
+		<p class="text-center">Select from the list below or <a href="/#!/projects/create">create</a> a new project.</p>
+
+		<div data-ng-include="'/views/projects/list.html'"></div>
+
+	</div>
+</section>

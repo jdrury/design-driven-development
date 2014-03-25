@@ -1,0 +1,12 @@
+<section data-ng-controller="NotesController" data-ng-init="findOne()">
+    <span>{{note.created | date:'medium'}}</span>
+    <div data-ng-show="global.user._id == note.user._id">
+        <a class="btn" href="/#!/notes/{{note._id}}/edit">
+        	<i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div>{{note.content}}</div>
+</section>

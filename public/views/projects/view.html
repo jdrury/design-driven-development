@@ -1,0 +1,21 @@
+<section data-ng-controller="ProjectsController" data-ng-init="findOne()">
+
+	<h2>{{project.title}}</h2>
+	<p class="info">
+		<span>{{project.created | date:'MMM d, yyyy'}}</span> /
+		<span ng-repeat="user in project.users">{{user.name}} </span>
+		<br>
+		<span ng-repeat="user in project.users" data-ng-show="global.user._id == user._id">
+			<a class="btn btn-icon" href="/#!/projects/{{project._id}}/edit">
+				<i class="fa fa-edit"></i> Edit Project
+			</a>
+			<a class="btn btn-icon" data-ng-click="remove(project);">
+				<i class="fa fa-times"></i> Delete Project
+			</a>
+		</span>
+
+	</p>
+
+	<div ng-include="'views/versions/list.html'"></div>
+
+</section>

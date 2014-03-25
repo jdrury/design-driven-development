@@ -1,0 +1,32 @@
+{% extends 'auth.html' %}
+
+{% block auth %}
+	<form class="signin" action="/users" method="post">
+
+		<div class="input-group">
+			<span class="input-group-addon">Name</span>
+			<input id="name" class="form-control" type="text" name="name" placeholder="Full Name" value="{{user.name}}" />
+		</div>
+
+		<div class="input-group">
+			<span class="input-group-addon">Email</span>
+			<input id="email" class="form-control" type="text" name="email" placeholder="Email" value="{{user.email}}" />
+		</div>
+
+		<div class="input-group">
+			<span class="input-group-addon">Username</span>
+			<input id="username" class="form-control" type="text" name="username" placeholder="Username" value="{{user.username}}" />
+		</div>
+
+		<div class="input-group">
+			<span class="input-group-addon">Password</span>
+			<input id="password" class="form-control" type="password" name="password" placeholder="Password" />
+		</div>
+
+		<div>
+			<button class="btn btn-default" type="submit">Sign up</button>&nbsp;
+				or&nbsp;<a class="show-login" href="/signin">login</a>
+		</div>
+
+	</form>
+{% endblock %}

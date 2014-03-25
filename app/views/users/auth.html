@@ -1,0 +1,48 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+	<div class="row row-auth">
+
+		<div class="col-sm-offset-1 col-sm-10">
+			<div class="col-sm-5">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-facebook icon-addon"></i></span>
+					<a class="btn btn-default btn-block btn-addon" href="/auth/facebook">Facebook</a>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-github icon-addon"></i></span>
+					<a class="btn btn-default btn-block btn-addon" href="/auth/github"> Github</a>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-twitter icon-addon"></i></span>
+					<a class="btn btn-default btn-block btn-addon" href="/auth/twitter">Twitter</a>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-google-plus icon-addon"></i></span>
+					<a class="btn btn-default btn-block btn-addon" href="/auth/google">Google</a>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-linkedin icon-addon"></i></span>
+					<a class="btn btn-default btn-block btn-addon" href="/auth/linkedin">LinkedIn</a>
+				</div>
+			</div>
+
+			<div class="col-sm-2 text-center col-or"><i class="fa fa-chevron-left chevron"></i> OR <i class="fa fa-chevron-right chevron"></i></div>
+			<div class="col-sm-5">
+				{% if message && message.length  %}
+				<div class="fade in alert alert-error">
+					<button class="close" data-dismiss="alert">&times;</button>
+					<div class="strong">
+						{{ message }}
+					</div>
+				</div>
+				{% endif %}
+				{% block auth %}{% endblock %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
