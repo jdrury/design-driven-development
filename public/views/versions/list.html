@@ -5,6 +5,7 @@
 	<div class="row row-thumbnails">
 		<div class="col-sm-4 col-thumbnails" data-ng-repeat="version in versions">
 			<div class="version">
+				{{version.percentage}}%
 				<a data-ng-href="{{projectView}}{{version._id}}">
 					<img class="thumbnails" src="{{version.compared}}">
 				</a>
