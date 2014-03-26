@@ -9,3 +9,4 @@ test/coverage
 mean.iml
 config/env/
 app/controllers/aws.json
+app/controllers/nodemailer.js
