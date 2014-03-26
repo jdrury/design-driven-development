@@ -10,7 +10,8 @@ angular.module('mean.versions').controller('VersionsController', ['$scope', '$st
 
 	$scope.create = function(content) {
 		$timeout(function() {
-			$location.path('/projects/' + $stateParams.projectId);
+			// $location.path('/projects/' + $stateParams.projectId);
+      $location.path('/projects/' + $stateParams.projectId + '/versions/' + content._id);
 		}, 3000);
 	};
 
