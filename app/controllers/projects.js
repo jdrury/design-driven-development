@@ -52,9 +52,9 @@ exports.create = function(req, res) {
 		var mailOptions = {
 			from: 'Lauren Ashpole <finalproject@laurenashpole.com.com>',
 			to: email,
-			subject: req.user.name + ' added you to a project on DesigNote!',
-			text: 'Hey ' + foundUser.name + '! ' + req.user.name + ' has added you to the project ' + req.body.title + ' on DesigNote.',
-			html: '<p>Hey ' + foundUser.name + '!</p><p>' + req.user.name + ' has added you to the project ' + req.body.title + ' on DesigNote.</p>'
+			subject: req.user.name + ' added you to a project on 3DT!',
+			text: 'Hey ' + foundUser.name + '! ' + req.user.name + ' has added you to the project ' + req.body.title + ' on 3DT.',
+			html: '<p>Hey ' + foundUser.name + '!</p><p>' + req.user.name + ' has added you to the project ' + req.body.title + ' on 3DT.</p>'
 		};
 
 
@@ -91,9 +91,9 @@ exports.invite = function(req, res) {
 	var mailOptions = {
 		from: 'Lauren Ashpole <finalproject@laurenashpole.com.com>',
 		to: inviteEmail,
-		subject: req.user.name + ' invited you to sign up for DesigNote!',
-		text: 'Hey! ' + req.user.name + ' would like you to signup for DesigNote so you can discuss a project.',
-		html: '<p>Hey!</p><p>' + req.user.name + ' would like you to signup for DesigNote so you can discuss a project.</p>'
+		subject: req.user.name + ' invited you to sign up for 3DT!',
+		text: 'Hey! ' + req.user.name + ' would like you to signup for 3DT so you can discuss a project.',
+		html: '<p>Hey!</p><p>' + req.user.name + ' would like you to signup for 3DT so you can discuss a project.</p>'
 	};
 
 	smtpTransport.sendMail(mailOptions, function(error, response){

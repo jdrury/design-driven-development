@@ -55,7 +55,7 @@ exports.notify = function(req, res) {
 				var mailOptions = {
 					from: 'Lauren Ashpole <finalproject@laurenashpole.com.com>',
 					to: user.email,
-					subject: req.user.name + ' left you notes on DesigNote!',
+					subject: req.user.name + ' left you notes on 3DT!',
 					text: 'Hey ' + user.name + '! ' + req.user.name + ' left you notes on ' + project.title + '.',
 					html: '<p>Hey ' + user.name + '!</p><p>' + req.user.name + ' left you notes on ' + project.title + '.</p>'
 				};
