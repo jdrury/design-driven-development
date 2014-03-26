@@ -1,7 +1,7 @@
 {
-  "name": "test-driven-design",
-  "description": "testing framework for designers",
-  "version": "0.2.1",
+  "name": "design-driven-development-tool",
+  "description": "An online tool allowing developers to compare their design implications to the original mockup",
+  "version": "0.2.5",
   "private": false,
   "authors": {
     "Lauren Ashpole": "https://github.com/laurenashpole",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codercooke/test-driven-design"
+    "url": "https://github.com/jamesdrury/test-driven-design"
   },
   "engines": {
     "node": "0.10.x",

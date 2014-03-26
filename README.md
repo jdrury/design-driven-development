@@ -1,9 +1,11 @@
-#Test-driven Design v0.2.1
+#Design Driven Development Tool v0.2.5
 
-**Test-driven Design** is a testing framework for designers. Users input the URL they wish to test and a local file with the original mock-ups. Test-driven Design visits the site, takes a screenshot and compares the screenshot to the original plans. Discrepancies are presented with red highlighting.
+**Design Driven Development Tool** is a design testing framework for developers. Users input the URL they wish to test and a local file with the original mock-ups. 3DT visits the site, takes a screenshot and compares the screenshot to the original plans. Discrepancies are presented with red highlighting.
 
-Accurate. Reliable. Fast. Test-driven Design.
+Accurate. Reliable. Fast. 3DT.
 
+#### v0.2.5
++ rebranded as Design Driven Development Tool
 #### v0.2.3
 + form view receives a new look, more like an RSPEC test now
 
