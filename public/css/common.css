@@ -78,6 +78,10 @@ a.navbar-brand:hover, a.navbar-brand:focus {
 	padding: 5px 0 20px 20px;
 }
 
+.moveToBack{
+	position: relative;
+	z-index: -1;
+}
 .preview{
 	width: 100%;
 	height: auto;
@@ -255,6 +259,9 @@ a.navbar-brand:hover, a.navbar-brand:focus {
 	margin: 0 0 40px 0;
 }
 
+.centered{
+	text-align: center;
+}
 .img-wrapper {
 	position: relative;
 }

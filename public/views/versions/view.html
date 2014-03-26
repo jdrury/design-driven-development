@@ -11,26 +11,27 @@
 			<a class="btn btn-icon" data-ng-click="remove(version);">
 				<i class="fa fa-times"></i> Delete Version
 			</a>
-			<h2> You are at {{version.percentage}}% compliance. </h2>
+			<h2 class = "centered"> You are at {{version.percentage}}% compliance. </h2>
 		</span>
 	</p>
 
 	<!-- display version image -->
 
 	<div class="row note-relative hide-mobile" data-ng-controller="NotesController" data-ng-init="find()">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="img-wrapper">
+				<div class = "centered">
 				<img class="img-version" src="{{version.compared}}" data-ng-click="findCoordinates($event); show.note = !show.note; show.edit = false">
-
+			</div>
 				<!-- display notes -->
 				<div data-ng-repeat="note in notes" class="note" style="position: absolute; left: {{note.coordinates[0]}}px; top: {{note.coordinates[1]}}px; z-index: {{note.zindex}};" data-ng-click="note.zindex = note.zindex + 1">
 					<span class="note-name">{{note.user.name}}:</span>
 					<div>
 						{{note.content}}
 						<p class="note-icons" data-ng-show="global.user._id == note.user._id">
-							<a class="btn btn-icon" ng-click="findToEdit(note._id);show.edit = !show.edit">
+<!-- 							<a class="btn btn-icon" ng-click="findToEdit(note._id);show.edit = !show.edit">
 								<i class="fa fa-edit"></i>
-							</a>
+							</a> -->
 							<a class="btn btn-icon" data-ng-click="remove(note);">
 								<i class="fa fa-times"></i>
 							</a>
@@ -40,25 +41,14 @@
 
 				<!-- display note during creation -->
 				<div ng-show="show.note" class="note" style="position: absolute; left: {{coordinates.x}}px; top: {{coordinates.y}}px">
-					<span class="note-name">{{global.user.name}}</span>
-					<div>{{content.note}}</div>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="col-lg-3 note-wrapper">
-
 			<!-- create note -->
 			<div class="note-fixed" ng-hide="show.edit">
 				<h3>Create Note</h3>
 
 				<form role="form" data-ng-submit="create()">
 					<div class="form-group">
-						<label for="xcoord">X: </label>
-						<input type="number" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x" required>
-						<label for="ycoord">Y: </label>
-						<input type="number" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y" required>
+						<input type="hidden" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x" required>
+						<input type="hidden" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y" required>
 						<label for="content" class="control-label">Content</label>
 						<textarea data-ng-model="content.note" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
 					</div>
@@ -66,26 +56,20 @@
 					<div class="form-group">
 						<button type="submit" class="btn btn-default" data-ng-click="show.note = false">Save Note</button>
 					</div>
-
-				</form>
-
-				<!-- notify collaborator of notes -->
-				<form action="{{notifyForm}}" method="post">
-					<div class="form-group">
-						<button type="submit" class="btn btn-default btn-block">Send note notification</button>
-					</div>
 				</form>
 			</div>
 
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-lg-3 note-wrapper">
 			<!-- edit note -->
 			<div class="note-fixed" ng-show="show.edit">
 				<h3>Edit Note</h3>
 				<form role="form" data-ng-submit="update()">
 					<div class="form-group">
-						<label for="xcoord">X: </label>
-						<input type="number" class="form-control" name="xcoord" id="xcoord" data-ng-model="noteToEdit.coordinates[0]" required>
-						<label for="ycoord">Y: </label>
-						<input type="number" class="form-control" name="ycoord" id="ycoord" data-ng-model="noteToEdit.coordinates[1]" required>
 						<label for="content" class="control-label">Content</label>
 						<textarea data-ng-model="noteToEdit.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required>{{note.content.note}}</textarea>
 					</div>
@@ -113,15 +97,14 @@
 		</div>
 	</div>
 
-		<div class = "row">
-		<div class = "col-md-6">
-		<h4>URL tested:</h4>
-
-		<img class = "preview" src = "{{version.screenShot}}"></img>
+		<div class = "row moveToBack">
+			<div class = "col-md-6">
+				<h4> URL tested:</h4>
+				<img class = "preview" src = "{{version.screenShot}}"></img>
+			</div>
+			<div class = "col-md-6">
+				<h4>File uploaded:</h4>
+				<img class = "preview" src = "{{version.mockup}}"></img>
+			</div>
 		</div>
-		<div class = "col-md-6">
-			<h4>File uploaded:</h4>
-			<img class = "preview" src = "{{version.mockup}}"></img>
-	</div>
-</div>
 </section>
