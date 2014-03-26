@@ -101,7 +101,7 @@ exports.invite = function(req, res) {
 			console.log(error);
 		} else {
 			console.log('Message sent: ' + response.message);
-			res.redirect('#!/projects');
+			res.redirect('#!/projects/create');
 		}
 	});
 };
