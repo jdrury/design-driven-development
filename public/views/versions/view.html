@@ -46,7 +46,7 @@
 		<div class="col-lg-3 note-wrapper">
 
 			<!-- create note -->
-			<div class="note" ng-hide="show.edit">
+			<div class="note-fixed" ng-hide="show.edit">
 				<h3>Create Note</h3>
 
 				<form role="form" data-ng-submit="create()">
@@ -116,11 +116,11 @@
 		<div class = "col-md-6">
 		<h4>URL tested:</h4>
 
-		<img class = "preview" src = "{{version.mockup}}"></img>
+		<img class = "preview" src = "{{version.screenShot}}"></img>
 		</div>
 		<div class = "col-md-6">
 			<h4>File uploaded:</h4>
-			<img class = "preview" src = "{{version.screenShot}}"></img>
+			<img class = "preview" src = "{{version.mockup}}"></img>
 	</div>
 </div>
 </section>
