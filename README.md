@@ -1,15 +1,24 @@
-#Test-driven Design v0.1.1
+#Test-driven Design v0.2.1
 
-**Test-driven Design** is a testing framework for designers. TDD allows designers to compare live or local websites to original mock-ups. TDD screenshots the website with a headless browser and compares the image to the designer's original specs. Discrepancies are detected down to the last byte, and any differences are highlighted in red.
+**Test-driven Design** is a testing framework for designers. Users input the URL they wish to test and a local file with the original mock-ups. Test-driven Design visits the site, takes a screenshot and compares the screenshot to the original plans. Discrepancies are presented with red highlighting.
 
-Accurate. Fast. Reliable. Test-driven Design.
+Accurate. Reliable. Fast. Test-driven Design.
 
-Built on the Express framework.
+#### v0.2.3
++ form view receives a new look, more like an RSPEC test now
 
-v0.1.1
-+ adds TDD to the Mean Stack
+#### v0.2.1
++ backend logic wired up to frontend
++ stickies can be added to images, with the ability to add comments
++ data now persists
++ user login added
 
-v0.1.0
-+ successfully uploads local file and compares it to screenshot taken by headless browser.
-+ new field in form allows user to specify width and height of screenshot
-+ results now offers visual representation of discrepancies plus percentage.
+#### v0.1.1
++ incorporated into the MEAN stack
+
+#### v0.1.0
++ form view accepts local file and compares it to screenshot taken by headless browser
++ form view now allows users to specify width and height of screenshot
++ show view now offers visual representation of discrepancies in red, plus percentage
+
+Built on the MEAN stack, powered by [Fullstack](http://www.fullstackacademy.com).

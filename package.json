@@ -1,7 +1,7 @@
 {
   "name": "test-driven-design",
   "description": "testing framework for designers",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "private": false,
   "authors": {
     "Lauren Ashpole": "https://github.com/laurenashpole",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codercooke/td-design"
+    "url": "https://github.com/codercooke/test-driven-design"
   },
   "engines": {
     "node": "0.10.x",
@@ -71,23 +71,23 @@
     "webshot": "~0.11.1"
   },
   "devDependencies": {
-    "supertest": "0.8.2",
-    "should": "2.1.1",
+    "grunt-concurrent": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-contrib-jshint": "latest",
-    "grunt-nodemon": "0.2.0",
-    "grunt-concurrent": "latest",
+    "grunt-karma": "~0.6.2",
     "grunt-mocha-test": "latest",
-    "karma-script-launcher": "~0.1.0",
+    "grunt-nodemon": "0.2.0",
+    "karma": "~0.10.4",
     "karma-chrome-launcher": "~0.1.0",
+    "karma-coffee-preprocessor": "~0.1.0",
+    "karma-coverage": "~0.1.0",
     "karma-firefox-launcher": "~0.1.0",
     "karma-html2js-preprocessor": "~0.1.0",
     "karma-jasmine": "~0.1.3",
-    "karma-requirejs": "~0.1.0",
-    "karma-coffee-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.0",
-    "karma": "~0.10.4",
-    "grunt-karma": "~0.6.2",
-    "karma-coverage": "~0.1.0"
+    "karma-requirejs": "~0.1.0",
+    "karma-script-launcher": "~0.1.0",
+    "should": "2.1.1",
+    "supertest": "0.8.2"
   }
 }
