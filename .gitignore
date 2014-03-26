@@ -7,5 +7,5 @@ node_modules/
 public/lib
 test/coverage
 mean.iml
-config/env/*
+config/env/
 app/controllers/aws.json
