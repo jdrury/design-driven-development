@@ -21,4 +21,6 @@ Accurate. Reliable. Fast. Test-driven Design.
 + form view now allows users to specify width and height of screenshot
 + show view now offers visual representation of discrepancies in red, plus percentage
 
+```
 Built on the MEAN stack, powered by [Fullstack](http://www.fullstackacademy.com).
+```
