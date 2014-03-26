@@ -10,6 +10,7 @@ angular.module('mean.versions').controller('VersionsController', ['$scope', '$st
 
   // waits for Express 'create' function to respond with 'content' before redirecting user to new version
 	$scope.create = function(content) {
+
 		// $timeout(function() {
 			// $location.path('/projects/' + $stateParams.projectId);
       $location.path('/projects/' + $stateParams.projectId + '/versions/' + content._id);

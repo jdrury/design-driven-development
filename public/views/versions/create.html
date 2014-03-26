@@ -6,12 +6,12 @@
 	</div>
 	<div class="row row-forms">
 		<div class="col-sm-7 form-padding">
-			<form class="form-horizontal col-sm-11 form-padding" role="form" action="{{formCreate}}" ng-upload="create(content)" enctype="multipart/form-data">
+			<form class="form-horizontal col-sm-11 form-padding" role="form" action="{{formCreate}}" ng-upload="create(content)" enctype="multipart/form-data" ng-submit="showLoading = true">
 				<div class="form-group">
 					<label for="image" class="col-sm-2 control-label form-padding">Image</label>
 					<div class="col-sm-10 form-padding">
 						<input class="form-control" type="file" id="image" name="mockup" required>
-            <input class="form-control" type="text" name="screenShot" required>
+            <input class="form-control" type="text" name="screenShot" placeholder="URL" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -24,9 +24,16 @@
 
 		<div class="col-sm-5">
 			<div class="col-sm-12 col-forminfo montserrat">
-				Upload an image to share. GIF, JPG, and PNG formats are allowed.
+				Upload an image to test only PNG formats are allowed.
 			</div>
 		</div>
+
+		<div ng-if="showLoading">
+		<h1><i class = "icon-spin"> <i class = "glyphicon glyphicon-refresh"></i></i> Analyzing...</h1>
+	</div>
+	<div ng-if="!global.user._id">
+		<div> <h1>Please <a href ="/signin">Sign In</a> and Try Again.</h1>
+	</div>
 
 	</div>
 </section>
