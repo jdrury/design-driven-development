@@ -4,11 +4,14 @@
 	<p class="info">
 		<span>Uploaded: {{version.created | date:'MMM d, yyyy @ h:mm a'}}</span>
 		<br>
+    <a class="btn btn-icon" href="{{projectID}}">
+        <i class="fa fa-toggle-left"></i> Back to Project
+      </a>
 		<span ng-repeat="user in version.project.users" data-ng-show="global.user._id == user">
 			<a class="btn btn-icon" data-ng-click="remove(version);">
 				<i class="fa fa-times"></i> Delete Version
 			</a>
-			<h2> You are at {{version.percentage}}% compliance </h2>
+			<h2> You are at {{version.percentage}}% compliance. </h2>
 		</span>
 	</p>
 

@@ -4,6 +4,7 @@ angular.module('mean.versions').controller('VersionsController', ['$scope', '$st
 	$scope.global = Global;
 
 	// concatenated links
+  $scope.projectID = '#!/projects/' + $stateParams.projectId;
 	$scope.formCreate = '/projects/' + $stateParams.projectId + '/versions';
 	$scope.projectCreate = '#!/projects/' + $stateParams.projectId + '/versions/create';
 	$scope.projectView = '#!/projects/' + $stateParams.projectId + '/versions/';
