@@ -36,8 +36,9 @@ exports.create = function(req, res) {
 	var user = req.user;
 	project.users.push(user);
 	// add collaborator to project
-	project.users.push(req.body.userToAdd);
-
+	if(req.body.userToAdd){
+		project.users.push(req.body.userToAdd);
+	}
 	// add project to user
 	user.projects.push(project._id);
 	user.save();
@@ -45,6 +46,7 @@ exports.create = function(req, res) {
 	User.update({ _id: req.body.userToAdd }, { $push: { projects: project._id }}, function(err, data) {
 	});
 	// email collaborator
+	if(req.body.userToAdd){
 	User.findOne({ _id: req.body.userToAdd }, function(err, foundUser) {
 		var email = foundUser.email;
 		var mailOptions = {
@@ -55,6 +57,7 @@ exports.create = function(req, res) {
 			html: '<p>Hey ' + foundUser.name + '!</p><p>' + req.user.name + ' has added you to the project ' + req.body.title + ' on DesigNote.</p>'
 		};
 
+
 		smtpTransport.sendMail(mailOptions, function(error, response){
 			if(error){
 				console.log(error);
@@ -62,7 +65,9 @@ exports.create = function(req, res) {
 				console.log('Message sent: ' + response.message);
 			}
 		});
+
 	});
+}
 
 	// save project
 	project.save(function(err) {
