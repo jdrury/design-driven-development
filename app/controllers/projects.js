@@ -112,6 +112,8 @@ exports.invite = function(req, res) {
 exports.update = function(req, res) {
 	var project = req.project;
 
+
+
 	project = _.extend(project, req.body);
 
 	project.save(function(err) {
@@ -121,6 +123,7 @@ exports.update = function(req, res) {
 				project: project
 			});
 		} else {
+        console.log(project);
 			res.jsonp(project);
 		}
 	});
