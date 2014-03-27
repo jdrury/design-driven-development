@@ -32,7 +32,9 @@ angular.module('mean.projects').controller('ProjectsController', ['$scope', '$st
 	};
 
 	$scope.remove = function(project) {
+		var r = confirm("Are you sure you want to delete this project?\nThis action can't be undone");
 		console.log(project);
+		if(r == true){
 		if (project) {
 			project.$remove();
 
@@ -47,6 +49,7 @@ angular.module('mean.projects').controller('ProjectsController', ['$scope', '$st
 			$location.path('/');
 		}
 		$location.path('/');
+		}
 	};
 
 	$scope.update = function() {
