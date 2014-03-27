@@ -19,7 +19,10 @@ angular.module('mean.versions').controller('VersionsController', ['$scope', '$st
 	};
 
 	$scope.remove = function(version) {
+	var r = confirm("Are you sure you want to delete this project?\nThis action can't be undone");
 		console.log($scope.version);
+
+		if(r == true){
 		if (version) {
 			version.$remove();
 			for (var i in $scope.versions) {
@@ -34,6 +37,7 @@ angular.module('mean.versions').controller('VersionsController', ['$scope', '$st
 		}
 		$location.path('/projects/' + $stateParams.projectId);
 	};
+}
 
 	$scope.find = function() {
 
