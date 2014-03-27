@@ -30,10 +30,71 @@
 <script type="text/javascript" src="/js/controllers/header.js"></script>
 <script type="text/javascript" src="/js/init.js"></script>
 
-<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Duplicates remove actual files when everything is working -->
+<!-- <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+<!-- stagui }> . Libs -->
+<script src="/lib/js/libs/jquery.js"></script>
+<script src="/lib/js/libs/jquery-ui.js"></script>
+<script src="/lib/js/libs/bootstrap.js"></script>
+<script src="/lib/js/libs/jquery-ui.touch.punch.js"></script>
+<script src="/lib/js/libs/fastclick.js"></script>
+<script src="/lib/js/libs/pace.options.js"></script>
+<script src="/lib/js/libs/pace.js"></script>
+<script src="/lib/js/libs/spectrum.js"></script>
+<script src="/lib/js/libs/spin.js"></script>
+<script src="/lib/js/libs/bootstrap-spinedit.js"></script>
+<script src="/lib/js/libs/datatables.js"></script>
+<script src="/lib/js/libs/datatables.bootstrap.js"></script>
+<script src="/lib/js/libs/d3.js"></script>
+<script src="/lib/js/libs/c3.js"></script>
+<script src="/lib/js/libs/flot.js"></script>
+<script src="/lib/js/libs/flot.pie.js"></script>
+<script src="/lib/js/libs/handsontable.js"></script>
+<script src="/lib/js/libs/select2.js"></script>
+<script src="/lib/js/libs/prettyCheckable.js"></script>
+<script src="/lib/js/libs/bootstrap-switch.js"></script>
+<script src="/lib/js/libs/toastr.js"></script>
+<script src="/lib/js/libs/knob.js"></script>
+<script src="/lib/js/libs/summernote.js"></script>
+<script src="/lib/js/libs/fileinput.js"></script>
+<script src="/lib/js/libs/inputmask.js"></script>
+<script src="/lib/js/libs/markdown.js"></script>
+<script src="/lib/js/libs/bootstrap-markdown.js"></script>
+<script src="/lib/js/libs/codemirror.js"></script>
+<script src="/lib/js/libs/codemirror-javascript.js"></script>
+<script src="/lib/js/libs/parsley.js"></script>
+<script src="/lib/js/libs/picker.js"></script>
+<script src="/lib/js/libs/picker.date.js"></script>
+<script src="/lib/js/libs/picker.time.js"></script>
+<script src="/lib/js/libs/moment.min.js"></script>
+<script src="/lib/js/libs/daterangepicker.js"></script>
+<script src="/lib/js/libs/handlebars.js"></script>
+<script src="/lib/js/libs/typeahead.js"></script>
+<script src="/lib/js/libs/nouislider.js"></script>
+<script src="/lib/js/libs/fullcalendar.js"></script>
+<script src="/lib/js/libs/peity.js"></script>
+<script src="/lib/js/libs/shCore.js"></script>
+<script src="/lib/js/libs/shBrushCss.js"></script>
+<script src="/lib/js/libs/shBrushJScript.js"></script>
+<script src="/lib/js/libs/shBrushXml.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+<!-- stagui }> . Js -->
+<script src="/lib/js/stagui.js"></script>
+<script src="/lib/js/stagui-customizer.js"></script>
+<script src="/lib/js/stagui-plugins.js"></script>
+<script src="/lib/js/stagui-charts.js"></script>
+<script src="/lib/js/stagui-analytics.js"></script>
+
+<!--[if lt IE 7 ]>
+<script defer src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+<script defer>window.attachEvent('onload', function () {
+		CFInstall.check({mode: 'overlay'})
+})</script>
+<![endif]-->
 
 {% if (process.env.NODE_ENV == 'development') %}
-    <!-- Livereload script rendered -->
-    <script type="text/javascript" src="{{'http://' + req.host + ':35729/livereload.js'}}"></script>
+		<!-- Livereload script rendered -->
+		<script type="text/javascript" src="{{'http://' + req.host + ':35729/livereload.js'}}"></script>
 {% endif %}

@@ -2,13 +2,411 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
 	{% include '../includes/head.html' %}
 	<body>
+		<div class="layout-wrapper layout-right-panel-toggle">
 
-		<div class="navbar navbar-fixed-top" data-ng-include="'views/header.html'" data-role="navigation"></div>
-		<section class="content">
-			<section class="container">
-				{% block content %}{% endblock %}
-			</section>
-		</section>
+			<!-- Topbar -->
+			<div class="layout-topbar" role="navigation">
+				<!-- Toggle Sidebar Btn -->
+				<a class="btn-left-panel" id="ltoggle-btn"><i class="fa fa-fw fa-bars"></i></a>
+
+				<!-- Turned off right toggle by adding class to layout-wrapper and hiding button, fix permanently in css -->
+				<a class="pull-right btn-right-panel" id="rtoggle-btn"><i class="fa fa-fw fa-cog"></i><i class="fa fa-ellipsis-v"></i></a>
+
+				<!-- Topbar Navs -->
+				<ul class="nav">
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-fw fa-cloud"></i><b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li role="presentation" class="dropdown-header">Files</li>
+							<li><a href="#"><i class="fa fa-fw fa-upload"></i> Upload</a></li>
+							<li><a href="#"><i class="fa fa-fw fa-download"></i> Download</a></li>
+							<li role="presentation" class="dropdown-header">Project</li>
+							<li><a href="#"><i class="fa fa-fw fa-cloud-upload"></i> Cloud Upload</a></li>
+							<li><a href="#"><i class="fa fa-fw fa-cloud-download"></i> Cloud Download</a></li>
+							<li role="presentation" class="dropdown-header">Code</li>
+							<li><a href="#"><i class="fa fa-fw fa-play"></i> Run</a></li>
+							<li><a href="#"><i class="fa fa-fw fa-bug"></i> Debug</a></li>
+							<li><a href="#"><i class="fa fa-fw fa-terminal"></i> Console</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-right">
+						<li>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<i class="fa fa-fw fa-flag"></i>
+										<span class="badge">6</span>
+								</a>
+								<ul class="dropdown-menu dropdown-widget">
+										<li class="dropdown-widget-title">
+												<h4>Notifications
+														<span class="label label-default pull-right"><strong>6</strong></span>
+												</h4>
+										</li>
+										<li class="dropdown-widget-content">
+												<div class="list-group">
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-coffee"></i> Morbi fringilla convallis sapien
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 2 min</small>
+																</h5>
+																<p class="list-group-item-text">
+																		Nihilne te nocturnum praesidium Palati
+																</p>
+														</a>
+												</div>
+												<div class="list-group">
+														<a class="list-group-item list-group-item-info">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-info-circle"></i> Id pulvinar odio volutpat
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 8 min</small>
+																</h5>
+																<p class="list-group-item-text">
+																		Inmensae subtilitatis, obscuris
+																</p>
+														</a>
+														<a class="list-group-item list-group-item-info">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-info-circle"></i> Cum sociis natoque penatibus
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 23 min</small>
+																</h5>
+																<p class="list-group-item-text">
+																		Contra legem facit qui id facit
+																</p>
+														</a>
+												</div>
+												<div class="list-group">
+														<a class="list-group-item list-group-item-warning">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-warning"></i> Et magnis dis parturient
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 47 min</small>
+																</h5>
+																<p class="list-group-item-text">
+																		Quo usque tandem abutere, Catilina
+																</p>
+														</a>
+														<a class="list-group-item list-group-item-warning">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-warning"></i> Non equidem invideo, miror magis
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 1.2 hrs
+																		</small>
+																</h5>
+																<p class="list-group-item-text">
+																		Cras mattis iudicium purus sit
+																</p>
+														</a>
+												</div>
+												<div class="list-group">
+														<a class="list-group-item list-group-item-danger">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-fire"></i> Posuere velit aliquet
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 1.8 hrs
+																		</small>
+																</h5>
+																<p class="list-group-item-text">
+																		Nihilne te nocturnum praesidium
+																</p>
+														</a>
+												</div>
+										</li>
+										<li class="dropdown-widget-footer">
+												<a href="#"><i class="fa fa-fw fa-refresh"></i> Update</a>
+												<a href="#" class="pull-right"><i class="fa fa-fw fa-trash-o"></i> Clear</a>
+										</li>
+								</ul>
+						</li>
+						<li>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-envelope"></i><span
+												class="badge">8</span>
+								</a>
+								<ul class="dropdown-menu dropdown-widget">
+										<li class="dropdown-widget-title">
+												<h4>Messages
+														<span class="label label-default pull-right"><strong>8</strong></span>
+												</h4>
+										</li>
+										<li class="dropdown-widget-content">
+												<div class="list-group">
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Morbi fringilla convallis sapien
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 2 min</small>
+																</h5>
+
+																<p class="list-group-item-text">
+																		Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Id pulvinar odio volutpat
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 8 min</small>
+																</h5>
+
+																<p class="list-group-item-text">
+																		Inmensae subtilitatis, obscuris et malesuada fames.
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Cum sociis natoque penatibus
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 23 min</small>
+																</h5>
+
+																<p class="list-group-item-text">
+																		Contra legem facit qui id facit quod lex prohibet.
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Et magnis dis parturient
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 47 min</small>
+																</h5>
+
+																<p class="list-group-item-text">
+																		Quo usque tandem abutere, Catilina, patientia nostra?
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Non equidem invideo, miror magis
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 1.2 hrs
+																		</small>
+																</h5>
+
+
+																<p class="list-group-item-text">
+																		Cras mattis iudicium purus sit amet fermentum.
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Posuere velit aliquet
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 1.8 hrs
+																		</small>
+																</h5>
+
+
+																<p class="list-group-item-text">
+																		Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Quae vero auctorem tractata
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 2.1 hrs
+																		</small>
+																</h5>
+
+
+																<p class="list-group-item-text">
+																		Magna pars studiorum, prodita quaerimus.
+																</p>
+														</a>
+														<a class="list-group-item">
+																<h5 class="list-group-item-heading">
+																		<i class="fa fa-fw fa-envelope"></i> Vivamus sagittis lacus vel
+																		<small class="pull-right"><i class="fa fa-fw fa-clock-o"></i> 2.6 hrs
+																		</small>
+																</h5>
+
+
+																<p class="list-group-item-text">
+																		Prima luce, cum quibus mons aliud consensu ab eo.
+																</p>
+														</a>
+												</div>
+										</li>
+										<li class="dropdown-widget-footer">
+												<a href="#">View all messages<i class="fa fa-fw fa-chevron-right"></i></a>
+												<a href="#" class="pull-right"><i class="fa fa-fw fa-trash-o"></i> Clear</a>
+										</li>
+								</ul>
+						</li>
+						<li>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-tasks"></i><span
+												class="badge">3</span>
+								</a>
+								<ul class="dropdown-menu dropdown-widget">
+										<li class="dropdown-widget-title">
+												<h4>Tasks
+														<span class="label label-default pull-right"><strong>3</strong></span>
+												</h4>
+										</li>
+										<li class="dropdown-widget-content">
+												<div class="list-group">
+														<a class="list-group-item list-group-item-success">
+																<h5 class="list-group-item-heading">
+																		Morbi fringilla convallis sapien
+																		<small class="pull-right"><i class="fa fa-fw fa-tasks"></i> 75%</small>
+																</h5>
+																<div class="progress progress-sm">
+																		<div class="progress-bar" style="width: 75%">
+																				<span class="sr-only">75% Complete</span>
+																		</div>
+																</div>
+														</a>
+												</div>
+												<div class="list-group">
+														<a class="list-group-item list-group-item-danger">
+																<h5 class="list-group-item-heading">
+																		Id pulvinar odio volutpat
+																		<small class="pull-right"><i class="fa fa-fw fa-tasks"></i> 20%</small>
+																</h5>
+																<div class="progress progress-sm">
+																		<div class="progress-bar" style="width: 20%">
+																				<span class="sr-only">20% Complete</span>
+																		</div>
+																</div>
+														</a>
+														<a class="list-group-item list-group-item-danger">
+																<h5 class="list-group-item-heading">
+																		Cum sociis natoque penatibus
+																		<small class="pull-right"><i class="fa fa-fw fa-tasks"></i> 35%</small>
+																</h5>
+																<div class="progress progress-sm">
+																		<div class="progress-bar" style="width: 35%">
+																				<span class="sr-only">35% Complete</span>
+																		</div>
+																</div>
+														</a>
+												</div>
+										</li>
+										<li class="dropdown-widget-footer">
+												<a href="#">View all <i class="fa fa-fw fa-chevron-right"></i> </a>
+												<a href="#" class="pull-right"><i class="fa fa-fw fa-trash-o"></i> Clear</a>
+										</li>
+								</ul>
+						</li>
+				</ul>
+				<!-- Topbar Search -->
+				<form role="form" class="topbar-search">
+						<div class="form-group">
+								<label class="control-label sr-only" for="topbar-search">Search</label>
+
+								<div class="input-group">
+										<input type="text" id="topbar-search" class="form-control" placeholder="Search...">
+						<span class="input-group-btn">
+								<button type="button" class="btn btn-default"><i class="fa fa-fw fa-search"></i></button>
+						</span>
+								</div>
+						</div>
+				</form>
+				<!-- Topbar Title Container -->
+				<h3 class="topbar-title ellipsis"></h3>
+			</div>
+
+			<!-- Sidebar -->
+			<nav class="layout-sidebar">
+								<!-- Sidebar Header -->
+				<div class="sidebar-header">
+					<!-- Check out image dimensions for line-height
+					<img class="sidebar-brand" src="../img/stagui-logo.svg" height="24" alt="stagui }>" title="stagui }>"> -->
+					<p class="sidebar-brand">3DT</p>
+
+					<div class="btn-group pull-right">
+							<a class="btn btn-primary"><i class="fa fa-fw fa-home"></i></a>
+							<a class="btn btn-primary"><i class="fa fa-fw fa-repeat"></i></a>
+					</div>
+				</div>
+				<!-- Sidebar Content -->
+				<div class="sidebar-content">
+					<!-- Not sure if i like browse title -->
+					<!-- <div class="sidebar-title">
+						<h3>Browse</h3>
+					</div> -->
+					<!-- Sidebar Navigation -->
+					<ul class="nav sidebar-nav">
+						<li><a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a></li>
+
+						<li>
+							<a data-toggle="collapse" href="#projects" class="collapsed">
+								<i class="fa fa-fw fa-folder"></i> Projects
+								<span class="caret"></span>
+							</a>
+							<ul id="projects" class="collapse">
+								<li data-ng-repeat="project in projects"><a data-ng-href="#!/projects/{{project._id}}">{{project.title}}</a></li>
+								<li data-ng-show="!projects || projects.length"><a>No projects</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a data-toggle="collapse" href="#view-elements" class="collapsed">
+								<i class="fa fa-fw fa-th-large"></i> Wrappers
+								<span class="caret"></span>
+							</a>
+							<ul id="view-elements" class="collapse">
+								<li><a href="wrappers-panels.html">Panels</a></li>
+								<li><a href="wrappers-portlets.html">Portlets</a></li>
+								<li><a href="wrappers-tabs.html">Tabs</a></li>
+								<li><a href="wrappers-wells.html">Wells</a></li>
+								<li><a href="wrappers-tiles.html">Tiles</a></li>
+							</ul>
+						</li>
+						<li>
+							<a data-toggle="collapse" href="#ui-elements" class="collapsed">
+								<i class="fa fa-fw fa-bookmark"></i> UI elements
+								<span class="caret"></span>
+							</a>
+							<ul id="ui-elements" class="collapse">
+								<li><a href="ui-messages-notifications.html">Messages & Notifications</a></li>
+								<li><a href="ui-buttons-dropdowns.html">Buttons & Dropdowns</a></li>
+								<li><a href="ui-sliders-progress-bars.html">Sliders & Progress Bars</a></li>
+								<li><a href="ui-list-groups.html">List Groups</a></li>
+								<li><a href="ui-jumbotron.html">Jumbotron</a></li>
+								<li><a href="ui-utils.html">Utils</a></li>
+								<li><a href="ui-code.html">Code</a></li>
+							</ul>
+						</li>
+						<li><a href="typography.html"><i class="fa fa-fw fa-clipboard"></i>Typography</a></li>
+						<li>
+							<a data-toggle="collapse" href="#tables" class="collapsed"><i class="fa fa-fw fa-table"></i>
+										Tables
+								<span class="caret"></span>
+							</a>
+							<ul id="tables" class="collapse">
+								<li><a href="tables-static.html">Static</a></li>
+								<li><a href="tables-datatables.html">Datatables</a></li>
+								<li><a href="tables-grid-editor.html">Grid Editor</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<hr>
+				<!-- Sidebar Footer -->
+				<div class="sidebar-footer">
+					<p class="pull-left">© <strong>3DT</strong></p>
+					<a id="scroll-top" href="#" class="btn btn-secondary pull-right"><i class="fa fa-fw fa-arrow-up"></i></a>
+				</div>
+			</nav>
+
+			<!-- Rightbar -->
+			<div class="layout-content">
+				<div class="layout-header">
+					<ul class="breadcrumb">
+						<li><a href="#">Root</a></li>
+						<li class="active">Dashboard</li>
+					</ul>
+
+					<div class="page-header">
+						<h1 class="page-title"><i class="fa fa-fw fa-dashboard"></i> Dashboard
+							<small>subtitle</small>
+						</h1>
+						<div class="daterangewidget pull-right btn btn-primary" id="daterangepicker-widget">
+							<i class="fa fa-fw fa-calendar"></i>
+							<span></span>
+							<b class="caret"></b>
+						</div>
+					</div>
+				</div> <!-- end layout-header -->
+
+				<div class="row">
+					{% block content %}{% endblock %}
+				</div>
+			</div> <!-- end layout-content -->
+		</div> <!-- end layout-wrapper -->
+
 		{% include '../includes/foot.html' %}
 	</body>
 </html>
