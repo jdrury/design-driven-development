@@ -3,6 +3,9 @@
 angular.module('mean.projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Global', 'Projects', 'UsersToAdd', function ($scope, $stateParams, $location, Global, Projects, UsersToAdd) {
 	$scope.global = Global;
 
+  // concatenated links (used for back button)
+  $scope.projectID = '#!/projects/' + $stateParams.projectId;
+
 	// Get user info for dropdown list
 	$scope.findUsers = function() {
 		$scope.users = [];

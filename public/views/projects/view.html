@@ -7,12 +7,13 @@
 		<br>
 		<span ng-repeat="user in project.users" data-ng-show="global.user._id == user._id">
 
+      <a class="btn btn-icon" href="/#!/">
+        <i class="fa fa-toggle-left"></i> Back to All Projects
+      </a>
 			<a class="btn btn-icon" href="/#!/projects/{{project._id}}/edit">
 				<i class="fa fa-edit"></i> Edit Project
 			</a>
-			<a class="btn btn-icon" data-ng-click="remove(project);">
-				<i class="fa fa-times"></i> Delete Project
-			</a>
+
 		</span>
 	</p>
 
