@@ -106,7 +106,6 @@ $scope.selectCollaborator = function(user) {
 		}
 		else {
 			$scope.project.$remove();
-			$location.path('/');
 		}
 		$location.path('/');
 		}
