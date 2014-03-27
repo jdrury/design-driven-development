@@ -121,6 +121,7 @@ exports.update = function(req, res) {
 				project: project
 			});
 		} else {
+        console.log(project);
 			res.jsonp(project);
 		}
 	});
