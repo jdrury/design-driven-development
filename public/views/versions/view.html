@@ -12,6 +12,7 @@
 				<i class="fa fa-times"></i> Delete Version
 			</a>
 			<h2 class = "centered"> You are at {{version.percentage}}% compliance. </h2>
+			<p class="text-center">Click image to add a note. <a class="link-cursor" ng-click="hideAllNotes = !hideAllNotes"><span ng-hide="hideAllNotes">Hide all notes.</span><span ng-hide="!hideAllNotes">Show all notes.</span></a></p>
 		</span>
 	</p>
 
@@ -24,61 +25,60 @@
 				<img class="img-version" src="{{version.compared}}" data-ng-click="findCoordinates($event); show.note = !show.note; show.edit = false">
 			</div>
 				<!-- display notes -->
-				<div data-ng-repeat="note in notes" class="note" style="position: absolute; left: {{note.coordinates[0]}}px; top: {{note.coordinates[1]}}px; z-index: {{note.zindex}};" data-ng-click="note.zindex = note.zindex + 1">
-					<span class="note-name">{{note.user.name}}:</span>
-					<div>
-						{{note.content}}
-						<p class="note-icons" data-ng-show="global.user._id == note.user._id">
-<!-- 							<a class="btn btn-icon" ng-click="findToEdit(note._id);show.edit = !show.edit">
-								<i class="fa fa-edit"></i>
-							</a> -->
-							<a class="btn btn-icon" data-ng-click="remove(note);">
-								<i class="fa fa-times"></i>
-							</a>
-						</p>
+				<div data-ng-repeat="note in notes" class="note" style="position: absolute; left: {{note.coordinates[0]}}px; top: {{note.coordinates[1]}}px; z-index: {{note.zindex}};" data-ng-click="note.zindex = note.zindex + 1" data-ng-hide="hideAllNotes">
+
+					<div ng-hide="show.edit">
+						<span class="note-name">{{note.user.name}}:</span>
+						<div>
+							{{note.content}}
+							<p class="note-icons" data-ng-show="global.user._id == note.user._id">
+								<a class="btn btn-icon" ng-click="findToEdit(note._id);show.edit = !show.edit">
+									<i class="fa fa-edit"></i>
+								</a>
+								<a class="btn btn-icon" data-ng-click="remove(note);">
+									<i class="fa fa-times"></i>
+								</a>
+							</p>
+						</div>
 					</div>
+
+					<!-- edit note -->
+					<div ng-show="show.edit">
+						<span class="note-name">{{note.user.name}}:</span>
+						<form role="form" data-ng-submit="update()">
+							<div class="form-group">
+								<label for="content" class="control-label">Content</label>
+								<textarea data-ng-model="noteToEdit.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required>{{note.content.note}}</textarea>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-default" data-ng-click="show.edit = false">Edit Note</button>
+							</div>
+						</form>
+					</div>
+
+
 				</div>
 
 				<!-- display note during creation -->
-				<div ng-show="show.note" class="note" style="position: absolute; left: {{coordinates.x}}px; top: {{coordinates.y}}px">
-			<!-- create note -->
-			<div class="note-fixed" ng-hide="show.edit">
-				<h3>Create Note</h3>
+				<div data-ng-show="show.note" class="note" style="position: absolute; left: {{coordinates.x}}px; top: {{coordinates.y}}px; z-index: 9999;" ng-hide="show.edit">
+					<!-- create note -->
+						<span class="note-name">{{global.user.name}}:</span>
+						<form role="form" data-ng-submit="create()">
+							<div class="form-group">
+								<input type="hidden" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x" required>
+								<input type="hidden" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y" required>
+								<label for="content" class="control-label">Content</label>
+								<textarea data-ng-model="content.note" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+							</div>
 
-				<form role="form" data-ng-submit="create()">
-					<div class="form-group">
-						<input type="hidden" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x" required>
-						<input type="hidden" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y" required>
-						<label for="content" class="control-label">Content</label>
-						<textarea data-ng-model="content.note" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
-					</div>
-
-					<div class="form-group">
-						<button type="submit" class="btn btn-default" data-ng-click="show.note = false">Save Note</button>
-					</div>
-				</form>
-			</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-default" data-ng-click="show.note = false">Save Note</button>
+							</div>
+						</form>
 
 				</div>
 
 			</div>
-		</div>
-
-		<div class="col-lg-3 note-wrapper">
-			<!-- edit note -->
-			<div class="note-fixed" ng-show="show.edit">
-				<h3>Edit Note</h3>
-				<form role="form" data-ng-submit="update()">
-					<div class="form-group">
-						<label for="content" class="control-label">Content</label>
-						<textarea data-ng-model="noteToEdit.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required>{{note.content.note}}</textarea>
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-default" data-ng-click="show.edit = false">Edit Note</button>
-					</div>
-				</form>
-			</div>
-
 		</div>
 
 	</div>

@@ -36,6 +36,10 @@ input, textarea, input:focus, input:active, textarea:focus, textarea:active, .bt
 	background: #e85a68;
 }
 
+.link-cursor:hover {
+	cursor: pointer;
+}
+
 /*  navbar properties */
 
 .navbar {
