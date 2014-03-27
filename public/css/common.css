@@ -394,20 +394,12 @@ h3 {
 }
 
 @media (min-width: 768px) and (min-height: 365px) {
-	.background {
-		background: #f4f1ef url('/img/background.png') repeat-x;
-		background-position: center 365px;
-		background-size: 618px 215px;
-	}
 	.col-or {
 		margin-top: 84px;
 	}
 }
 
 @media (min-width: 768px) and (min-height: 570px) {
-	.background {
-		background-position: center bottom;
-	}
 	.col-or {
 		margin-top: 84px;
 	}
