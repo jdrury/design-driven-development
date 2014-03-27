@@ -1,0 +1,593 @@
+/* -----------------------------
+//   stagui }> - Tabs
+// ----------------------------- */
+
+.nav-tabs {
+  .top-side-border-radius;
+  padding: 0;
+  border: 0;
+
+  > li {
+    z-index: 1;
+
+    > a {
+      color: @black;
+      margin-right: 3px;
+      background: 0;
+      .text-shadow(@white);
+      .top-side-border-radius;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &:active,
+      &:focus {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+    }
+
+    &.open {
+      z-index: 9999;
+
+      > a {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+
+        &:active,
+        &:focus {
+          .theme-style-inverse(@theme-style, darken(@white, 12%));
+          .text-shadow(@white);
+        }
+      }
+    }
+
+    &.active {
+      z-index: 3;
+
+      > a {
+        background: @white !important;
+        color: @c2;
+        border: 1px solid @white !important;
+        .no-box-shadow;
+        .no-text-shadow;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: @c2;
+          border: 1px solid @white;
+        }
+      }
+
+      &.open {
+        > a {
+          background: @white;
+          color: @c2;
+          border: 1px solid @white !important;
+        }
+      }
+    }
+  }
+
+  // Right
+  &.navbar-right {
+    > li {
+      > a {
+        margin-left: 3px;
+        margin-right: 0;
+
+        @media (max-width: @screen-sm) {
+          margin-left: 0;
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  // Justified
+  &.nav-justified {
+    border: 0;
+
+    > li {
+      position: relative;
+      bottom: -1px;
+      display: table-cell;
+      width: 1%;
+
+      > a {
+        border-bottom: 1px solid transparent;
+        .no-border-radius;
+        border-right-widht: 0;
+        margin: 0;
+      }
+
+      &:first-child {
+        > a {
+          .top-left-border-radius;
+          border-left-widht: 1px;
+        }
+      }
+
+      &:last-child {
+        > a {
+          .top-right-border-radius;
+          border-right-widht: 1px;
+        }
+      }
+
+      &.active {
+        > a {
+          border: 1px solid @white;
+
+          &:hover,
+          &:active,
+          &:focus {
+            border: 1px solid @white;
+          }
+        }
+
+        &.open {
+          > a {
+            border: 1px solid @white;
+          }
+        }
+      }
+    }
+
+    .dropdown-menu {
+      width: 100%;
+    }
+  }
+}
+
+// Tab Content
+.tab-content {
+  z-index: 2;
+  position: relative;
+  background: @white;
+  padding: 15px 20px;
+  .bottom-side-border-radius;
+  float: left;
+  width: 100%;
+  .clearfix;
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0 0 20px 0;
+    font-weight: 400;
+  }
+}
+
+// Tab Wrapper
+.tab-wrapper {
+  .clearfix;
+
+  margin-bottom: 20px;
+
+  // Colors
+  &.tab-primary {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, darken(@c1, 5%));
+          color: @c1-inverse;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@c1, 10%));
+            color: @c1-inverse;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, darken(@c1, 10%));
+            color: @c1-inverse;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, darken(@c1, 10%));
+            color: @c1-inverse;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, darken(@c1, 10%));
+              color: @c1-inverse;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @c1;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @c1;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @c1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-secondary {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, darken(@c2, 5%));
+          color: @c2-inverse;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@c2, 10%));
+            color: @c2-inverse;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, darken(@c2, 10%));
+            color: @c2-inverse;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, darken(@c2, 10%));
+            color: @c2-inverse;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, darken(@c2, 10%));
+              color: @c2-inverse;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @c2;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @c2;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @c2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-inverse {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, lighten(@black, 15%));
+          color: @white;
+
+          &:hover {
+            .theme-style(@theme-style, lighten(@black, 10%));
+            color: @white;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, lighten(@black, 10%));
+            color: @white;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, lighten(@black, 10%));
+            color: @white;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, lighten(@black, 10%));
+              color: @white;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @black;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @black;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-success {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, darken(@green, 5%));
+          color: @white;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@green, 10%));
+            color: @white;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, darken(@green, 10%));
+            color: @white;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, darken(@green, 10%));
+            color: @white;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, darken(@green, 10%));
+              color: @white;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @green;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @green;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-info {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, darken(@blue, 5%));
+          color: @white;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@blue, 10%));
+            color: @white;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, darken(@blue, 10%));
+            color: @white;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, darken(@blue, 10%));
+            color: @white;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, darken(@blue, 10%));
+              color: @white;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @blue;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @blue;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-warning {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, darken(@yellow, 5%));
+          color: @white;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@yellow, 10%));
+            color: @white;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+            color: @white;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+            color: @white;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+              color: @white;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @yellow;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @yellow;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-danger {
+    .nav-tabs {
+      > li {
+        > a {
+          .theme-style(@theme-style, darken(@red, 5%));
+          color: @white;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@red, 10%));
+            color: @white;
+          }
+
+          &:active,
+          &:focus {
+            .theme-style-inverse(@theme-style, darken(@red, 10%));
+            color: @white;
+          }
+        }
+
+        &.open {
+          > a {
+            .theme-style-inverse(@theme-style, darken(@red, 10%));
+            color: @white;
+
+            &:active,
+            &:focus {
+              .theme-style-inverse(@theme-style, darken(@red, 10%));
+              color: @white;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: @red;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @red;
+            }
+          }
+
+          &.open {
+            > a {
+              color: @red;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: @screen-sm) {
+
+  .nav-tabs {
+    float: none !important;
+
+    > li {
+
+      display: block;
+      float: none;
+      margin: 0 0 5px 0 !important;
+      width: 100%;
+
+      > a {
+        margin: 0 !important;
+        .full-border-radius
+      !important;
+      }
+
+      .dropdown-menu {
+        width: 100%;
+      }
+    }
+
+    &.nav-justified {
+      > li {
+
+        display: block;
+        float: none;
+        margin: 0 0 5px 0 !important;
+        width: 100%;
+
+        > a {
+          margin: 0 !important;
+          .full-border-radius
+        !important;
+          text-align: left;
+        }
+
+        .dropdown-menu {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+
+  .tab-content {
+    .full-border-radius;
+  }
+}

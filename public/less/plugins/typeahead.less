@@ -1,0 +1,46 @@
+/* -----------------------------
+//   stagui }> - Typeahead
+// ----------------------------- */
+
+.twitter-typeahead {
+  display: block !important;
+
+  .tt-hint {
+    .form-control;
+    margin: 0;
+    border: 1px solid transparent;
+    .no-box-shadow;
+  }
+
+  .tt-dropdown-menu {
+    .dropdown-menu;
+    width: 100%;
+  }
+
+  .tt-suggestion {
+
+    &.tt-cursor {
+      > p {
+        .theme-style(@theme-style, @c1);
+        color: @c1-inverse;
+      }
+    }
+
+    > p {
+      margin: 0;
+      .no-border-radius;
+      padding: 5px 15px;
+      border: 1px solid transparent;
+      border-left: 0 !important;
+      border-right: 0 !important;
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, @c1);
+        color: @c1-inverse;
+      }
+    }
+  }
+}
+
+

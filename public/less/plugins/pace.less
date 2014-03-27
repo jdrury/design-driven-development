@@ -1,0 +1,56 @@
+/* -----------------------------
+//   stagui }> - Pace
+// ----------------------------- */
+
+.layout-wrapper {
+  .pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+
+    .pace-progress {
+      background: @c2;
+      position: fixed;
+      z-index: 9999999;
+      top: 0;
+      left: 0;
+      height: 2px;
+
+      -webkit-transition: width 1s;
+      -moz-transition: width 1s;
+      -o-transition: width 1s;
+      transition: width 1s;
+    }
+
+    .pace-progress-inner {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px @c2, 0 0 5px @c2;
+      opacity: 1.0;
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -moz-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+      -o-transform: rotate(3deg) translate(0px, -4px);
+      transform: rotate(3deg) translate(0px, -4px);
+    }
+
+  }
+
+  .pace-inactive {
+    display: none;
+  }
+
+  // Collapse Right Panel
+  &.layout-right-panel-toggle {
+    .pace {
+      .pace-activity {
+        right: 40px;
+      }
+    }
+  }
+}

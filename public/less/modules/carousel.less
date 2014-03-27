@@ -1,0 +1,108 @@
+/* -----------------------------
+//   stagui }> - Carousel
+// ----------------------------- */
+
+.carousel {
+  margin-bottom: 20px;
+
+  .carousel-control {
+    z-index: 9999;
+    background: none;
+    width: 50px;
+    .opacity(0.5);
+
+    i,
+    .fa,
+    span {
+      left: 0;
+      top: 50%;
+      position: absolute;
+      font-size: @font-size + 20;
+      line-height: @font-size + 20;
+      height: 30px;
+      width: 50px;
+      margin-top: -15px;
+      .no-text-shadow;
+    }
+
+    &:hover,
+    &:active {
+      .opacity(1);
+    }
+  }
+
+  // Images
+  img {
+    .full-border-radius;
+  }
+
+  // Caption
+  .carousel-caption {
+    padding: 0;
+    padding: 10px 0;
+    left: 0;
+    right: 0;
+    bottom: 38px;
+    background: rgba(0, 0, 0, 0.7);
+    .no-text-shadow;
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-size: @font-size + 1;
+      margin: 0 0 5px 0;
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-size: @font-size;
+    }
+  }
+
+  // Carousel Indicators
+  .carousel-indicators {
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    margin: 0;
+    width: 100%;
+    border-top: 0;
+    cursor: default;
+
+    li {
+      margin: 0;
+      width: 12px;
+      height: 12px;
+      border: 1px solid @white;
+      .opacity(1);
+      .circle-border-radius;
+
+      &:hover,
+      &:active {
+        background: fade(@white, 20%);
+        .opacity(1);
+      }
+
+      &.active {
+        background: @white;
+        .opacity(1);
+      }
+    }
+  }
+
+  @media (max-width: @screen-md) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+}
+
+// Panel
+.panel {
+  .carousel {
+    margin: -15px -20px !important;
+
+    img {
+      .no-border-radius;
+    }
+  }
+}

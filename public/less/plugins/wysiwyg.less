@@ -1,0 +1,385 @@
+/* -----------------------------
+//   stagui }> - Wysiwyg
+// ----------------------------- */
+
+.note-editor {
+
+  // Fullscreen
+  &.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+
+    .note-editable {
+      background: @white;
+    }
+    .note-resizebar {
+      display: none;
+    }
+  }
+
+  &.codeview {
+    .note-editable {
+      display: none;
+    }
+    .note-codable {
+      display: block;
+    }
+  }
+
+  // toolbar
+  .note-toolbar {
+    padding-bottom: 15px;
+    margin: 0;
+
+    .note-table {
+      .dropdown-menu {
+        min-width: 0;
+        padding: 5px;
+
+        .note-dimension-picker {
+          font-size: 18px;
+
+          .note-dimension-picker-mousecatcher {
+            position: absolute !important;
+            z-index: 3;
+            width: 10em;
+            height: 10em;
+            cursor: pointer;
+          }
+          .note-dimension-picker-unhighlighted {
+            position: relative !important;
+            z-index: 1;
+            width: 5em;
+            height: 5em;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASAgMAAAAroGbEAAAACVBMVEUAAIj4+Pjp6ekKlAqjAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfYAR0BKhmnaJzPAAAAG0lEQVQI12NgAAOtVatWMTCohoaGUY+EmIkEAEruEzK2J7tvAAAAAElFTkSuQmCC') repeat;
+          }
+          .note-dimension-picker-highlighted {
+            position: absolute !important;
+            z-index: 2;
+            width: 1em;
+            height: 1em;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASAgMAAAAroGbEAAAACVBMVEUAAIjd6vvD2f9LKLW+AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfYAR0BKwNDEVT0AAAAG0lEQVQI12NgAAOtVatWMTCohoaGUY+EmIkEAEruEzK2J7tvAAAAAElFTkSuQmCC') repeat;
+          }
+        }
+      }
+    }
+
+    .note-style {
+      h1, h2, h3, h4, h5, h6, blockquote {
+        margin: 0;
+      }
+    }
+
+    .note-color {
+      .dropdown-menu {
+        min-width: 287px;
+        padding: 5px;
+
+        .btn-group {
+          margin: 0;
+
+          &:first-child {
+            margin-right: 5px;
+          }
+
+          .note-palette-title {
+            font-weight: bold;
+          }
+
+          .note-color-reset {
+            font-size: 12px;
+            padding: 0 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            .theme-style(@theme-style, darken(@white, 8%));
+            .text-shadow(@white);
+            margin-bottom: 5px;
+            .full-border-radius;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@white, 12%));
+              .text-shadow(@white);
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@white, 12%));
+              .text-shadow(@white);
+            }
+          }
+        }
+      }
+    }
+
+    .note-para {
+      .dropdown-menu {
+        min-width: 191px;
+        padding: 5px;
+
+        li {
+          &:first-child {
+            .btn-group {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .note-statusbar {
+    background: darken(@white, 8%);
+    .full-border-radius;
+
+    .note-resizebar {
+      height: 9px;
+      width: 100%;
+      cursor: s-resize;
+      padding-top: 1px;
+
+      .note-icon-bar {
+        width: 15px;
+        margin: 1px auto;
+        border-top: 1px solid darken(@white, 30%);
+      }
+    }
+  }
+
+  // popover
+  .note-popover .popover {
+    max-width: none;
+
+    .popover-content {
+      padding: 5px;
+
+      a {
+        display: inline-block;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+    }
+
+    & .arrow {
+      left: 20px;
+    }
+  }
+
+  // note handle
+  .note-handle {
+
+    // control selection
+    .note-control-selection {
+      position: absolute;
+      display: none;
+      border: 1px solid @black;
+      &>div {
+        position: absolute;
+      }
+
+      .note-control-selection-bg {
+        width: 100%;
+        height: 100%;
+        background-color: @black;
+        .opacity(0.30)
+      }
+
+      .note-control-handle {
+        width: 7px;
+        height: 7px;
+        border: 1px solid @black;
+      }
+
+      .note-control-holder {
+        .note-control-handle;
+      }
+
+      .note-control-sizing {
+        .note-control-handle;
+        background-color: @white;
+      }
+
+      .note-control-nw {
+        top: -5px;
+        left: -5px;
+        border-right: none;
+        border-bottom: none;
+      }
+
+      .note-control-ne {
+        top: -5px;
+        right: -5px;
+        border-bottom: none;
+        border-left: none;
+      }
+
+      .note-control-sw {
+        bottom: -5px;
+        left: -5px;
+        border-top: none;
+        border-right: none;
+      }
+
+      .note-control-se {
+        right: -5px;
+        bottom: -5px;
+        cursor: se-resize;
+      }
+
+      .note-control-selection-info {
+        right: 0;
+        bottom: 0;
+        padding: 5px;
+        margin: 5px;
+        color: white;
+        background-color: black;
+        font-size: 12px;
+      }
+    }
+  }
+
+  // dialog
+  .note-dialog {
+
+    .note-image-dialog {
+      .note-dropzone {
+        min-height: 100px;
+        font-size: 30px;
+        line-height: 4;
+        color: darken(@white, 30%);
+        text-align: center;
+        border: 4px dashed darken(@white, 30%);
+        margin-bottom: 20px;
+      }
+    }
+
+    .note-help-dialog {
+      @note-shortcut-hl: lighten(@c2, 10%);
+      color: @white;
+      .opacity(0.9);
+
+      .modal-content {
+        background: transparent;
+        border: 1px solid @white;
+      }
+
+      background: transparent;
+      border: none;
+
+      a {
+        font-size: 12px;
+        color: white;
+      }
+
+      .title {
+        color: white;
+        font-size: @font-size + 4;
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+
+      .modal-close {
+        margin-top: 4px;
+        cursor: pointer;
+      }
+
+      .modal-background {
+        > p.text-center {
+          display: none;
+        }
+      }
+
+      .note-shortcut-layout {
+        width: 100%;
+        td {
+          vertical-align: top;
+        }
+      }
+
+      .note-shortcut {
+        margin-top: 8px;
+
+        th {
+          text-align: left;
+          color: @note-shortcut-hl;
+        }
+        td:first-child {
+          min-width: 110px;
+          color: @note-shortcut-hl;
+          text-align: right;
+          padding-right: 10px
+        }
+      }
+    }
+  }
+
+  // editable
+  .note-editable {
+    padding: 10px;
+    overflow: auto;
+    outline: none;
+    border: 1px solid darken(@white, 15%);
+    .full-border-radius;
+    margin-bottom: 5px;
+    background: @white;
+
+    &:focus {
+      border-color: @c1;
+    }
+  }
+
+  // codeable
+  .note-codable {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    box-shadow: none;
+    color: @c1-inverse;
+    background-color: lighten(@c1, 5%);
+    .full-border-radius;
+    resize: none;
+    margin-bottom: 5px;
+  }
+
+  // dropdown-menu for toolbar and popover
+  .dropdown-menu {
+
+    // dropdown-menu for selectbox
+    li a i {
+      color: @c1;
+      visibility: hidden;
+    }
+    li a.checked i {
+      visibility: visible;
+    }
+  }
+
+  .note-fontsize-10 {
+    font-size: 10px;
+  }
+
+  // color palette for toolbar and popover
+  .note-color-palette {
+
+    line-height: 1;
+    div {
+      .note-color-btn {
+        width: 17px;
+        height: 17px;
+        padding: 0;
+        margin: 0;
+        border: 2px solid @white;
+      }
+
+      .note-color-btn:hover {
+        border: 2px solid @black;
+      }
+    }
+  }
+}

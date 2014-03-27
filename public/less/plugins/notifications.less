@@ -1,0 +1,172 @@
+/* -----------------------------
+//   stagui }> - Notifications
+// ----------------------------- */
+
+// Styles
+.toast-title {
+  font-weight: bold;
+}
+
+.toast-message {
+  padding: 0;
+
+  a,
+  label {
+    color: @white;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  i {
+    font-size: @font-size + 12;
+    position: relative;
+    top: 1px;
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    font-size: @font-size + 2;
+  }
+
+  p {
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+}
+
+.toast-close-button {
+  position: relative;
+  right: 0;
+  top: -1px;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: @white;
+  text-decoration: none;
+  cursor: pointer;
+  .opacity(0.4);
+
+  &:hover {
+    .opacity(1);
+  }
+}
+
+button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+.toast-top-full-width {
+  top: 0;
+  right: 0;
+  width: 100%;
+
+  .toast-close-button {
+    top: -1px;
+  }
+
+  i {
+    margin: 0 5px 0 0;
+  }
+}
+
+.toast-bottom-full-width {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  .toast-close-button {
+    top: -1px;
+  }
+
+  i {
+    margin: 0 5px 0 0;
+  }
+}
+
+.toast-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.toast-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.toast-bottom-right {
+  right: 20px;
+  bottom: 20px;
+}
+
+.toast-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+#toast-container {
+  position: fixed;
+  z-index: 9999999;
+
+  > div {
+    padding: 10px 20px;
+    width: 300px;
+    margin-bottom: 5px;
+    .full-border-radius;
+    .box-shadow;
+    color: @white;
+    .opacity(0.95);
+  }
+
+  > :hover {
+    .box-shadow;
+    .opacity(1);
+    cursor: pointer;
+  }
+
+  &.toast-top-full-width > div,
+  &.toast-bottom-full-width > div {
+    width: 100%;
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    .no-border-radius;
+
+  }
+
+  &.toast-top-full-width > div {
+    border-top: 0;
+  }
+
+  &.toast-bottom-full-width > div {
+    border-bottom: 0;
+  }
+}
+
+.toast {
+  .theme-style(@theme-style, lighten(@black, 12%));
+}
+
+.toast-success {
+  .theme-style(@theme-style, @green);
+}
+
+.toast-error {
+  .theme-style(@theme-style, @red);
+}
+
+.toast-info {
+  .theme-style(@theme-style, lighten(@black, 12%));
+}
+
+.toast-warning {
+  .theme-style(@theme-style, @yellow);
+}

@@ -1,0 +1,113 @@
+/* -----------------------------
+//   stagui }> - Colorpicker
+// ----------------------------- */
+
+@import "../libs/spectrum";
+
+.sp-replacer {
+  .btn;
+  .btn-default;
+
+  // Active
+  &.sp-active {
+    .theme-style-inverse(@theme-style, darken(@white, 12%));
+    color: @black;
+    .text-shadow(@white);
+  }
+
+  .sp-preview {
+    border: 0;
+    height: 18px;
+    width: 23px;
+  }
+}
+
+.sp-container {
+  .full-border-radius;
+  padding: 5px;
+  border: 0;
+  .box-shadow;
+  background: @white;
+
+  .sp-palette-container {
+    border: 0;
+    margin-right: -5px;
+
+    .sp-thumb-el {
+      height: 21px;
+      width: 21px;
+      margin: 0 5px 5px 0;
+
+      .sp-thumb-inner {
+        padding: 5px;
+      }
+
+      &.sp-thumb-active {
+        border-color: @c2;
+      }
+    }
+  }
+
+  button {
+    text-shadow: none;
+
+    &:hover {
+      text-shadow: none;
+    }
+  }
+
+  .sp-picker-container {
+    border: 0;
+
+    .sp-top {
+      margin-bottom: 10px;
+    }
+  }
+
+  .sp-initial {
+    width: 100%;
+    border: 0;
+    margin-bottom: 10px;
+
+    .sp-thumb-el {
+      width: 50%;
+      .sp-thumb-inner {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .sp-input-container {
+    margin-bottom: 10px;
+    width: 100%;
+
+    input {
+      .form-control;
+    }
+  }
+
+  .sp-button-container {
+    .clearfix;
+    width: 100%;
+
+    .sp-choose {
+      .btn;
+      .btn-primary;
+      color: @c1-inverse !important;
+      float: right;
+      text-transform: capitalize;
+    }
+
+    .sp-cancel {
+      .btn;
+      .btn-default
+    !important;
+      color: @black !important;
+      float: left;
+      text-transform: capitalize;
+    }
+
+  }
+
+}

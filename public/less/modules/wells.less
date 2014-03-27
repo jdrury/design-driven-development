@@ -1,0 +1,76 @@
+/* -----------------------------
+//   stagui }> - Wells
+// ----------------------------- */
+
+.well {
+  padding: 15px 20px;
+  background: @white;
+  .no-box-shadow;
+  border: 1px solid @white;
+  .full-border-radius;
+  .clearfix;
+
+  &.well-lg {
+    padding: 30px 20px;
+  }
+
+  &.well-sm {
+    padding: 10px 20px;
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      margin: 0 0 10px 0;
+    }
+  }
+
+  &.well-transparent {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  &.well-primary {
+    background: @c1;
+    border: 1px solid @c1;
+    color: @c1-inverse;
+  }
+
+  &.well-secondary {
+    background: @c2;
+    border: 1px solid @c2;
+    color: @c2-inverse;
+  }
+
+  &.well-inverse {
+    background: lighten(@black, 25%);
+    border: 1px solid lighten(@black, 25%);
+    color: @white;
+  }
+
+  &.well-success {
+    background: @green;
+    border: 1px solid @green;
+    color: @white;
+  }
+
+  &.well-info {
+    background: @blue;
+    border: 1px solid @blue;
+    color: @white;
+  }
+
+  &.well-warning {
+    background: @yellow;
+    border: 1px solid @yellow;
+    color: @white;
+  }
+
+  &.well-danger {
+    background: @red;
+    border: 1px solid @red;
+    color: @white;
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0 0 20px 0;
+  }
+
+}

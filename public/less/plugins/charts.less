@@ -1,0 +1,58 @@
+/* -----------------------------
+//   stagui }> - Charts
+// ----------------------------- */
+
+@import "../libs/c3";
+
+@chart-height: 300px;
+
+.chart {
+  position: relative;
+  display: block;
+  width: 100%;
+  .full-border-radius;
+  height: @chart-height;
+
+  // Flot legend
+  .legendLabel {
+    font-size: @font-size;
+  }
+  .pieLabel {
+    font-size: @font-size - 1;
+    .no-text-shadow;
+    color: @white;
+    text-align: center;
+  }
+
+  // General D3 Chart style
+  svg {
+    height: @chart-height;
+  }
+}
+
+// Sparkline
+.table {
+  svg {
+    polyline {
+      stroke: @c1 !important;
+    }
+    polygon {
+      fill: fade(@c1, 20%) !important;
+    }
+    rect {
+      fill: @c1 !important;
+    }
+  }
+}
+
+
+// Tile fix
+.tile {
+  .chart {
+    height: 160px !important;
+
+    svg {
+      height: 160px !important;
+    }
+  }
+}

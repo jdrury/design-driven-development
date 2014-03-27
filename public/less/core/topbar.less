@@ -1,0 +1,179 @@
+/* -----------------------------
+//   stagui }> - Topbar
+// ----------------------------- */
+
+.layout-topbar {
+  right: @rightbar-width;
+  left: @sidebar-width;
+  padding: 10px 20px;
+  position: fixed;
+  .no-border-radius;
+  top: 0;
+  min-height: @topbar-height;
+  height: @topbar-height;
+  .theme-style(@theme-style, @white);
+  border: 0;
+  z-index: 99999;
+  margin: 0;
+  .clearfix;
+
+  // Toggle Buttons
+  .btn-left-panel,
+  .btn-right-panel {
+    color: @c1;
+    .text-shadow(@white);
+    float: left;
+    font-size: @font-size + 7;
+    padding: 2px 20px;
+    cursor: pointer;
+    margin: 0 0 0 -20px;
+
+    &.pull-right {
+      margin: 0 -20px 0 0;
+    }
+  }
+
+  // Navigation
+  .nav {
+    display: inline-block;
+    float: left;
+
+    > li {
+      float: left;
+      margin: 0 10px 0 0;
+
+      > a {
+        //font-size: @font-size + 3;
+        padding: 6px 10px;
+        .btn.btn-default;
+        .full-border-radius;
+
+        .badge {
+          position: absolute;
+          top: -4px;
+          right: -5px;
+        }
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    &.pull-right {
+      > li {
+        margin: 0 10px 0 0;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // Search
+  .topbar-search {
+    float: left;
+    margin: 0 0 0 10px;
+    width: 30%;
+
+    &:pull-right {
+      margin: 0 10px 0 0;
+    }
+  }
+
+  // Title
+  .topbar-title {
+    display: none;
+    font-size: @font-size + 3;
+    .text-shadow(@white);
+    padding: 0;
+    line-height: @topbar-height - 20;
+    color: @black;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+// Collapse Left Panel
+.layout-left-panel-toggle {
+  .layout-topbar {
+    left: 0;
+  }
+}
+
+// Collapse Right Panel
+.layout-right-panel-toggle {
+  .layout-topbar {
+    right: 0;
+  }
+}
+
+// Responsive
+@media (max-width: @screen-lg) {
+  .layout-topbar {
+    right: 0;
+  }
+
+  .layout-right-panel-toggle {
+    .layout-topbar {
+      right: @rightbar-width;
+    }
+  }
+}
+
+@media (max-width: @screen-md) {
+  .layout-topbar {
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    @media (-webkit-transform-3d) {
+      .transition;
+    }
+  }
+
+  .layout-left-panel-toggle {
+    .layout-topbar {
+      left: @sidebar-width;
+      right: -@sidebar-width;
+
+      @media (-webkit-transform-3d) {
+        left: 0;
+        right: auto;
+        -webkit-transform: translate3d(@sidebar-width, 0, 0);
+        transform: translate3d(@sidebar-width, 0, 0);
+      }
+    }
+  }
+
+  .layout-right-panel-toggle {
+    .layout-topbar {
+      right: @rightbar-width;
+      left: -@rightbar-width;
+
+      @media (-webkit-transform-3d) {
+        right: 0;
+        left: auto;
+        -webkit-transform: translate3d(-@rightbar-width, 0, 0);
+        transform: translate3d(-@rightbar-width, 0, 0);
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-sm) {
+  .layout-topbar {
+    .nav {
+      display: none;
+    }
+    .topbar-title {
+      display: block;
+    }
+    form {
+      display: none;
+    }
+  }
+}

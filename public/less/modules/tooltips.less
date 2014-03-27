@@ -1,0 +1,42 @@
+/* -----------------------------
+//   stagui }> - Tooltips
+// ----------------------------- */
+
+.tooltip {
+  .full-border-radius;
+  border: 0;
+
+  .tooltip-inner {
+    background: lighten(@black, 12%);
+    padding: 5px 10px;
+    font-size: @font-size - 1;
+    color: @white;
+    .opacity(0.9);
+    border: 0;
+  }
+
+  &.top .tooltip-arrow {
+    border-top-color: lighten(@black, 12%);
+  }
+  &.top-left .tooltip-arrow {
+    border-top-color: lighten(@black, 12%);
+  }
+  &.top-right .tooltip-arrow {
+    border-top-color: lighten(@black, 12%);
+  }
+  &.right .tooltip-arrow {
+    border-right-color: lighten(@black, 12%);
+  }
+  &.left .tooltip-arrow {
+    border-left-color: lighten(@black, 12%);
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: lighten(@black, 12%);
+  }
+  &.bottom-left .tooltip-arrow {
+    border-bottom-color: lighten(@black, 12%);
+  }
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: lighten(@black, 12%);
+  }
+}

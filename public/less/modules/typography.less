@@ -1,0 +1,234 @@
+/* -----------------------------
+//   stagui }> - Typography
+// ----------------------------- */
+
+// Generic
+body {
+  font-size: @font-size;
+  font-family: @font-family;
+  color: @black;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: @font-family;
+  vertical-align: middle;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  font-weight: 400;
+
+  small {
+    color: inherit;
+    .opacity(0.7);
+  }
+
+  .label {
+    font-size: 80%;
+    font-weight: normal;
+  }
+}
+
+h4, h5, h6, .h4, .h5, .h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+// Dropdown
+.dropdown-menu {
+  font-size: @font-size;
+}
+
+// Page Header
+.page-header {
+  margin: 20px 0 20px 0;
+  padding: 0;
+  border: 0;
+  .clearfix;
+  .no-border-radius;
+
+  > * {
+    float: left;
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-size: @font-size + 3;
+    margin: 0;
+    display: inline-block;
+    margin-right: 15px;
+    color: fade(@black, 60%);
+  }
+}
+
+// Links
+a {
+  color: @c1;
+
+  &:hover {
+    color: darken(@c1, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Colors
+  &.text-secondary {
+    &:hover,
+    &:active {
+      color: darken(@c2, 10%);
+    }
+  }
+
+  &.text-success {
+    &:hover,
+    &:active {
+      color: darken(@green, 10%);
+    }
+  }
+
+  &.text-info {
+    &:hover,
+    &:active {
+      color: darken(@blue, 10%);
+    }
+  }
+
+  &.text-warning {
+    &:hover,
+    &:active {
+      color: darken(@yellow, 10%);
+    }
+  }
+
+  &.text-danger {
+    &:hover,
+    &:active {
+      color: darken(@red, 10%);
+    }
+  }
+}
+
+// Paragraphs
+p {
+  &.lead {
+    font-size: @font-size + 4;
+    margin-bottom: 30px;
+  }
+}
+
+// Emphasis
+.text-muted {
+  color: lighten(@black, 50%);
+}
+
+.text-primary {
+  color: @c1;
+}
+
+.text-secondary {
+  color: @c2;
+}
+
+.text-inverse {
+  color: @black;
+}
+
+.text-success {
+  color: @green;
+}
+
+.text-info {
+  color: @blue;
+}
+
+.text-warning {
+  color: @yellow;
+}
+
+.text-danger {
+  color: @red;
+}
+
+// Blockquote
+blockquote {
+  padding: 5px 0 5px 15px;
+  border-left: 5px solid darken(@white, 10%);
+
+  p {
+    font-size: @font-size + 1;
+  }
+
+  small {
+    color: lighten(@black, 50%);
+  }
+
+}
+
+// Labels
+.label {
+  font-size: @font-size - 2;
+  padding: 5px 10px;
+  .full-border-radius;
+  display: inline-block;
+
+  &.label-default {
+    background: lighten(@black, 50%);
+  }
+
+  &.label-primary {
+    background: @c1;
+  }
+
+  &.label-secondary {
+    background: @c2;
+  }
+
+  &.label-inverse {
+    background: lighten(@black, 25%);
+  }
+
+  &.label-success {
+    background: @green;
+  }
+
+  &.label-info {
+    background: @blue;
+  }
+
+  &.label-warning {
+    background: @yellow;
+  }
+
+  &.label-danger {
+    background: @red;
+  }
+}
+
+// Badges
+.badge {
+  background: @c2;
+  color: @c2-inverse;
+  .text-shadow(darken(@c2, 5%));
+  font-size: @font-size - 2;
+  padding: 2px 5px 3px 5px;
+  .circle-border-radius;
+}
+
+.active {
+  .badge {
+    color: @c2;
+    background-color: @c2-inverse;
+    text-shadow: none;
+  }
+}
+
+// Code
+code {
+  display: inline-block;
+  padding: 3px 5px;
+  margin: 0 0 2px 0;
+  background: fade(@c1, 5%);
+}

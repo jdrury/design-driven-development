@@ -1,0 +1,137 @@
+/* -----------------------------
+//   stagui }> - Datatables
+// ----------------------------- */
+
+@import "../libs/datatables";
+
+// Wrapper
+.dataTables_wrapper {
+
+  margin-bottom: 20px;
+
+  // Filter
+  .dataTables_filter {
+
+    label {
+      margin: 0;
+    }
+
+    input {
+      .form-control;
+      width: 250px;
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+
+  // Length
+  .dataTables_length {
+    select {
+      .form-control;
+      width: 100px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  // Sorting
+  thead {
+    .sorting,
+    .sorting_asc,
+    .sorting_desc,
+    .sorting_asc_disabled,
+    .sorting_desc_disabled {
+      position: relative;
+      padding-right: 45px;
+
+      &:before {
+        border: 0 !important;
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        width: 1.2857142857142858em;
+        height: 10px;
+        text-align: center;
+        vertical-align: baseline;
+        float: right;
+        font-size: @font-size + 1;
+        position: relative;
+        right: -30px;
+        top: 4px;
+
+      }
+    }
+
+    .sorting {
+      &:before {
+        content: "\f0dc";
+      }
+    }
+
+    .sorting_asc {
+      &:before {
+        content: "\f0dd";
+      }
+    }
+
+    .sorting_desc {
+      &:before {
+        content: "\f0de";
+      }
+    }
+
+    .sorting_asc_disabled {
+      &:before {
+        content: "\f0dd";
+        .opacity(0.3);
+      }
+    }
+
+    .sorting_desc_disabled {
+      &:before {
+        content: "\f0de";
+        .opacity(0.3);
+      }
+    }
+  }
+
+  @media (max-width: @screen-sm) {
+
+    .dataTables_info {
+      float: none;
+      text-align: center;
+      margin-bottom: 10px;
+      padding-top: 0;
+    }
+
+    .dataTables_filter {
+      display: none;
+    }
+
+    .dataTables_paginate {
+      float: none;
+      margin-top: 10px;
+      text-align: center;
+      margin: 0;
+
+      .pagination {
+        .pagination-sm;
+      }
+    }
+
+    .dataTables_length {
+      .clearfix;
+    }
+  }
+
+}
+
+// Table
+table.dataTable {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}

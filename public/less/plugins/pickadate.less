@@ -1,0 +1,356 @@
+/* -----------------------------
+//   stagui }> - Pickadate
+// ----------------------------- */
+
+@import "../libs/pickadate";
+
+.picker__input[readonly] {
+  background: @white;
+  color: @black;
+  border-color: darken(@white, 15%);
+  .placeholder(darken(@white, 35%));
+  cursor: pointer;
+}
+
+.picker {
+  font-size: @font-size;
+  line-height: 1.428571429;
+  z-index: 9999995;
+  top: 100%;
+  margin-top: -1px;
+}
+
+.picker__holder {
+  .no-transition;
+  overflow: auto;
+  .full-border-radius;
+  border: 0;
+  margin: 2px 0 0;
+  width: 280px;
+
+  &::-webkit-scrollbar-track {
+    background-color: @white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: fade(@c1, 80%);
+  }
+}
+
+.picker__frame {
+  padding: 0;
+}
+
+.picker__box {
+  padding: 5px;
+}
+
+.picker--opened {
+  .picker__holder {
+    .box-shadow;
+    .no-transition;
+  }
+}
+
+.picker__header {
+  margin-top: 0;
+  height: 30px;
+  font-size: @font-size + 1;
+  line-height: 30px;
+  margin-bottom: 10px;
+
+  .picker__select--month,
+  .picker__select--year {
+    height: 30px;
+    margin: 0 3px;
+    border: 1px solid darken(@white, 15%);
+    position: relative;
+    top: -1px;
+  }
+
+  .picker__nav--prev,
+  .picker__nav--next {
+    width: 40px;
+    height: 30px;
+    padding: 0;
+    top: 0;
+    background: red;
+    .full-border-radius;
+    .theme-style(@theme-style, darken(@white, 8%));
+    font-size: @font-size - 2;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@white, 12%));
+    }
+
+    &:active {
+      .theme-style-inverse(@theme-style, darken(@white, 12%));
+    }
+
+    &:before {
+      position: relative;
+      top: 8px;
+    }
+  }
+
+  .picker__nav--prev {
+    left: 0;
+
+    &:before {
+      left: -1px;
+    }
+  }
+
+  .picker__nav--next {
+    right: 0;
+
+    &:before {
+      right: -1px;
+    }
+  }
+
+  .picker__month {
+    margin: 0 0 5px 0;
+    color: @black;
+    font-weight: bold;
+  }
+
+  .picker__year {
+    color: lighten(@black, 30%);
+    font-style: normal;
+  }
+}
+
+.picker__table {
+  margin: 0;
+
+  th {
+    padding: 0 0 5px 0;
+    //background: blue;
+    text-align: center;
+    font-size: @font-size - 1;
+    color: lighten(@black, 30%);
+  }
+
+  td {
+    .picker__day {
+      padding: 5px 0;
+      font-weight: normal;
+      .theme-style(@theme-style, darken(@white, 8%));
+      .text-shadow(@white);
+      margin-right: -1px;
+      margin-top: -1px;
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &:active {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &.picker__day--highlighted {
+        .theme-style(@theme-style, darken(@white, 40%));
+        color: @white;
+        z-index: 2;
+
+        &:hover {
+          .theme-style(@theme-style, darken(@white, 45%));
+        }
+
+        &:active {
+          .theme-style-inverse(@theme-style, darken(@white, 45%));
+        }
+      }
+
+      &.picker__day--today {
+        .theme-style(@theme-style, @c2);
+        color: @c2-inverse;
+        z-index: 2;
+
+        &:hover {
+          .theme-style(@theme-style, darken(@c2, 5%));
+        }
+
+        &:active {
+          .theme-style-inverse(@theme-style, darken(@c2, 5%));
+        }
+
+        &:before {
+          border-top: .5em solid @white;
+        }
+      }
+
+      &.picker__day--selected {
+        .theme-style-inverse(@theme-style, darken(@c1, 5%));
+        color: @c1-inverse !important;
+        z-index: 3;
+
+        &:hover,
+        &:active {
+          .theme-style-inverse(@theme-style, darken(@c1, 5%));
+        }
+      }
+
+      &.picker__day--outfocus {
+        color: @black;
+        .opacity(0.4);
+      }
+
+      &.picker__day--disabled {
+        background: darken(@white, 5%);
+        color: darken(@white, 20%);
+        .no-box-shadow;
+        border: 1px solid darken(@white, 15%);
+        .opacity(0.4);
+
+        &:hover,
+        &:active {
+          background: darken(@white, 5%);
+        }
+      }
+    }
+  }
+}
+
+.picker__footer {
+  margin-top: 5px;
+  .clearfix;
+
+  button {
+    width: 49%;
+    .full-border-radius;
+    font-size: @font-size - 2;
+    line-height: 24px;
+    padding: 0;
+
+    &:before {
+      content: none;
+    }
+  }
+
+  .picker__button--today {
+    .theme-style(@theme-style, @c1);
+    color: @c1-inverse;
+    float: left;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@c1, 5%));
+    }
+
+    &:active {
+      .theme-style-inverse(@theme-style, darken(@c1, 5%));
+    }
+  }
+
+  .picker__button--clear {
+    float: right;
+    .theme-style(@theme-style, darken(@white, 8%));
+    .text-shadow(@white);
+
+    &:hover {
+      .theme-style(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+    }
+
+    &:active {
+      .theme-style-inverse(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+    }
+  }
+}
+
+.picker__wrap {
+  margin: 0;
+}
+
+.picker--time .picker__holder {
+  background: @white;
+  font-size: @font-size - 1;
+}
+
+.picker__list {
+  padding: 10px 0;
+
+  .picker__list-item {
+    padding: 5px 15px;
+    background: @white;
+    color: @black;
+    border: 1px solid transparent;
+    .text-shadow(transparent);
+    border-right: 0;
+    border-left: 0;
+    font-size: @font-size;
+
+    &:hover {
+      .theme-style(@theme-style, @c1);
+      border-right: 0;
+      border-left: 0;
+      color: @c1-inverse;
+    }
+
+    &:active {
+      .theme-style-inverse(@theme-style, @c1);
+      border-right: 0;
+      border-left: 0;
+      color: @c1-inverse;
+    }
+
+    &.picker__list-item--selected {
+      .theme-style-inverse(@theme-style, @c2);
+      border-left: 0;
+      border-right: 0;
+      color: @c2-inverse;
+
+      &:hover,
+      &:active {
+        .theme-style-inverse(@theme-style, @c2);
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+
+    &.picker__list-item--disabled {
+      .text-shadow(@white);
+      color: darken(@white, 30%);
+      border: 1px solid transparent;
+      background: none;
+
+      &:hover {
+        .text-shadow(@white);
+        color: darken(@white, 30%);
+        border: 1px solid transparent;
+        background: none;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .picker__button--clear {
+    margin: 0;
+    width: 100%;
+    font-size: @font-size - 2;
+    padding: 5px 0;
+    color: @c1;
+    background: none;
+
+    &:hover {
+      color: darken(@c1, 5%);
+      background: none;
+    }
+
+    &:active {
+      color: darken(@c1, 5%);
+      background: none;
+    }
+
+    &:before {
+      content: none;
+    }
+  }
+}

@@ -1,0 +1,375 @@
+/* -----------------------------
+//   stagui }> - Tables
+// ----------------------------- */
+
+.table {
+
+  // Head
+  thead {
+    .theme-style(@theme-style, darken(@white, 3%));
+    .text-shadow(@white);
+
+    tr {
+      th {
+        padding: 10px;
+        color: @black;
+        line-height: 24px;
+        font-size: @font-size + 1;
+        font-weight: 500;
+      }
+    }
+
+    &:first-child {
+      tr {
+        &:first-child {
+          th {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // Head Colors
+  &.table-primary {
+    thead {
+      .theme-style(@theme-style, @c1);
+
+      tr {
+        th {
+          color: @c1-inverse;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid darken(@c1, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.table-secondary {
+    thead {
+      .theme-style(@theme-style, @c2);
+
+      tr {
+        th {
+          color: @c2-inverse;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid darken(@c2, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.table-inverse {
+    thead {
+      .theme-style(@theme-style, lighten(@black, 25%));
+
+      tr {
+        th {
+          color: @white;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid lighten(@black, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.table-success {
+    thead {
+      .theme-style(@theme-style, @green);
+
+      tr {
+        th {
+          color: @white;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid darken(@green, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.table-info {
+    thead {
+      .theme-style(@theme-style, @blue);
+
+      tr {
+        th {
+          color: @white;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid darken(@blue, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.table-warning {
+    thead {
+      .theme-style(@theme-style, @yellow);
+
+      tr {
+        th {
+          color: @white;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid darken(@yellow, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.table-danger {
+    thead {
+      .theme-style(@theme-style, @red);
+
+      tr {
+        th {
+          color: @white;
+        }
+      }
+    }
+
+    &.table-bordered {
+      thead {
+        tr {
+          th {
+            border: 1px solid darken(@red, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Foot
+  tfoot {
+    .theme-style(@theme-style, darken(@white, 3%));
+    .text-shadow(@white);
+
+    tr {
+      th {
+        padding: 10px;
+        color: @black;
+        font-weight: 500;
+      }
+    }
+  }
+
+  // Body
+  tbody {
+    tr {
+      td {
+        padding: 10px;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-top: 1px solid darken(@white, 10%);
+        vertical-align: middle;
+        min-width: 100px;
+      }
+
+      &:first-child {
+        td {
+          border-top: 0;
+        }
+      }
+
+      *:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+  // Striped
+  &.table-striped {
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          td {
+            background: @white;
+          }
+        }
+
+        &:nth-child(even) {
+          td {
+            background: darken(@white, 3%);
+          }
+        }
+      }
+    }
+  }
+
+  // Bordered
+  &.table-bordered {
+    thead {
+      tr {
+        th {
+          border: 1px solid darken(@white, 15%) !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          border: 1px solid darken(@white, 10%);
+          border-top: 0;
+        }
+
+        // Colors
+        &.active {
+          td {
+            border: 1px solid darken(@white, 15%);
+          }
+          &:hover {
+            td {
+              border: 1px solid darken(@white, 20%);
+              background-color: darken(@white, 12%) !important;
+              color: @black !important;
+            }
+          }
+        }
+
+        &.success {
+          td {
+            border: 1px solid fade(@green, 15%);
+          }
+        }
+
+        &.info {
+          td {
+            border: 1px solid fade(@blue, 15%);
+          }
+        }
+
+        &.warning {
+          td {
+            border: 1px solid fade(@yellow, 15%);
+          }
+        }
+
+        &.danger {
+          td {
+            border: 1px solid fade(@red, 15%);
+          }
+        }
+      }
+    }
+  }
+
+  // Condensed
+  &.table-condensed {
+    thead {
+      tr {
+        th {
+          padding: 6px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 6px;
+        }
+      }
+    }
+  }
+
+  // Body Colors
+  tbody {
+    tr {
+      &.active {
+        td {
+          background-color: darken(@white, 6%) !important;
+          color: @black !important;
+        }
+      }
+
+      &.success {
+        td {
+          background: fade(@green, 10%);
+        }
+      }
+
+      &.info {
+        td {
+          background: fade(@blue, 10%);
+        }
+      }
+
+      &.warning {
+        td {
+          background: fade(@yellow, 10%);
+        }
+      }
+
+      &.danger {
+        td {
+          background: fade(@red, 10%);
+        }
+      }
+    }
+  }
+}
+
+// Table Responsive
+.table-responsive {
+  width: 100%;
+  border: 0;
+  .scrollable;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin-bottom: 10px;
+
+  &::-webkit-scrollbar-track {
+    background-color: @white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: fade(@c1, 80%);
+  }
+}

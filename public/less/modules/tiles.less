@@ -1,0 +1,375 @@
+/* -----------------------------
+//   stagui }> - Tiles
+// ----------------------------- */
+
+.tile {
+  padding: 15px 20px;
+  .full-border-radius;
+  margin-bottom: 20px;
+  border: 0 !important;
+  .no-box-shadow
+!important;
+
+  // Title
+  .tile-title {
+    margin: 0 0 10px 0;
+    .clearfix;
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-size: @font-size;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tile-btn {
+      .pull-right;
+      a {
+        .opacity(0.4);
+
+        &:hover {
+          .opacity(1);
+        }
+      }
+    }
+  }
+
+  // Content
+  .tile-content {
+    .clearfix;
+
+    .tile-body {
+      margin: 10px 0;
+      font-size: @font-size - 1;
+      min-height: 70px;
+
+      p {
+        margin: 0 0 5px 0;
+      }
+
+      // Body Title
+      .tile-body-title {
+        font-size: @font-size + 9;
+        margin: 0 0 10px 0;
+        .clearfix;
+      }
+
+      // Progress
+      .progress {
+        margin: 0 0 10px 0;
+
+        .progress-bar {
+          border: 0;
+        }
+      }
+
+      // Value
+      .tile-value {
+        vertical-align: middle;
+        .clearfix;
+
+        i,
+        .fa {
+          float: left;
+          margin-right: 15px;
+          font-size: @font-size + 54;
+        }
+
+        p {
+          font-size: @font-size + 30;
+
+          small {
+            font-size: @font-size + 10;
+          }
+        }
+
+        // Icon
+        &.tile-icon {
+          text-align: center;
+
+          i,
+          .fa {
+            float: none;
+          }
+        }
+
+        * {
+          display: inline-block;
+        }
+      }
+
+      // List
+      .tile-list {
+        margin: 0 0 5px 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: inline-block;
+          margin-right: 20px;
+          font-size: @font-size;
+
+          > * {
+            display: block;
+          }
+        }
+      }
+
+      * {
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .tile-footer {
+    padding: 5px 0 0;
+    .opacity(0.6);
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  // Colors
+  &.tile-default {
+    .theme-style(@theme-style, @white);
+    .text-shadow(@white);
+    color: @black;
+
+    a {
+      color: @black;
+    }
+
+    .progress {
+      background: darken(@white, 10%);
+
+      .progress-bar {
+        background: lighten(@black, 15%);
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: lighten(@black, 10%) !important;
+      }
+      polygon {
+        fill: darken(@white, 10%) !important;
+      }
+      rect {
+        fill: lighten(@black, 10%) !important;
+      }
+    }
+  }
+
+  &.tile-primary {
+    .theme-style(@theme-style, @c1);
+    color: @c1-inverse;
+
+    a {
+      color: @c1-inverse;
+    }
+
+    .progress {
+      background: darken(@c1, 10%);
+
+      .progress-bar {
+        background: @c1-inverse;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @c1-inverse !important;
+      }
+      polygon {
+        fill: darken(@c1, 10%) !important;
+      }
+      rect {
+        fill: @c1-inverse !important;
+      }
+    }
+  }
+
+  &.tile-secondary {
+    .theme-style(@theme-style, @c2);
+    color: @c2-inverse;
+
+    a {
+      color: @c2-inverse;
+    }
+
+    .progress {
+      background: darken(@c2, 10%);
+
+      .progress-bar {
+        background: @c2-inverse;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @c2-inverse !important;
+      }
+      polygon {
+        fill: darken(@c2, 10%) !important;
+      }
+      rect {
+        fill: @c2-inverse !important;
+      }
+    }
+  }
+
+  &.tile-inverse {
+    .theme-style(@theme-style, lighten(@black, 25%));
+    color: @white;
+
+    a {
+      color: @white;
+    }
+
+    .progress {
+      background: lighten(@black, 15%);
+
+      .progress-bar {
+        background: @white;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @white !important;
+      }
+      polygon {
+        fill: lighten(@black, 15%) !important;
+      }
+      rect {
+        fill: @white !important;
+      }
+    }
+  }
+
+  &.tile-success {
+    .theme-style(@theme-style, @green);
+    color: @white;
+
+    a {
+      color: @white;
+    }
+
+    .progress {
+      background: darken(@green, 10%);
+
+      .progress-bar {
+        background: @white;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @white !important;
+      }
+      polygon {
+        fill: darken(@green, 10%) !important;
+      }
+      rect {
+        fill: @white !important;
+      }
+    }
+  }
+
+  &.tile-info {
+    .theme-style(@theme-style, @blue);
+    color: @white;
+
+    a {
+      color: @white;
+    }
+
+    .progress {
+      background: darken(@blue, 10%);
+
+      .progress-bar {
+        background: @white;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @white !important;
+      }
+      polygon {
+        fill: darken(@blue, 10%) !important;
+      }
+      rect {
+        fill: @white !important;
+      }
+    }
+  }
+
+  &.tile-warning {
+    .theme-style(@theme-style, @yellow);
+    color: @white;
+
+    a {
+      color: @white;
+    }
+
+    .progress {
+      background: darken(@yellow, 10%);
+
+      .progress-bar {
+        background: @white;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @white !important;
+      }
+      polygon {
+        fill: darken(@yellow, 10%) !important;
+      }
+      rect {
+        fill: @white !important;
+      }
+    }
+  }
+
+  &.tile-danger {
+    .theme-style(@theme-style, @red);
+    color: @white;
+
+    a {
+      color: @white;
+    }
+
+    .progress {
+      background: darken(@red, 10%);
+
+      .progress-bar {
+        background: @white;
+      }
+    }
+
+    // Chart
+    svg {
+      polyline {
+        stroke: @white !important;
+      }
+      polygon {
+        fill: darken(@red, 10%) !important;
+      }
+      rect {
+        fill: @white !important;
+      }
+    }
+  }
+}

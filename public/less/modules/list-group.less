@@ -1,0 +1,373 @@
+/* -----------------------------
+//  stagui }> - List Group
+// ----------------------------- */
+
+.list-group {
+
+  // List
+  .list-group-item {
+    .theme-style(@theme-style, darken(@white, 3%));
+    .text-shadow(@white);
+    color: @black;
+    padding: 10px 15px;
+  }
+
+  // Anchor List
+  a.list-group-item {
+    text-align: left;
+    .no-border-radius;
+    cursor: pointer;
+    .theme-style(@theme-style, darken(@white, 8%));
+    .text-shadow(@white);
+    color: @black;
+    .clearfix;
+
+
+    &:first-child {
+      .top-side-border-radius;
+    }
+
+    &:last-child {
+      .bottom-side-border-radius;
+    }
+
+    &:only-child {
+      .full-border-radius;
+    }
+
+    &:hover {
+      .theme-style(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+    }
+
+    &:active {
+      .theme-style-inverse(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+      color: @black;
+    }
+
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@white, 60%));
+      color: @white;
+    }
+
+    // Badge
+    .badge {
+      .theme-style(@theme-style, lighten(@black, 25%));
+      color: @white;
+    }
+
+    &.active {
+      .badge {
+        .theme-style-inverse(@theme-style, @white);
+        color: @black;
+        .text-shadow(@white);
+      }
+    }
+
+    // Title
+    .list-group-item-heading {
+      color: inherit;
+      font-size: @font-size + 1;
+      line-height: @font-size + 1;
+      font-weight: 500;
+
+      small {
+        line-height: @font-size + 1;
+      }
+    }
+
+    .list-group-item-text {
+      color: inherit !important;
+    }
+
+    // Image
+    img {
+      margin-right: 6px;
+    }
+
+    // Progress
+    .progress {
+      background: @white;
+
+      .progress-bar {
+        border: 0;
+        background: lighten(@black, 15%);
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    // Colors
+    &.list-group-item-primary {
+      .theme-style(@theme-style, @c1);
+      color: @c1-inverse;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@c1, 5%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@c1, 5%));
+      }
+
+      .badge {
+        .theme-style(@theme-style, @c1-inverse);
+        color: @c1;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @c1-inverse);
+          color: @c1;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: darken(@c1, 10%);
+
+        .progress-bar {
+          background: @c1-inverse;
+        }
+      }
+
+    }
+
+    &.list-group-item-secondary {
+      .theme-style(@theme-style, @c2);
+      color: @c2-inverse;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@c2, 5%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@c2, 5%));
+      }
+
+      .badge {
+        .theme-style(@theme-style, @c2-inverse);
+        color: @c2;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @c2-inverse);
+          color: @c2;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: darken(@c2, 10%);
+
+        .progress-bar {
+          background: @c2-inverse;
+        }
+      }
+
+    }
+
+    &.list-group-item-inverse {
+      .theme-style(@theme-style, lighten(@black, 25%));
+      color: @white;
+
+      &:hover {
+        .theme-style(@theme-style, lighten(@black, 20%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, lighten(@black, 20%));
+      }
+
+      .badge {
+        .theme-style(@theme-style, @white);
+        color: @black;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @white);
+          color: @black;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: lighten(@black, 15%);
+
+        .progress-bar {
+          background: @white;
+        }
+      }
+    }
+
+    &.list-group-item-success {
+      .theme-style(@theme-style, @green);
+      color: @white;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@green, 5%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@green, 5%));
+      }
+
+      .badge {
+        .theme-style-inverse(@theme-style, @white);
+        color: @green;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @white);
+          color: @green;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: darken(@green, 10%);
+
+        .progress-bar {
+          background: @white;
+        }
+      }
+    }
+
+    &.list-group-item-info {
+      .theme-style(@theme-style, @blue);
+      color: @white;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@blue, 5%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@blue, 5%));
+      }
+
+      .badge {
+        .theme-style-inverse(@theme-style, @white);
+        color: @blue;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @white);
+          color: @blue;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: darken(@blue, 10%);
+
+        .progress-bar {
+          background: @white;
+        }
+      }
+    }
+
+    &.list-group-item-warning {
+      .theme-style(@theme-style, @yellow);
+      color: @white;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@yellow, 5%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@yellow, 5%));
+      }
+
+      .badge {
+        .theme-style(@theme-style, @white);
+        color: @yellow;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @white);
+          color: @yellow;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: darken(@yellow, 10%);
+
+        .progress-bar {
+          background: @white;
+        }
+      }
+    }
+
+    &.list-group-item-danger {
+      .theme-style(@theme-style, @red);
+      color: @white;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@red, 5%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@red, 5%));
+      }
+
+      .badge {
+        .theme-style(@theme-style, @white);
+        color: @red;
+        .text-shadow(@white);
+      }
+
+      &.active {
+        .badge {
+          .theme-style-inverse(@theme-style, @white);
+          color: @red;
+          .text-shadow(@white);
+        }
+      }
+
+      .progress {
+        background: darken(@red, 10%);
+
+        .progress-bar {
+          background: @white;
+        }
+      }
+    }
+  }
+}
+
+// Media List
+.media {
+  .pull-left {
+    margin: 0 6px 0 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 5px !important;
+  }
+
+  img {
+    .full-border-radius;
+  }
+}

@@ -1,0 +1,68 @@
+/* -----------------------------
+//   stagui }> - Popovers
+// ----------------------------- */
+
+.popover {
+  .full-border-radius;
+  padding: 0;
+  border: 0;
+  .box-shadow;
+  z-index: 99999;
+
+  .popover-title {
+    border: 0;
+    .theme-style(@theme-style, @c1);
+    font-size: @font-size + 2;
+    color: @c1-inverse;
+    padding: 10px 15px;
+  }
+
+  .popover-content {
+    padding: 10px 15px;
+  }
+
+  &.left {
+    .arrow {
+      border-left-color: transparent;
+
+      &:after {
+        border-left-color: darken(@white, 10%);
+      }
+    }
+  }
+
+  &.right {
+    .arrow {
+      border-right-color: transparent;
+
+      &:after {
+        border-right-color: darken(@white, 10%);
+      }
+    }
+  }
+
+  &.top {
+    .arrow {
+      border-top-color: transparent;
+
+      &:after {
+        border-top-color: darken(@white, 10%);
+      }
+    }
+  }
+
+  &.bottom {
+    .arrow {
+      border-bottom-color: transparent;
+
+      &:after {
+        border-bottom-color: darken(@white, 10%);
+      }
+    }
+  }
+}
+
+// Trigger
+.popover-trigger {
+  cursor: pointer;
+}

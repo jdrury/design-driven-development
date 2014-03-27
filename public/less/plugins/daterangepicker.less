@@ -1,0 +1,210 @@
+/* -----------------------------
+//   stagui }> - Date/Range Picker
+// ----------------------------- */
+
+@import "../libs/daterangepicker";
+
+.daterangepicker {
+  padding: 5px;
+  margin: 2px 0 0;
+  background: @white;
+  .full-border-radius;
+
+  &:before,
+  &:after {
+    display: none !important;
+  }
+
+  select {
+    .form-control;
+    display: inline-block;
+    height: 30px !important;
+    padding: 0 !important;
+  }
+
+  &.dropdown-menu {
+    z-index: 99999999999;
+  }
+
+  .ranges {
+    margin: 0 !important;
+
+    ul {
+      li {
+        .theme-style(@theme-style, darken(@white, 8%));
+        .text-shadow(@white);
+        color: @black;
+        .full-border-radius;
+
+        &:hover {
+          .theme-style(@theme-style, darken(@white, 12%));
+          .text-shadow(@white);
+          color: @black;
+        }
+
+        &:active {
+          .theme-style-inverse(@theme-style, darken(@white, 12%));
+          .text-shadow(@white);
+          color: @black;
+        }
+
+        &.active {
+          .theme-style-inverse(@theme-style, darken(@c1, 5%));
+          color: @c1-inverse;
+        }
+      }
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0;
+      font-size: @font-size - 2;
+      .no-text-shadow;
+    }
+
+    .input-mini {
+      .form-control;
+      width: 74px;
+      font-size: @font-size - 2;
+      padding: 0 6px;
+    }
+
+    .btn {
+      width: 74px;
+
+      &.applyBtn {
+        margin-right: 9px;
+      }
+    }
+  }
+
+  &.opensright {
+    .calendar {
+      &.left {
+        margin: 0 5px !important;
+      }
+    }
+  }
+
+  &.opensleft {
+    .calendar {
+      &.right {
+        margin: 0 5px !important;
+      }
+    }
+  }
+
+  .calendar {
+    margin: 0 !important;
+    max-width: none;
+
+    .calendar-time {
+      margin-top: 5px;
+    }
+
+    thead {
+      th {
+        min-width: 40px;
+        height: 30px;
+        font-family: @font-family;
+        .no-border-radius;
+        border-bottom: 1px solid transparent;
+        padding: 0;
+      }
+
+      tr {
+
+        &:last-child {
+          th {
+            font-size: @font-size - 1;
+            color: lighten(@black, 30%);
+            font-weight: normal;
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .prev,
+    .next {
+      .theme-style(@theme-style, darken(@white, 8%));
+      .text-shadow(@white);
+      color: @black;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &:active {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+    }
+
+    .calendar-date {
+      border: 1px solid darken(@white, 15%);
+      padding: 5px;
+    }
+
+    td {
+      .theme-style(@theme-style, darken(@white, 8%));
+      .text-shadow(@white);
+      color: @black;
+      .no-border-radius;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &:active {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &.off {
+        .opacity(0.2);
+        color: @black;
+      }
+
+      &.week {
+        background: none;
+        color: lighten(@black, 30%);
+        .no-box-shadow;
+        .no-text-shadow;
+      }
+
+      &.in-range {
+        .theme-style-inverse(@theme-style, darken(@white, 35%));
+        color: @white;
+        .opacity(1);
+      }
+
+      &.active {
+        .theme-style-inverse(@theme-style, darken(@c1, 5%));
+        color: @c1-inverse;
+        .opacity(1);
+      }
+    }
+  }
+}
+
+.daterangewidget {
+  .btn;
+  .btn-default;
+
+  /*
+  &:hover {
+    color: @black;
+  }
+
+  &:active {
+    color: @black;
+  }
+  */
+
+  span {
+    font-weight: bold;
+  }
+}

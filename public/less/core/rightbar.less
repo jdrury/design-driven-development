@@ -1,0 +1,249 @@
+/* -----------------------------
+//   stagui }> - Rightbar
+// ----------------------------- */
+
+.layout-rightbar {
+  width: @sidebar-width;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  background: lighten(@c1, 4%);
+  overflow-x: hidden;
+  z-index: 9999;
+  right: 0;
+
+  // Header
+  .rightbar-header {
+    height: @topbar-height;
+    .theme-style(@theme-style, @c1);
+    color: @c1-inverse;
+    padding: 10px 20px;
+    .no-box-shadow;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    .clearfix;
+
+    .user-avatar {
+      height: @header-height - 20;
+      width: @header-height - 20;
+      float: left;
+
+      img {
+        height: 100%;
+        width: 100%;
+        .full-border-radius;
+        border: 2px solid @c1-inverse;
+      }
+    }
+
+    .user-username {
+      color: @c1-inverse;
+      font-weight: 500;
+      font-size: @font-size + 4;
+      line-height: @font-size + 4;
+      vertical-align: middle;
+      margin: 0 0 0 5px;
+      float: left;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      .user-description {
+        display: block;
+        font-size: @font-size - 2;
+        line-height: @font-size - 2;
+        color: fade(@c1-inverse, 60%);
+        font-weight: normal;
+        margin-bottom: 4px;
+      }
+    }
+
+    .btn {
+      float: left;
+    }
+  }
+
+  // Footer
+  .rightbar-footer {
+    width: 100%;
+    height: @footer-height;
+    color: fade(@c1-inverse, 40%);
+    .theme-style(@theme-style, @c1);
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 0;
+
+    p {
+      margin: 0;
+      line-height: @footer-height;
+    }
+  }
+
+  // Content
+  .rightbar-content {
+    position: absolute;
+    top: @header-height;
+    bottom: @footer-height;
+    left: 0;
+    right: 0;
+    padding: 0 20px 20px 20px;
+    .scrollable;
+    color: @c1-inverse;
+
+    // Title
+    .rightbar-title {
+      color: fade(@c1-inverse, 50%);
+      padding: 20px 0 10px 0;
+      line-height: @font-size - 1;
+
+      h1, h2, h3, h4, h5, h6,
+      .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-size: @font-size - 1;
+        margin: 0;
+        display: inline-block;
+        line-height: @font-size - 1;
+      }
+
+      > i,
+      > .fa {
+        color: fade(@c1-inverse, 70%);
+
+        &:hover {
+          color: @c1-inverse;
+        }
+      }
+    }
+
+    // Box
+    .rightbar-box {
+      padding: 0;
+
+      > * {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    // Media
+    .media {
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    // Tabs
+    .nav-tabs {
+      margin: 0 -20px;
+      background: @c1;
+      .no-border-radius;
+
+      li {
+        float: left !important;
+        margin: 0;
+        width: 50%;
+        margin: 0 -1px 0 0 !important;
+        position: relative;
+        z-index: 2;
+
+        &:last-child {
+          a {
+            border-right: 0 !important;
+          }
+        }
+
+        &:first-child {
+          a {
+            border-left: 0 !important;
+          }
+        }
+
+        a {
+          margin: 0;
+          .no-border-radius !important;
+          padding: 4px 20px;
+          background: transparent;
+          .theme-style(@theme-style, @c1);
+          color: @c1-inverse;
+          border-top: 0 !important;
+          text-align: center;
+
+          &:hover {
+            .theme-style(@theme-style, darken(@c1, 5%));
+          }
+
+          &:active {
+            .theme-style-inverse(@theme-style, darken(@c1, 5%));
+          }
+        }
+
+        &.active {
+          z-index: 1;
+          margin: 0;
+
+          a {
+            background: lighten(@c1, 4%) !important;
+            border: 0 !important;
+            border-bottom: 1px solid transparent !important;
+
+            &:hover,
+            &:active {
+              color: @c1-inverse;
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      padding: 0;
+      background: transparent;
+    }
+  }
+}
+
+// Collapse Left Panel
+.layout-right-panel-toggle {
+  .layout-rightbar {
+    right: -@rightbar-width;
+  }
+}
+
+// Responsive
+@media (max-width: @screen-lg) {
+  .layout-rightbar {
+    right: -@rightbar-width;
+  }
+
+  .layout-right-panel-toggle {
+    .layout-rightbar {
+      right: 0;
+    }
+  }
+}
+
+@media (max-width: @screen-md) {
+  .layout-rightbar {
+    right: -@rightbar-width;
+
+    @media (-webkit-transform-3d) {
+      .transition;
+      right: 0;
+      -webkit-transform: translate3d(@rightbar-width, 0, 0);
+      transform: translate3d(@rightbar-width, 0, 0);
+    }
+  }
+
+  .layout-right-panel-toggle {
+    .layout-rightbar {
+      right: 0;
+
+      @media (-webkit-transform-3d) {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+}
+

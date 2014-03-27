@@ -1,0 +1,185 @@
+/* -----------------------------
+//   stagui }> - Customizer
+// ----------------------------- */
+
+body {
+  .invisible;
+}
+
+// Customizer
+#customizer {
+  .clearfix;
+  .full-border-radius;
+
+  &.customizer-toggle {
+    height: 75px;
+  }
+
+  // Theme Style
+  .customizer-theme-block {
+    text-align: left;
+    .full-border-radius;
+    cursor: pointer;
+    position: relative;
+
+    div {
+      .full-border-radius;
+      font-size: @font-size;
+      color: @white;
+      padding: 5px;
+    }
+
+    .form-control {
+      width: 100%;
+      font-weight: bold;
+      color: @white;
+      .no-border-radius;
+      border: 0;
+      background: none;
+      padding-left: 0;
+      font-size: @font-size;
+      padding-bottom: 0;
+    }
+
+    label {
+      margin: 0;
+      font-weight: normal;
+      .clearfix;
+      font-size: @font-size - 2;
+
+      .hex-code {
+        margin-top: 5px;
+        font-weight: bold;
+        display: block;
+        font-size: @font-size;
+      }
+    }
+
+    // Blocks
+    .flat-theme,
+    .gradient-theme,
+    .border-rounded,
+    .border-squared {
+      .theme-style(@theme-style, darken(@c1, 5%));
+      color: @c1-inverse;
+      padding: 6px 10px;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@c1, 10%));
+      }
+
+      &:active,
+      &.active {
+        .theme-style-inverse(@theme-style, @c2);
+        color: @c2-inverse;
+      }
+    }
+
+    // Palette
+    .palette-primary,
+    .palette-primary-inverse,
+    .palette-secondary,
+    .palette-secondary-inverse {
+      border: 1px solid @white;
+    }
+
+    .palette-primary {
+      background: @c1;
+      color: @c1-inverse;
+      margin-bottom: 5px;
+    }
+
+    .palette-primary-inverse {
+      background: @c1-inverse;
+      color: @c1;
+      margin-bottom: 5px;
+    }
+
+    .palette-secondary {
+      background: @c2;
+      color: @c2-inverse;
+    }
+
+    .palette-secondary-inverse {
+      background: @c2-inverse;
+      color: @c2;
+    }
+
+    // Colors
+    .color-success,
+    .color-info,
+    .color-warning,
+    .color-danger {
+      border: 1px solid @white;
+    }
+
+    .color-success {
+      background: @green;
+      margin-bottom: 5px;
+    }
+
+    .color-info {
+      background: @blue;
+      margin-bottom: 5px;
+    }
+
+    .color-warning {
+      background: @yellow;
+    }
+
+    .color-danger {
+      background: @red;
+    }
+
+    // Colorpicker
+    .sp-replacer {
+      background: none;
+      border: 0;
+      padding: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      .no-border-radius;
+      .no-box-shadow;
+
+      * {
+        display: none;
+      }
+    }
+  }
+}
+
+// Presets
+.customizer-theme-preset {
+  .clearfix;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border: 1px solid @white;
+  .full-border-radius;
+
+  .primary-color,
+  .secondary-color {
+    height: 30px;
+    float: left;
+    .opacity(0.9);
+  }
+
+  &:hover {
+    .primary-color,
+    .secondary-color {
+      .opacity(1);
+    }
+  }
+
+  .primary-color {
+    width: 50%;
+    .left-side-border-radius;
+  }
+
+  .secondary-color {
+    width: 50%;
+    .right-side-border-radius;
+  }
+}

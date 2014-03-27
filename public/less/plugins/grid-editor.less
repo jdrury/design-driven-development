@@ -1,0 +1,227 @@
+/* -----------------------------
+//   stagui }> - Grid Editor
+// ----------------------------- */
+
+@import "../libs/handsontable";
+
+.grid-editor {
+  margin-bottom: 40px;
+
+  &.handsontable {
+
+    thead {
+      th {
+        .relative {
+          padding: 0;
+          line-height: auto;
+        }
+      }
+    }
+
+    td,
+    th,
+    .handsontableInput {
+      padding: 5px 10px;
+      line-height: auto;
+    }
+
+    tr:first-child {
+      th,
+      td {
+        border-top: 1px solid darken(@white, 10%);
+      }
+    }
+
+    tr:last-child {
+      th {
+        border-bottom-width: 0 !important;
+      }
+    }
+
+    td {
+      border-right: 1px solid darken(@white, 10%);
+      border-bottom: 1px solid darken(@white, 10%);
+    }
+
+    th {
+      .theme-style(@theme-style, darken(@white, 3%));
+      .text-shadow(@white);
+      border: 1px solid darken(@white, 10%);
+      border-left-width: 0;
+      border-top-width: 0;
+
+      &:first-child {
+        border-left-width: 1px;
+      }
+    }
+
+    // Colors
+    &.grid-editor-primary {
+      th {
+        .theme-style(@theme-style, @c1);
+        border: 1px solid darken(@c1, 10%);
+        color: @c1-inverse;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid darken(@c1, 10%);
+        }
+      }
+    }
+
+    &.grid-editor-secondary {
+      th {
+        .theme-style(@theme-style, @c2);
+        border: 1px solid darken(@c2, 10%);
+        color: @c2-inverse;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid darken(@c2, 10%);
+        }
+      }
+    }
+
+    &.grid-editor-inverse {
+      th {
+        .theme-style(@theme-style, lighten(@black, 25%));
+        border: 1px solid @black;
+        color: @white;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid lighten(@black, 10%);
+        }
+      }
+    }
+
+    &.grid-editor-success {
+      th {
+        .theme-style(@theme-style, @green);
+        border: 1px solid darken(@green, 10%);
+        color: @white;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid darken(@green, 10%);
+        }
+      }
+    }
+
+    &.grid-editor-info {
+      th {
+        .theme-style(@theme-style, @blue);
+        border: 1px solid darken(@blue, 10%);
+        color: @white;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid darken(@blue, 10%);
+        }
+      }
+    }
+
+    &.grid-editor-warning {
+      th {
+        .theme-style(@theme-style, @yellow);
+        border: 1px solid darken(@yellow, 10%);
+        color: @white;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid darken(@yellow, 10%);
+        }
+      }
+    }
+
+    &.grid-editor-danger {
+      th {
+        .theme-style(@theme-style, @red);
+        border: 1px solid darken(@red, 10%);
+        color: @white;
+        border-left-width: 0;
+        border-top-width: 0;
+
+        &:first-child {
+          border-left-width: 1px;
+        }
+      }
+
+      tr:first-child {
+        th,
+        td {
+          border-top: 1px solid darken(@red, 10%);
+        }
+      }
+    }
+
+    // Scrollbar
+    .dragdealer {
+      border: 0;
+      background-color: @white;
+      border-radius: @border-radius;
+      height: 6px;
+
+      .handle {
+        background-color: fade(@c1, 80%);
+        border-radius: @border-radius;
+        height: 6px;
+      }
+
+      &.horizontal {
+        margin-top: 5px;
+        width: 6px;
+      }
+    }
+
+  }
+
+}

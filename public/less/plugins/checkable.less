@@ -1,0 +1,97 @@
+/* -----------------------------
+//   stagui }> - Checkable
+// ----------------------------- */
+
+.has-pretty-child {
+  padding: 0;
+  margin-bottom: 15px;
+  line-height: 0;
+}
+
+.prettycheckbox,
+.prettyradio {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+
+  > a {
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin: 0;
+    height: 22px;
+    width: 22px;
+    .full-border-radius;
+    .theme-style(@theme-style, darken(@white, 8%));
+
+    &:hover {
+      .theme-style(@theme-style, darken(@white, 12%));
+    }
+
+    &.checked {
+      .theme-style-inverse(@theme-style, @c1);
+      color: @c1-inverse;
+      position: relative;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      vertical-align: baseline;
+      text-decoration: none;
+      font-size: @font-size + 1;
+
+      &:before {
+        content: "\f00c";
+        position: relative;
+        top: 3px;
+      }
+    }
+
+    &:focus {
+      outline: 0 none;
+    }
+  }
+
+  label {
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+    line-height: 22px;
+  }
+
+  a,
+  label {
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.prettyradio {
+  > a {
+    .circle-border-radius;
+
+    &.checked {
+      &:before {
+        content: "\f111";
+      }
+    }
+  }
+}
+
+// Table Fix
+.table {
+  .prettycheckbox,
+  .prettyradio {
+    > a {
+      height: 18px;
+      width: 18px;
+      font-size: @font-size - 2;
+    }
+  }
+}

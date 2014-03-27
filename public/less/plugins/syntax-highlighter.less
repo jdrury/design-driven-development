@@ -1,0 +1,24 @@
+/* -----------------------------
+//   stagui }> - Syntax Highlighter
+// ----------------------------- */
+
+@import "../libs/shCore";
+@import "../libs/shDefault";
+@import "../libs/shThemeEclipse";
+@import "../libs/shThemeRDark";
+
+.syntaxhighlighter {
+  padding: 10px;
+  .full-border-radius;
+  margin: 0 0 15px 0;
+  border: 1px solid darken(@white, 12%);
+  font-size: @font-size !important;
+
+  .toolbar {
+    display: none;
+  }
+}
+
+.sh-rdark .syntaxhighlighter {
+  border: 0;
+}

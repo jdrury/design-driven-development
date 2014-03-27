@@ -1,0 +1,78 @@
+﻿/* -----------------------------
+//   stagui }> - Spinner
+// ----------------------------- */
+
+.input-group-addon.spinedit {
+  position: relative;
+  padding: 0;
+  border: 0 !important;
+  background: none;
+  .no-box-shadow;
+
+  i {
+    .btn;
+    .btn-default;
+    height: 16px;
+    top: 0;
+    .no-border-radius;
+    padding: 0;
+    width: 25px;
+    border-left: 0 !important;
+    line-height: 16px;
+
+    &:hover {
+      border-left: 0;
+    }
+  }
+
+  .glyphicon-chevron-up,
+  .glyphicon-chevron-down {
+    cursor: pointer;
+    float: left;
+    font-size: @font-size - 3;
+  }
+
+  .glyphicon-chevron-up {
+    .top-right-border-radius;
+    border-bottom: 0;
+
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+
+  .glyphicon-chevron-down {
+    .bottom-right-border-radius;
+  }
+}
+
+// Input group
+.input-group {
+
+  &.input-group-sm {
+    .input-group-addon.spinedit {
+
+      i {
+        height: 15px;
+        font-size: @font-size - 4;
+        line-height: 15px;
+      }
+    }
+  }
+
+  &.input-group-lg {
+    .input-group-addon.spinedit {
+      i {
+        height: 23px;
+        font-size: @font-size - 1;
+        line-height: 23px;
+      }
+
+      .glyphicon-chevron-up {
+        height: 23px;
+        line-height: 23px;
+      }
+    }
+  }
+}
+

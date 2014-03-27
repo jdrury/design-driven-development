@@ -1,0 +1,71 @@
+/* -----------------------------
+//   stagui }> - File Input
+// ----------------------------- */
+
+.btn-file {
+  position: relative;
+
+  > input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    .opacity(0);
+    transform: translate(-300px, 0) scale(4);
+    cursor: pointer;
+    font-size: 21px;
+  }
+}
+
+.fileinput {
+  margin-bottom: 9px;
+  display: inline-block;
+
+  .thumbnail {
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    text-align: center;
+    background: darken(@white, 3%);
+
+    > img {
+      max-height: 100%;
+    }
+  }
+
+  .close {
+    float: none;
+    font-size: @font-size;
+  }
+}
+
+i.fileinput-exists {
+  margin-right: 5px;
+}
+
+.fileinput-exists .fileinput-new,
+.fileinput-new .fileinput-exists {
+  display: none;
+}
+
+.fileinput-inline .fileinput-controls {
+  display: inline;
+}
+
+.fileinput .uneditable-input {
+  white-space: normal;
+}
+
+.fileinput-new .input-group .input-group-btn .btn-file {
+  .right-side-border-radius !important;
+}
+
+.fileinput-new .input-group .input-group-btn .btn-file.btn-xs,
+.fileinput-new .input-group .input-group-btn .btn-file.btn-sm {
+  .right-side-border-radius !important;
+}
+
+.fileinput-new .input-group .input-group-btn .btn-file.btn-lg {
+  .right-side-border-radius !important;
+}

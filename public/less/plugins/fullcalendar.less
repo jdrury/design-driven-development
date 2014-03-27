@@ -1,0 +1,131 @@
+/* -----------------------------
+//   stagui }> - Full Calendar
+// ----------------------------- */
+
+@import "../libs/fullcalendar";
+
+.fc {
+
+  .fc-header {
+
+    margin-bottom: 15px;
+
+    .fc-header-space {
+      padding-left: 6px;
+    }
+
+    .fc-header-title {
+      h2 {
+        margin: 0;
+        font-size: @font-size + 10;
+        line-height: 32px;
+        .full-border-radius;
+      }
+    }
+  }
+
+  .fc-widget-header {
+    .theme-style(@theme-style, darken(@white, 8%));
+    .text-shadow(@white);
+    color: @black;
+    padding: 7px 0;
+    border: 1px solid darken(@white, 15%);
+    border-right-width: 0;
+  }
+
+  .fc-widget-content {
+    border-color: darken(@white, 15%) !important;
+  }
+
+  .fc-day-number {
+    margin: 5px;
+    padding: 0;
+  }
+
+  .fc-state-highlight {
+    background: darken(@white, 8%);
+  }
+
+  .fc-event {
+    background: @c1;
+    border: 0;
+    margin: 0 0 3px 0;
+    color: @c1-inverse;
+    font-size: @font-size - 1;
+
+    .fc-event-inner {
+      padding: 5px;
+    }
+  }
+
+  .fc-agenda-divider {
+    background: @white;
+    border-right-width: 1px !important;
+
+    .fc-agenda-divider-inner {
+      display: none;
+    }
+
+    &+div {
+      .scrollable;
+    }
+  }
+
+  .fc-agenda-axis {
+    text-align: center;
+    border-bottom: 0;
+    border-right-width: 1px !important;
+
+    &.fc-first {
+      border-right-width: 0 !important;
+    }
+  }
+
+  .fc-agenda-gutter {
+    background: white;
+    border-bottom-width: 0 !important;
+    border-right-width: 1px !important;
+  }
+
+  .fc-button {
+    .btn;
+    .btn-default;
+    height: 32px;
+    text-transform: capitalize;
+    .no-border-radius;
+
+    &.fc-corner-left {
+      .left-side-border-radius;
+    }
+
+    &.fc-corner-right {
+      .right-side-border-radius;
+    }
+
+    &.fc-corner-left.fc-corner-right {
+      .full-border-radius;
+    }
+
+    .fc-text-arrow {
+      margin: 0;
+      line-height: 1;
+      font-size: 23px;
+      position: relative;
+      top: -2px;
+    }
+
+    &.fc-state-active {
+      .theme-style-inverse(@theme-style, darken(@white, 60%));
+      color: @white;
+    }
+
+    &.fc-state-disabled {
+      .disabled;
+    }
+
+    @media (max-width: @screen-sm) {
+      display: none;
+    }
+
+  }
+}

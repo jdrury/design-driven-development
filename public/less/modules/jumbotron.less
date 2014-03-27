@@ -1,0 +1,120 @@
+/* -----------------------------
+//   stagui }> - Jumbotron
+// ----------------------------- */
+
+.jumbotron {
+  padding: 40px;
+  background: @white;
+  color: @black;
+  .full-border-radius;
+  text-align: center;
+  margin: 0 0 20px 0;
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-size: @font-size + 45;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: @screen-md) {
+      font-size: @font-size + 20;
+    }
+  }
+
+  p {
+    font-size: @font-size + 5;
+    margin-bottom: 0;
+
+    &.lead {
+      font-size: @font-size + 10;
+    }
+
+    &+ p {
+      margin-bottom: 30px;
+    }
+
+    &:first-child {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Colors
+  &.jumbotron-primary {
+    background: @c1;
+    color: @c1-inverse;
+
+    small {
+      .opacity(0.6);
+      color: @c1-inverse;
+    }
+  }
+
+  &.jumbotron-secondary {
+    background: @c2;
+    color: @c2-inverse;
+
+    small {
+      .opacity(0.6);
+      color: @c2-inverse;
+    }
+  }
+
+  &.jumbotron-inverse {
+    background: lighten(@black, 25%);
+    color: @white;
+
+    small {
+      .opacity(0.6);
+      color: @white;
+    }
+  }
+
+  &.jumbotron-success {
+    background: @green;
+    color: @white;
+
+    small {
+      .opacity(0.6);
+      color: @white;
+    }
+  }
+
+  &.jumbotron-info {
+    background: @blue;
+    color: @white;
+
+    small {
+      .opacity(0.6);
+      color: @white;
+    }
+  }
+
+  &.jumbotron-warning {
+    background: @yellow;
+    color: @white;
+
+    small {
+      .opacity(0.6);
+      color: @white;
+    }
+  }
+
+  &.jumbotron-danger {
+    background: @red;
+    color: @white;
+
+    small {
+      .opacity(0.6);
+      color: @white;
+    }
+  }
+}

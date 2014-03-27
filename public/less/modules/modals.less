@@ -1,0 +1,146 @@
+/* -----------------------------
+//   stagui }> - Modals
+// ----------------------------- */
+
+.modal {
+  z-index: 999999;
+
+  .modal-dialog {
+    padding: 60px 10px;
+
+    .modal-content {
+      .box-shadow;
+    }
+
+    // Header
+    .modal-header {
+      .theme-style(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+      color: @black;
+      .top-side-border-radius;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      padding: 15px 20px;
+
+      .close {
+        margin-top: 2px;
+        .text-shadow(@white);
+        .opacity(0.4);
+
+        &:hover {
+          .opacity(1);
+        }
+      }
+
+      .modal-title, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        margin: 0;
+        line-height: 1.428571429;
+      }
+    }
+
+    // Footer
+    .modal-footer {
+      padding: 15px 20px;
+      background: darken(@white, 3%);
+      border: 0;
+      margin: 0;
+      .bottom-side-border-radius;
+    }
+  }
+
+  // Colors
+  &.modal-primary {
+    .modal-header {
+      .theme-style(@theme-style, @c1);
+      color: @c1-inverse;
+
+      .close {
+        color: @c1-inverse;
+        .text-shadow(@c1);
+      }
+    }
+  }
+
+  &.modal-secondary {
+    .modal-header {
+      .theme-style(@theme-style, @c2);
+      color: @c2-inverse;
+
+      .close {
+        color: @c2-inverse;
+        .text-shadow(@c2);
+      }
+    }
+  }
+
+  &.modal-inverse {
+    .modal-header {
+      .theme-style(@theme-style, lighten(@black, 12%));
+      color: @white;
+
+      .close {
+        color: @white;
+        .text-shadow(@black);
+      }
+    }
+  }
+
+  &.modal-success {
+    .modal-header {
+      .theme-style(@theme-style, @green);
+      color: @white;
+
+      .close {
+        color: @white;
+        .text-shadow(@green);
+      }
+    }
+  }
+
+  &.modal-info {
+    .modal-header {
+      .theme-style(@theme-style, @blue);
+      color: @white;
+
+      .close {
+        color: @white;
+        .text-shadow(@blue);
+      }
+    }
+  }
+
+  &.modal-warning {
+    .modal-header {
+      .theme-style(@theme-style, @yellow);
+      color: @white;
+
+      .close {
+        color: @white;
+        .text-shadow(@yellow);
+      }
+    }
+  }
+
+  &.modal-danger {
+    .modal-header {
+      .theme-style(@theme-style, @red);
+      color: @white;
+
+      .close {
+        color: @white;
+        .text-shadow(@red);
+      }
+    }
+  }
+}
+
+// Backdrop
+.modal-backdrop {
+  z-index: 99999;
+  background: @black;
+
+  &.in {
+    .opacity(0.8);
+  }
+}

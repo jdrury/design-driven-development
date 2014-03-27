@@ -1,0 +1,709 @@
+/* -----------------------------
+//   stagui }> - Panels
+// ----------------------------- */
+
+.panel {
+  .no-box-shadow;
+  .full-border-radius;
+  margin: 0 0 20px 0;
+  border: 0;
+
+  // Body
+  .panel-body {
+    padding: 15px 20px;
+    .clearfix;
+
+    .tab-content {
+      padding: 0;
+      border: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      margin: 0 0 10px 0;
+      font-weight: 400;
+
+      &.panel-body-header {
+        margin: 25px 0 10px 0;
+        color: fade(@black, 50%);
+        clear: both;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .panel-heading,
+  .panel-footer {
+    .clearfix;
+
+    padding: 10px 20px;
+
+    .panel-title {
+      font-size: @font-size + 1;
+      margin-right: 15px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0 15px 0 0;
+    }
+
+    .btn {
+      font-size: @font-size - 1;
+      line-height: normal;
+      padding: 4px 10px;
+    }
+
+    > * {
+      float: left;
+      line-height: 26px;
+
+      &.pull-right {
+        margin-left: 10px;
+      }
+    }
+
+  }
+
+  // Heading
+  .panel-heading {
+    .no-box-shadow;
+    .top-side-border-radius;
+    border-left: 0 !important;
+    border-top: 0 !important;
+    border-right: 0 !important;
+
+    // Toggle
+    .panel-toggle {
+      float: right;
+      padding: 0 10px;
+    }
+
+    // Handle
+    .sort-handle {
+      float: left;
+      padding: 11px 10px 9px 20px;
+      font-size: @font-size + 3;
+      margin: -10px 0 -10px -20px;
+      cursor: move;
+      .opacity(0.35);
+      text-decoration: none;
+      .clearfix;
+
+      i,
+      .fa {
+        float: left;
+        line-height: 26px;
+        margin-right: 2px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    // Heading Tabs
+    .nav-tabs {
+      border: 0;
+
+      @media (max-width: @screen-sm) {
+        padding-top: 10px;
+        float: none !important;
+        clear: both;
+      }
+
+      &.navbar-right {
+        float: right;
+      }
+
+      > li {
+        &.active {
+          > a {
+            .theme-style(@theme-style, darken(@white, 8%)) !important;
+            background: @white !important;
+            border-bottom: 1px solid transparent !important;
+            .no-text-shadow;
+          }
+        }
+
+        > a {
+          font-size: @font-size;
+          .top-side-border-radius;
+          padding: 9px 15px 13px 15px;
+          line-height: normal;
+          margin: -5px 1px -10px 1px;
+        }
+
+        @media (max-width: @screen-sm) {
+          width: 100%;
+          margin-top: 5px;
+
+          > a {
+            .full-border-radius;
+            margin: 0;
+          }
+        }
+
+      }
+
+      @media (max-width: @screen-sm) {
+        margin: 0;
+      }
+
+      .dropdown-menu {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  // Footer
+  .panel-footer {
+    .no-box-shadow;
+    border: 0;
+    background: @white;
+    .bottom-side-border-radius;
+  }
+
+  // Colors
+  &.panel-default {
+
+    .panel-heading {
+      .theme-style(@theme-style, darken(@white, 3%));
+      color: @black;
+      .text-shadow(@white);
+
+      .sort-handle {
+        color: @black;
+        .text-shadow(@white);
+      }
+
+      .nav-tabs {
+        > li {
+          > a {
+            .theme-style(@theme-style, darken(@white, 8%));
+            .text-shadow(@white);
+            color: @black;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@white, 12%));
+              .text-shadow(@white);
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@white, 12%));
+              .text-shadow(@white);
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@white, 60%));
+              color: @white;
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@white, 15%);
+              border-bottom-color: transparent;
+              color: @black;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  &.panel-transparent {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    .panel-heading {
+      background: transparent;
+      color: @black;
+
+      .sort-handle {
+        color: @black;
+        .text-shadow(@white);
+      }
+    }
+
+    .btn-link {
+      color: lighten(@black, 20%);
+
+      &:hover {
+        color: @black;
+      }
+
+      &:active,
+      &.active {
+        color: @black;
+      }
+    }
+
+    .panel-footer {
+      background: transparent;
+    }
+  }
+
+  &.panel-primary {
+
+    .panel-heading {
+      .theme-style(@theme-style, @c1);
+      color: @c1-inverse;
+
+      .sort-handle {
+        color: @c1-inverse;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@c1, 5%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, darken(@c1, 5%));
+            color: @c1-inverse;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@c1, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@c1, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@c1, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@c1, 15%);
+              border-bottom-color: transparent;
+              color: @c1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.panel-secondary {
+
+    .panel-heading {
+      .theme-style(@theme-style, @c2);
+      color: @c2-inverse;
+
+      .sort-handle {
+        color: @c2-inverse;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@c1, 5%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, darken(@c2, 5%));
+            color: @c2-inverse;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@c2, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@c2, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@c2, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@c2, 10%);
+              border-bottom-color: transparent;
+              color: @c2;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.panel-inverse {
+
+    .panel-heading {
+      .theme-style(@theme-style, lighten(@black, 25%));
+      color: @white;
+
+      .sort-handle {
+        color: @white;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@black, 15%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, lighten(@black, 15%));
+            color: @white;
+
+            &:hover {
+              .theme-style(@theme-style, lighten(@black, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, lighten(@black, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, lighten(@black, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: lighten(@black, 5%);
+              border-bottom-color: transparent;
+              color: @black;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.panel-success {
+
+    .panel-heading {
+      .theme-style(@theme-style, @green);
+      color: @white;
+
+      .sort-handle {
+        color: @white;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@green, 15%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, darken(@green, 10%));
+            color: @white;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@green, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@green, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@green, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@green, 10%);
+              border-bottom-color: transparent;
+              color: @green;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.panel-info {
+
+    .panel-heading {
+      .theme-style(@theme-style, @blue);
+      color: @white;
+
+      .sort-handle {
+        color: @white;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@blue, 15%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, darken(@blue, 10%));
+            color: @white;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@blue, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@blue, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@blue, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@blue, 10%);
+              border-bottom-color: transparent;
+              color: @blue;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.panel-warning {
+
+    .panel-heading {
+      .theme-style(@theme-style, @yellow);
+      color: @white;
+
+      .sort-handle {
+        color: @white;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@yellow, 5%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, darken(@yellow, 5%));
+            color: @white;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@yellow, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@yellow, 10%);
+              border-bottom-color: transparent;
+              color: @yellow;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  &.panel-danger {
+
+    .panel-heading {
+      .theme-style(@theme-style, @red);
+      color: @white;
+
+      .sort-handle {
+        color: @white;
+      }
+
+      .nav-tabs {
+        > li {
+
+          &.active {
+            > a {
+              .theme-style(@theme-style, darken(@red, 5%)) !important;
+              background: @white !important;
+              border-bottom: 1px solid transparent !important;
+              .no-text-shadow;
+            }
+          }
+
+          > a {
+            .theme-style(@theme-style, darken(@red, 5%));
+            color: @white;
+
+            &:hover {
+              .theme-style(@theme-style, darken(@red, 10%));
+            }
+
+            &:active {
+              .theme-style-inverse(@theme-style, darken(@red, 10%));
+            }
+          }
+
+          &.open {
+            > a {
+              .theme-style-inverse(@theme-style, darken(@red, 10%));
+            }
+          }
+
+          &.active {
+            > a {
+              border-color: darken(@red, 10%);
+              border-bottom-color: transparent;
+              color: @red;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  // Block
+  &.panel-block {
+    margin-left: -21px;
+    margin-right: -21px;
+    border-right: 0;
+    .no-border-radius;
+
+    .panel-heading,
+    .panel-footer {
+      .no-border-radius;
+    }
+  }
+
+}
+
+// Panel Group
+.panel-group {
+  .full-border-radius;
+  margin-bottom: 20px;
+
+  .panel {
+    .no-border-radius;
+    overflow: visible;
+
+    &:first-child {
+      .panel-heading {
+        .top-side-border-radius;
+      }
+    }
+
+    &:last-child {
+      .panel-heading {
+        .bottom-side-border-radius;
+      }
+    }
+
+    &:nth-child(1) {
+      .panel-heading {
+        .top-side-border-radius;
+      }
+    }
+
+    .panel-heading,
+    .panel-footer {
+      .no-border-radius;
+    }
+  }
+
+  .panel+.panel {
+    margin-top: 0;
+  }
+
+  .panel-heading+.panel-collapse {
+    .panel-body {
+      border-top: 0 !important;
+    }
+  }
+
+  &.panel-block {
+
+    .panel {
+      margin-left: -21px;
+      margin-right: -21px;
+      border-right: 0;
+      .no-border-radius;
+
+      .panel-heading,
+      .panel-footer {
+        .no-border-radius;
+      }
+    }
+  }
+}

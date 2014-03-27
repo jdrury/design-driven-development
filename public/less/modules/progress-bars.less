@@ -1,0 +1,116 @@
+/* -----------------------------
+//   stagui }> - Progress Bars
+// ----------------------------- */
+
+.progress {
+  .no-box-shadow;
+  .full-border-radius;
+  background: darken(@white, 3%);
+  height: 15px;
+  font-size: @font-size - 1;
+
+  &.progress-lg {
+    height: 25px;
+
+    .progress-bar {
+      line-height: 25px;
+    }
+  }
+
+  &.progress-sm {
+    height: 6px;
+
+    .progress-bar {
+      line-height: 6px;
+    }
+  }
+
+  .progress-bar {
+    .left-side-border-radius;
+    line-height: 18px;
+
+    // Stacked
+    &+ .progress-bar {
+      .no-border-radius;
+      border-right-width: 0 !important;
+      border-left-width: 0 !important;
+
+      &:first-child {
+        border-left-width: 1px !important;
+      }
+      &:last-child {
+        border-right-width: 1px !important;
+      }
+    }
+  }
+
+  &:not(.progress-striped) {
+    .progress-bar {
+      .theme-style(@theme-style, darken(@white, 8%));
+
+      &.progress-bar-primary {
+        .theme-style(@theme-style, @c1);
+      }
+
+      &.progress-bar-secondary {
+        .theme-style(@theme-style, @c2);
+      }
+
+      &.progress-bar-inverse {
+        .theme-style(@theme-style, lighten(@black, 25%));
+      }
+
+      &.progress-bar-success {
+        .theme-style(@theme-style, @green);
+      }
+
+      &.progress-bar-info {
+        .theme-style(@theme-style, @blue);
+      }
+
+      &.progress-bar-warning {
+        .theme-style(@theme-style, @yellow);
+      }
+
+      &.progress-bar-danger {
+        .theme-style(@theme-style, @red);
+      }
+    }
+  }
+
+  &.progress-striped {
+    .progress-bar {
+      background-color: darken(@white, 20%);
+      .no-box-shadow;
+
+      &.progress-bar-primary {
+        background-color: @c1;
+      }
+
+      &.progress-bar-secondary {
+        background-color: @c2;
+      }
+
+      &.progress-bar-inverse {
+        background-color: lighten(@black, 25%);
+      }
+
+      &.progress-bar-success {
+        background-color: @green;
+      }
+
+      &.progress-bar-info {
+        background-color: @blue;
+      }
+
+      &.progress-bar-warning {
+        background-color: @yellow;
+      }
+
+      &.progress-bar-danger {
+        background-color: @red;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,469 @@
+/* -----------------------------
+//   stagui }> - Buttons
+// ----------------------------- */
+
+.btn {
+  .full-border-radius;
+  font-size: @font-size;
+  border: 0;
+  padding: 6px 10px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.btn-lg {
+    padding: 10px 20px;
+    font-size: @font-size + 4;
+  }
+
+  &.btn-sm {
+    padding: 4px 8px;
+    font-size: @font-size - 1;
+  }
+
+  &.btn-xs {
+    padding: 2px 6px;
+    font-size: @font-size - 1;
+  }
+
+  &.btn-default {
+    .theme-style(@theme-style, darken(@white, 8%));
+    .text-shadow(@white);
+    color: @black;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+    }
+
+    &:active {
+      .theme-style-inverse(@theme-style, darken(@white, 12%));
+      .text-shadow(@white);
+    }
+
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@white, 60%));
+      color: @white;
+    }
+  }
+
+  &.btn-primary {
+    .theme-style(@theme-style, darken(@c1, 5%));
+    color: @c1-inverse;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@c1, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@c1, 10%));
+    }
+  }
+
+  &.btn-secondary {
+    .theme-style(@theme-style, darken(@c2, 5%));
+    color: @c2-inverse;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@c2, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@c2, 10%));
+    }
+  }
+
+  &.btn-inverse {
+    .theme-style(@theme-style, lighten(@black, 15%));
+    color: @white;
+
+    &:hover {
+      .theme-style(@theme-style, lighten(@black, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, lighten(@black, 10%));
+    }
+  }
+
+  &.btn-success {
+    .theme-style(@theme-style, darken(@green, 5%));
+    color: @white;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@green, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@green, 10%));
+    }
+  }
+
+  &.btn-info {
+    .theme-style(@theme-style, darken(@blue, 5%));
+    color: @white;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@blue, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@blue, 10%));
+    }
+  }
+
+  &.btn-warning {
+    .theme-style(@theme-style, darken(@yellow, 5%));
+    color: @white;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@yellow, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+    }
+  }
+
+  &.btn-danger {
+    .theme-style(@theme-style, darken(@red, 5%));
+    color: @white;
+
+    &:hover {
+      .theme-style(@theme-style, darken(@red, 10%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(@red, 10%));
+    }
+  }
+
+  &.btn-link {
+    color: darken(@c1, 5%);
+    border: 1px solid transparent;
+    text-decoration: none;
+
+    &:hover {
+      color: darken(@c1, 10%);
+    }
+
+    &:active,
+    &.active {
+      color: darken(@c1, 10%);
+      .no-box-shadow;
+    }
+  }
+
+  &.btn-bitbucket {
+    .theme-style(@theme-style, #205081);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#205081, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#205081, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-dribbble {
+    .theme-style(@theme-style, #df3e7b);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#df3e7b, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#df3e7b, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-dropbox {
+    .theme-style(@theme-style, #007ee5);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#007ee5, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#007ee5, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-facebook {
+    .theme-style(@theme-style, #3b5998);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#3b5998, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#3b5998, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-flickr {
+    .theme-style(@theme-style, #ff0084);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#ff0084, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#ff0084, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-github {
+    .theme-style(@theme-style, #2a65a0);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#2a65a0, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#2a65a0, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-googleplus {
+    .theme-style(@theme-style, #dd4b38);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#dd4b38, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#dd4b38, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-foursquare {
+    .theme-style(@theme-style, #2398c9);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#2398c9, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#2398c9, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-linkedin {
+    .theme-style(@theme-style, #2672ae);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#2672ae, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#2672ae, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-pinterest {
+    .theme-style(@theme-style, #cb2027);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#cb2027, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#cb2027, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-skype {
+    .theme-style(@theme-style, #00aff0);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#00aff0, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#00aff0, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-trello {
+    .theme-style(@theme-style, #27709b);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#27709b, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#27709b, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-tumblr {
+    .theme-style(@theme-style, #529ecc);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#529ecc, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#529ecc, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-twitter {
+    .theme-style(@theme-style, #0271bf);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#0271bf, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#0271bf, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-vimeo {
+    .theme-style(@theme-style, #95b84d);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#95b84d, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#95b84d, 5%));
+    }
+
+    color: @white;
+  }
+
+  &.btn-youtube {
+    .theme-style(@theme-style, #cc181e);
+
+    &:hover {
+      .theme-style(@theme-style, darken(#cc181e, 5%));
+    }
+
+    &:active,
+    &.active {
+      .theme-style-inverse(@theme-style, darken(#cc181e, 5%));
+    }
+
+    color: @white;
+  }
+
+}
+
+// Button Group
+.btn-group {
+  &.btn-group-lg,
+  &.btn-group-sm,
+  &.btn-group-xs {
+    > .btn {
+      .full-border-radius;
+    }
+  }
+
+  &.open {
+    .dropdown-toggle {
+      &.btn-default {
+        .theme-style-inverse(@theme-style, darken(@white, 60%));
+        color: @white;
+      }
+
+      &.btn-primary {
+        .theme-style-inverse(@theme-style, darken(@c1, 10%));
+      }
+
+      &.btn-secondary {
+        .theme-style-inverse(@theme-style, darken(@c2, 10%));
+      }
+
+      &.btn-inverse {
+        .theme-style-inverse(@theme-style, lighten(@black, 10%));
+      }
+
+      &.btn-success {
+        .theme-style-inverse(@theme-style, darken(@green, 10%));
+      }
+
+      &.btn-info {
+        .theme-style-inverse(@theme-style, darken(@blue, 10%));
+      }
+
+      &.btn-warning {
+        .theme-style-inverse(@theme-style, darken(@yellow, 10%));
+      }
+
+      &.btn-danger {
+        .theme-style-inverse(@theme-style, darken(@red, 10%));
+      }
+    }
+  }
+}
+
+// Button Group Vertical
+.btn-group-vertical {
+  .btn {
+    width: 100%;
+
+    &:first-child {
+      .top-side-border-radius;
+    }
+
+    &:last-child {
+      .bottom-side-border-radius;
+    }
+  }
+}
+

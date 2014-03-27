@@ -1,0 +1,237 @@
+/* -----------------------------
+//   stagui }> - Utils
+// ----------------------------- */
+
+// Border radius
+.full-border-radius(@radius: @border-radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.top-left-border-radius(@radius: @border-radius) {
+  -webkit-border-top-left-radius: @radius;
+  -moz-border-radius-topleft: @radius;
+  border-top-left-radius: @radius;
+}
+
+.top-right-border-radius(@radius: @border-radius) {
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-radius-topright: @radius;
+  border-top-right-radius: @radius;
+}
+
+.bottom-left-border-radius(@radius: @border-radius) {
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-radius-bottomleft: @radius;
+  border-bottom-left-radius: @radius;
+}
+
+.bottom-right-border-radius(@radius: @border-radius) {
+  -webkit-border-bottom-right-radius: @radius;
+  -moz-border-radius-bottomright: @radius;
+  border-bottom-right-radius: @radius;
+}
+
+.left-side-border-radius(@radius: @border-radius) {
+  -webkit-border-radius: @radius 0 0 @radius;
+  -moz-border-radius: @radius 0 0 @radius;
+  border-radius: @radius 0 0 @radius;
+}
+
+.right-side-border-radius(@radius: @border-radius) {
+  -webkit-border-radius: 0 @radius @radius 0;
+  -moz-border-radius: 0 @radius @radius 0;
+  border-radius: 0 @radius @radius 0;
+}
+
+.top-side-border-radius(@radius: @border-radius) {
+  -webkit-border-radius: @radius @radius 0 0;
+  -moz-border-radius: @radius @radius 0 0;
+  border-radius: @radius @radius 0 0;
+}
+
+.bottom-side-border-radius(@radius: @border-radius) {
+  -webkit-border-radius: 0 0 @radius @radius;
+  -moz-border-radius: 0 0 @radius @radius;
+  border-radius: 0 0 @radius @radius;
+}
+
+.circle-border-radius(@radius: @border-radius) {
+  -webkit-border-radius: @radius * 30;
+  -moz-border-radius: @radius * 30;
+  border-radius: @radius * 30;
+}
+
+/* No Border Radius */
+.no-border-radius {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+/* No Box Shadow */
+.no-box-shadow {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+/* No Text Shadow */
+.no-text-shadow {
+  text-shadow: none !important;
+}
+
+/* Box Shadow */
+.box-shadow {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Opacity */
+.opacity(@opacity) {
+  opacity: @opacity;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity = @opacity * 100)"; // IE 8
+  filter: ~"alpha(opacity = @opacity * 100)"; // IE 5-7
+}
+
+.invisible {
+  opacity: 0;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity = @opacity * 100)"; // IE 8
+  filter: ~"alpha(opacity = @opacity * 100)"; // IE 5-7
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity = @opacity * 100)"; // IE 8
+  filter: ~"alpha(opacity = @opacity * 100)"; // IE 5-7
+  visibility: visible;
+}
+
+/* Scrollble */
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateZ(0);
+}
+
+/* Transition */
+.transition {
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+.no-transition {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+/* Position */
+.relative {
+  position: relative !important;
+}
+
+/* Ellipsis */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Placeholder
+.placeholder(@color) {
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &::-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+
+// Text Shadow
+.text-shadow(@color) when (@theme-style = flat) {
+  text-shadow: none;
+}
+
+.text-shadow(@color) when (@theme-style = gradient) {
+  text-shadow: 0 1px 0 @color;
+}
+
+// Background Plain
+.theme-style (@theme-style, @background) when (@theme-style = flat) {
+  background: @background;
+  border: 1px solid transparent;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  .text-shadow(transparent);
+}
+
+.theme-style-inverse (@theme-style, @background) when (@theme-style = flat) {
+  background: darken(@background, 2%);
+  border: 1px solid transparent;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  .text-shadow(transparent);
+}
+
+// Background Gradient
+.base64DataUriBackground (@encode, @type: ~"image/svg+xml") {
+  @dataUriPrefix: ~"url(data:@{type};base64,";
+  @dataUriSuffix: ~")";
+  @b64DataUri: ~`(function(a,b,c){function e(a){a=a.replace(/\r\n/g,'\n');var b='';for(var c=0;c<a.length;c++){var d=a.charCodeAt(c);if(d<128){b+=String.fromCharCode(d)}else if(d>127&&d<2048){b+=String.fromCharCode(d>>6|192);b+=String.fromCharCode(d&63|128)}else{b+=String.fromCharCode(d>>12|224);b+=String.fromCharCode(d>>6&63|128);b+=String.fromCharCode(d&63|128)}}return b}function f(a){var b='';var c,f,g,h,i,j,l;var m=0;a=e(a);while(m<a.length){c=a.charCodeAt(m++);f=a.charCodeAt(m++);g=a.charCodeAt(m++);h=c>>2;i=(c&3)<<4|f>>4;j=(f&15)<<2|g>>6;l=g&63;if(isNaN(f)){j=l=64}else if(isNaN(g)){l=64}b=b+d.charAt(h)+d.charAt(i)+d.charAt(j)+d.charAt(l)}return b}var d='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';return a+f(b)+c})('@{dataUriPrefix}','@{encode}','@{dataUriSuffix}')`;
+  background: @b64DataUri;
+}
+
+.theme-style (@theme-style, @background) when (@theme-style = gradient) {
+  @startBackground: lighten(@background, 3%);
+  @endBackground: darken(@background, 1%);
+  @svg: ~'<?xml version="1.0" ?><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none"><linearGradient id="grad-ucgg-generated" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="@{startBackground}" stop-opacity="1"/><stop offset="100%" stop-color="@{background}" stop-opacity="1"/></linearGradient><rect x="0" y="0" width="1" height="1" fill="url(#grad-ucgg-generated)" /></svg>';
+  background: @background;
+  .base64DataUriBackground(@svg);
+  background: -ms-linear-gradient(top, @startBackground 0%,@endBackground 100%);
+  background: -moz-linear-gradient(top, @startBackground 0%, @endBackground 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startBackground), color-stop(100%, @endBackground));
+  background: -webkit-linear-gradient(top, @startBackground 0%, @endBackground 100%);
+  background: -o-linear-gradient(top, @startBackground 0%, @endBackground 100%);
+  background: linear-gradient(to bottom, @startBackground 0%, @endBackground 100%);
+  background-position: top left;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  border: 1px solid darken(@endBackground, 10%);
+  .text-shadow(darken(@endBackground, 10%));
+}
+
+.theme-style-inverse (@theme-style, @background) when (@theme-style = gradient) {
+  @startBackground: darken(@background, 3%);
+  @endBackground: lighten(@background, 1%);
+  @svg: ~'<?xml version="1.0" ?><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none"><linearGradient id="grad-ucgg-generated" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="@{startBackground}" stop-opacity="1"/><stop offset="100%" stop-color="@{background}" stop-opacity="1"/></linearGradient><rect x="0" y="0" width="1" height="1" fill="url(#grad-ucgg-generated)" /></svg>';
+  background: @background;
+  .base64DataUriBackground(@svg);
+  background: -ms-linear-gradient(top, @startBackground 0%,@endBackground 100%);
+  background: -moz-linear-gradient(top, @startBackground 0%, @endBackground 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startBackground), color-stop(100%, @endBackground));
+  background: -webkit-linear-gradient(top, @startBackground 0%, @endBackground 100%);
+  background: -o-linear-gradient(top, @startBackground 0%, @endBackground 100%);
+  background: linear-gradient(to bottom, @startBackground 0%, @endBackground 100%);
+  background-position: top left;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1) inset;
+  border: 1px solid darken(@startBackground, 15%);
+  .text-shadow(darken(@startBackground, 10%));
+}

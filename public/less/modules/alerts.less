@@ -1,0 +1,124 @@
+/* -----------------------------
+//   stagui }> - Alerts
+// ----------------------------- */
+
+.alert {
+  padding: 15px 35px 15px 20px;
+  .full-border-radius;
+  .clearfix;
+
+  .close {
+    .opacity(0.4);
+    .no-text-shadow;
+
+    &:hover {
+      .opacity(1);
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.alert-primary {
+    .theme-style(@theme-style, fade(@c1, 12%));
+    .text-shadow(@c1-inverse);
+    color: @c1;
+
+    .close {
+      color: @c1;
+    }
+
+    .alert-link {
+      color: @c1;
+    }
+  }
+
+  &.alert-secondary {
+    .theme-style(@theme-style, fade(@c2, 12%));
+    .text-shadow(@c1-inverse);
+    color: @c2;
+
+    .close {
+      color: @c2;
+    }
+
+    .alert-link {
+      color: @c2;
+    }
+  }
+
+  &.alert-inverse {
+    .theme-style(@theme-style, fade(@black, 12%));
+    .text-shadow(@white);
+    color: @black;
+
+    .close {
+      color: @black;
+    }
+
+    .alert-link {
+      color: @black;
+    }
+  }
+
+  &.alert-success {
+    .theme-style(@theme-style, fade(@green, 12%));
+    .text-shadow(@white);
+    color: @green;
+
+    .close {
+      color: @green;
+    }
+
+    .alert-link {
+      color: @green;
+    }
+  }
+
+  &.alert-info {
+    .theme-style(@theme-style, fade(@blue, 12%));
+    .text-shadow(@white);
+    color: @blue;
+
+    .close {
+      color: @blue;
+    }
+
+    .alert-link {
+      color: @blue;
+    }
+  }
+
+  &.alert-warning {
+    .theme-style(@theme-style, fade(@yellow, 12%));
+    .text-shadow(@white);
+    color: @yellow;
+
+    .close {
+      color: @yellow;
+    }
+
+    .alert-link {
+      color: @yellow;
+    }
+  }
+
+  &.alert-danger {
+    .theme-style(@theme-style, fade(@red, 12%));
+    .text-shadow(@white);
+    color: @red;
+
+    .close {
+      color: @red;
+    }
+
+    .alert-link {
+      color: @red;
+    }
+  }
+}

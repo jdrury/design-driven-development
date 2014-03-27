@@ -1,0 +1,109 @@
+/* -----------------------------
+//   stagui }> - Pagination
+// ----------------------------- */
+
+.pagination {
+  margin-bottom: 0;
+  margin-top: 15px;
+
+  li {
+    a {
+      .theme-style(@theme-style, darken(@white, 8%));
+      .text-shadow(@white);
+      color: @black;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+        color: @black;
+      }
+
+      &:active {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+        color: @black;
+      }
+    }
+
+    &.active {
+      a,
+      a:hover,
+      a:active {
+        .theme-style-inverse(@theme-style, darken(@c2, 5%));
+        color: @c2-inverse;
+      }
+    }
+
+    &.disabled {
+      a {
+        cursor: not-allowed;
+        pointer-events: none;
+        .theme-style(@theme-style, darken(@white, 8%));
+        .text-shadow(@white);
+        .opacity(0.65);
+        .no-box-shadow;
+      }
+    }
+  }
+
+  // Sizing
+  &.pagination-lg {
+    li {
+      a {
+        padding: 10px 20px;
+        font-size: @font-size + 4;
+      }
+    }
+  }
+
+  &.pagination-sm {
+    li {
+      a {
+        padding: 4px 8px;
+        font-size: @font-size - 1;
+      }
+    }
+  }
+}
+
+// Pager
+.pager {
+  li {
+    a {
+      .full-border-radius;
+      .theme-style(@theme-style, darken(@white, 8%));
+      .text-shadow(@white);
+      color: @black;
+
+      &:hover {
+        .theme-style(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+
+      &:active {
+        .theme-style-inverse(@theme-style, darken(@white, 12%));
+        .text-shadow(@white);
+      }
+    }
+
+    &.active {
+      a,
+      a:hover,
+      a:active {
+        .theme-style-inverse(@theme-style, darken(@c2, 5%));
+        color: @c2-inverse;
+      }
+    }
+
+    &.disabled {
+      a {
+        cursor: not-allowed;
+        pointer-events: none;
+        .theme-style(@theme-style, darken(@white, 8%));
+        .text-shadow(@white);
+        .opacity(0.65);
+        .no-box-shadow;
+      }
+    }
+  }
+}

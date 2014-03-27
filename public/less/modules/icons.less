@@ -1,0 +1,73 @@
+/* -----------------------------
+//   stagui }> - Icons
+// ----------------------------- */
+
+@import "../libs/font-awesome/font-awesome";
+@import "../libs/flag-webicons";
+
+@icon-font-path: "../fonts/";
+@fa-font-path: "../fonts/";
+@flag-webicons-url: "../img/flags/";
+
+// Colors
+.icon-primary {
+  color: @c1 !important;
+}
+
+.icon-secondary {
+  color: @c2 !important;
+}
+
+.icon-inverse {
+  color: lighten(@black, 12%) !important;
+}
+
+.icon-success {
+  color: @green !important;
+}
+
+.icon-info {
+  color: @blue !important;
+}
+
+.icon-warning {
+  color: @yellow !important;
+}
+
+.icon-danger {
+  color: @red !important;
+}
+
+// Flags
+.flag {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+
+  &.flag-md {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.flag-lg {
+    width: 64px;
+    height: 64px;
+  }
+
+  &.flag-xl {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+// Demo (showcase only)
+.icon-demo {
+  margin-bottom: 10px;
+
+  .fa {
+    font-size: @font-size + 2;
+  }
+}
