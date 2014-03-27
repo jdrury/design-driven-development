@@ -64,7 +64,7 @@
           <div>
             <ul ng-repeat="user in users | filter:query">
               <span ng-if="query">
-                <input type="checkbox" ng-click="selectCollaborator(user)">{{user.name}} ( {{user.username}} )</input>
+                  <input type="checkbox" ng-checked="check(user)" ng-click="selectCollaborator(user)">{{user.name}} ( {{user.username}} )</input>
               </span>
             </ul>
           </div>

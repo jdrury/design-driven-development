@@ -6,10 +6,20 @@ angular.module('mean.projects').controller('ProjectsController', ['$scope', '$st
   // concatenated links (used for back button)
   $scope.projectID = '#!/projects/' + $stateParams.projectId;
 
+$scope.check = function(user){
+  var found = false;
+    for(var i = 0 ; i < $scope.project.users.length; i++){
+      if($scope.project.users[i]._id === user._id){
+        found = true;
+      }
+    }
+  return found;
+}
+
+
 	// Get user info for dropdown list
 	$scope.findUsers = function() {
 		$scope.users = [];
-
 		UsersToAdd.query(function(users) {
 			users.forEach(function(user) {
 				if (user._id !== window.user._id) {
@@ -23,8 +33,22 @@ angular.module('mean.projects').controller('ProjectsController', ['$scope', '$st
   };
 
 $scope.selectCollaborator = function(user) {
+  var found = false;
+    for(var i = 0 ; i < $scope.project.users.length; i++){
+      if($scope.project.users[i]._id === user._id){
+        found = true;
+      }
+    }
+    if(!found){
       $scope.project.users.push(user);
-
+    }else{
+      for(var i = 0 ; i < $scope.project.users.length; i++){
+        if($scope.project.users[i]._id === user._id){
+          $scope.project.users.splice(i,1);
+          console.log($scope.project.users);
+        }
+      }
+    }
       // if the user is not a collaborator, add them to array
       // if ($scope.users.indexOf(user) !== -1) {
       //   $scope.users.push(user);
@@ -32,7 +56,7 @@ $scope.selectCollaborator = function(user) {
       // } else {
       //   // remove users that already exist
       //   var i = $scope.users.indexOf(user);
-      //   $scope.users.splice(i,1);
+      //   $scope.users.slice(i,1);
       // }
       // return users;
     }
