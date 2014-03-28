@@ -43,30 +43,7 @@
 			</nav>
 
 			<!-- Rightbar -->
-			<div class="layout-content">
-				<div class="layout-header">
-					<ul class="breadcrumb">
-						<li><a href="#">3DT</a></li>
-						<li class="active">Dashboard</li>
-					</ul>
-
-					<div class="page-header">
-						<h1 class="page-title"><i class="fa fa-fw fa-dashboard"></i> Dashboard
-							<small>subtitle</small>
-						</h1>
-						<div class="daterangewidget pull-right btn btn-primary" id="daterangepicker-widget">
-							<i class="fa fa-fw fa-calendar"></i>
-							<span></span>
-							<b class="caret"></b>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					{% block content %}{% endblock %}
-				</div>
-			</div>
-		</div>
+			{% block content %}{% endblock %}
 
 		{% include '../includes/foot.html' %}
 	</body>

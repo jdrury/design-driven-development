@@ -21,8 +21,8 @@
 				<span class="caret"></span>
 			</a>
 			<ul id="projects" class="collapse" data-ng-controller="ProjectsController" data-ng-init="find()">
-				<li data-ng-repeat="project in projects"><a data-ng-href="#!/projects/{{project._id}}">{{project.title}}</a></li>
-				<li><a href="#!/projects/create">Create Project</a></li>
+				<li data-ng-repeat="project in projects"><a data-ng-href="/#!/projects/{{project._id}}">{{project.title}}</a></li>
+				<li><a href="/#!/projects/create">Create Project</a></li>
 			</ul>
 		</li>
 	</ul>

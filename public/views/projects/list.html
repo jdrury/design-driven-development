@@ -1,19 +1,41 @@
-<section class="projectcontent" data-ng-controller="ProjectsController" data-ng-init="find()">
+<section data-ng-controller="ProjectsController" data-ng-init="find()">
 
-	<div class="projectlist" data-ng-repeat="project in projects">
-		<div class="project">
+<!-- 	<div class="col-md-6" data-ng-repeat="project in projects">
+			<div class="well">
 
-			<div class="date text-center">
-				{{project.created | date: 'MMM d'}}<br>
-				{{project.created | date: 'yyyy'}}
+				<div class="date text-center">
+					{{project.created | date: 'MMM d'}}<br>
+					{{project.created | date: 'yyyy'}}
+				</div>
+
+				<h2><a data-ng-href="#!/projects/{{project._id}}">{{project.title}}</a></h2>
+				<div class="projectinfo">
+					<span ng-repeat="user in project.users">{{user.name}} </span>
+				</div>
+				<div class="clearfix"></div>
+
+			</div>
+	</div> -->
+
+	<div class="col-lg-6" data-ng-repeat="project in projects">
+		<!-- Panel Default -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{project.created | date: 'MMM d, yy'}}</h3>
+
+				<div class="btn-group pull-right">
+					<a href="/#!/projects/{{project._id}}/edit" class="btn btn-default btn-refresh">
+						<i class="fa fa-fw fa-cog"></i>
+					</a>
+				</div>
 			</div>
 
-			<h2><a data-ng-href="#!/projects/{{project._id}}">{{project.title}}</a></h2>
-			<div class="projectinfo">
-				<span ng-repeat="user in project.users">{{user.name}} </span>
+			<div class="panel">
+				<div class="panel-body">
+					<h3>{{project.title}}</h3>
+					<p ng-repeat="user in project.users">{{user.name}}</p>
+				</div>
 			</div>
-			<div class="clearfix"></div>
-
 		</div>
 	</div>
 
