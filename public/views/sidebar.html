@@ -1,0 +1,30 @@
+<!-- Sidebar Header -->
+<div class="sidebar-header">
+	<!-- Check out image dimensions for line-height
+	<img class="sidebar-brand" src="../img/stagui-logo.svg" height="24" alt="stagui }>" title="stagui }>"> -->
+	<p class="sidebar-brand">3DT</p>
+
+	<div class="btn-group pull-right">
+			<a href="/" class="btn btn-primary"><i class="fa fa-fw fa-home"></i></a>
+			<a class="btn btn-primary"><i class="fa fa-fw fa-repeat"></i></a>
+	</div>
+</div>
+<!-- Sidebar Content -->
+<div class="sidebar-content">
+	<!-- Sidebar Navigation -->
+	<ul class="nav sidebar-nav">
+		<li><a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a></li>
+
+		<li>
+			<a data-toggle="collapse" href="#projects" class="collapsed">
+				<i class="fa fa-fw fa-folder"></i> Projects
+				<span class="caret"></span>
+			</a>
+			<ul id="projects" class="collapse" data-ng-controller="ProjectsController" data-ng-init="find()">
+				<li data-ng-repeat="project in projects"><a data-ng-href="#!/projects/{{project._id}}">{{project.title}}</a></li>
+				<li><a href="#!/projects/create">Create Project</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<hr>
