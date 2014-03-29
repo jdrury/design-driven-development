@@ -1,17 +1,77 @@
 <section data-ng-controller="VersionsController">
-	<div class="row">
-		<div class="col-md-12">
-			<h2>Upload a New Version</h2>
+	<div class="layout-content">
+
+		<div class="layout-header">
+			<ul class="breadcrumb">
+				<li><a href="/">Versions</a></li>
+				<li class="active">Upload</li>
+			</ul>
+			<div class="page-header">
+				<h1 class="page-title"><i class="fa fa-fw fa-folder"></i> Versions
+					<small>Upload a version</small>
+				</h1>
+			</div>
 		</div>
-	</div>
-	<div class="row row-forms">
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Upload</h3>
+					</div>
+					<div id="nolabel-layout" class="panel">
+						<div class="panel-body">
+							<form class="form-horizontal col-sm-11 form-padding" role="form" action="{{formCreate}}" ng-upload="create(content)" enctype="multipart/form-data" data-ng-submit="showLoading = true">
+
+								<div class="form-group">
+									<div class="input-group">
+										<label for="mockup" class="input-group-addon">Mockup</label>
+										<input class="form-control" type="file" id="mockup" name="mockup" required>
+									</div>
+								</div>
+
+<!-- 										<div class="fileinput fileinput-new" data-provides="fileinput">
+											<a class="btn btn-default btn-file">
+												<span class="fileinput-new"><i class="fa fa-fw fa-file"></i> Select file</span>
+												<span class="fileinput-exists"><i class="fa fa-fw fa-refresh"></i> Change</span>
+												<input type="file" id="mockup" name="mockup" required>
+											</a>
+											<span class="fileinput-filename"></span>
+											<a href="#" class="close fileinput-exists" data-dismiss="fileinput">
+												<i class="fa fa-fw fa-times"></i>
+											</a>
+										</div>
+								</div> -->
+
+								<div class="form-group">
+									<div class="input-group">
+										<label for="url" class="input-group-addon">URL to Compare</label>
+										<input class="form-control" type="text" name="screenShot" placeholder="URL" id="url" required>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="form-buttons">
+										<div class="pull-right">
+											<button type="submit" class="btn btn-primary">Test</button>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<!-- 	<div class="row row-forms">
 		<div class="col-sm-7 form-padding">
 			<form class="form-horizontal col-sm-11 form-padding" role="form" action="{{formCreate}}" ng-upload="create(content)" enctype="multipart/form-data" ng-submit="showLoading = true">
 				<div class="form-group">
 					<label for="image" class="col-sm-2 control-label form-padding">Image</label>
 					<div class="col-sm-10 form-padding">
 						<input class="form-control" type="file" id="image" name="mockup" required>
-            <input class="form-control" type="text" name="screenShot" placeholder="URL" required>
+						<input class="form-control" type="text" name="screenShot" placeholder="URL" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -20,20 +80,22 @@
 					</div>
 				</div>
 			</form>
-		</div>
+		</div> -->
 
-		<div class="col-sm-5">
-			<div class="col-sm-12 col-forminfo montserrat">
-				Upload the mock-up you wish to test against. PNG formats only, please.
+			<div class="col-md-6">
+				<div class="tile tile-default">
+					Upload the mock-up you wish to test against. PNG formats only, please.
+				</div>
+
+				<div class="tile tile-success" data-ng-if="showLoading">
+					<h4><i class="fa fa-refresh fa-spin"></i>  Analyzing...</h4>
+				</div>
+
+				<div >
+					<div class="tile tile-danger" data-ng-if="!global.user._id"><h4>Please <a href ="/signin">Sign In</a> and Try Again.</h4>
+				</div>
 			</div>
+
 		</div>
-
-		<div ng-if="showLoading">
-		<h1><i class = "icon-spin"> <i class = "glyphicon glyphicon-refresh"></i></i> Analyzing...</h1>
-	</div>
-	<div ng-if="!global.user._id">
-		<div> <h1>Please <a href ="/signin">Sign In</a> and Try Again.</h1>
-	</div>
-
 	</div>
 </section>

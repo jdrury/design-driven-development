@@ -1,110 +1,126 @@
-<!-- version details -->
 <section class="versionwrapper" data-ng-controller="VersionsController" data-ng-init="findOne()">
-	<h2>{{version.project.title}}</h2>
-	<p class="info">
-		<span>Uploaded: {{version.created | date:'MMM d, yyyy @ h:mm a'}}</span>
-		<br>
-    <a class="btn btn-icon" href="{{projectID}}">
-        <i class="fa fa-toggle-left"></i> Back to Project
-    </a>
-		<span ng-repeat="user in version.project.users" data-ng-show="global.user._id == user">
-			<a class="btn btn-icon" data-ng-click="remove(version);">
-				<i class="fa fa-times"></i> Delete Version
-			</a>
-			<h2 class = "centered"> You are at {{version.percentage}}% compliance. </h2>
-			<p class="text-center">Click image to add a note. <a class="link-cursor" ng-click="hideAllNotes = !hideAllNotes"><span ng-hide="hideAllNotes">Hide all notes.</span><span ng-hide="!hideAllNotes">Show all notes.</span></a></p>
-		</span>
-	</p>
 
-	<!-- display version image -->
+	<section data-ng-controller="ProjectsController" data-ng-init="findOne()">
+	<div class="layout-content">
 
-	<div class="row note-relative hide-mobile" data-ng-controller="NotesController" data-ng-init="find()">
-		<div class="col-lg-12">
-			<div class="img-wrapper">
-				<div class = "centered">
-				<img class="img-version" src="{{version.compared}}" data-ng-click="findCoordinates($event); show.note = !show.note; show.edit = false">
-			</div>
-				<!-- display notes -->
-				<div data-ng-repeat="note in notes" class="note" style="position: absolute; left: {{note.coordinates[0]}}px; top: {{note.coordinates[1]}}px; z-index: {{note.zindex}};" data-ng-click="note.zindex = note.zindex + 1" data-ng-hide="hideAllNotes">
-
-					<div ng-hide="show.edit">
-						<span class="note-name">{{note.user.name}}:</span>
-						<div>
-							{{note.content}}
-							<p class="note-icons" data-ng-show="global.user._id == note.user._id">
-								<a class="btn btn-icon" ng-click="findToEdit(note._id);show.edit = !show.edit">
-									<i class="fa fa-edit"></i>
-								</a>
-								<a class="btn btn-icon" data-ng-click="remove(note);">
-									<i class="fa fa-times"></i>
-								</a>
-							</p>
-						</div>
-					</div>
-
-					<!-- edit note -->
-					<div ng-show="show.edit">
-						<span class="note-name">{{note.user.name}}:</span>
-						<form role="form" data-ng-submit="update()">
-							<div class="form-group">
-								<label for="content" class="control-label">Content</label>
-								<textarea data-ng-model="noteToEdit.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required>{{note.content.note}}</textarea>
-							</div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-default" data-ng-click="show.edit = false">Edit Note</button>
-							</div>
-						</form>
-					</div>
-
-
-				</div>
-
-				<!-- display note during creation -->
-				<div data-ng-show="show.note" class="note" style="position: absolute; left: {{coordinates.x}}px; top: {{coordinates.y}}px; z-index: 9999;" ng-hide="show.edit">
-					<!-- create note -->
-						<span class="note-name">{{global.user.name}}:</span>
-						<form role="form" data-ng-submit="create()">
-							<div class="form-group">
-								<input type="hidden" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x" required>
-								<input type="hidden" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y" required>
-								<label for="content" class="control-label">Content</label>
-								<textarea data-ng-model="content.note" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
-							</div>
-
-							<div class="form-group">
-								<button type="submit" class="btn btn-default" data-ng-click="show.note = false">Save Note</button>
-							</div>
-						</form>
-
-				</div>
-
+		<div class="layout-header">
+			<ul class="breadcrumb">
+				<li><a href="/#!/projects/{{version.project._id}}/versions/{{version._id}}">{{version.project.title}}</a></li>
+				<li class="active">Version</li>
+			</ul>
+			<div class="page-header">
+				<h1 class="page-title"><i class="fa fa-fw fa-folder"></i> {{version.project.title}}
+					<small>Versions</small>
+				</h1>
 			</div>
 		</div>
 
-	</div>
-
-	<div class="row row-info show-mobile" data-ng-controller="NotesController" data-ng-init="find()">
-		<div class="col-sm-12">
-			<p>3DT is read-only on mobile devices. Here are your notes for this version:</p>
-		</div>
-		<div class="col-sm-12 mobile-notes">
-			<div  data-ng-repeat="note in notes">
-				<span class="note-name">{{note.user.name}}:</span>
-				<p>
-					{{note.content}}
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tile tile-default">
+					<span>{{version.created | date:'MMMM d, yyyy'}}</span> /
+				</div>
+				<h2 class = "centered"> You are at {{version.percentage}}% compliance. </h2>
+				<p class="text-center">Click image to add a note.
+					<a class="link-cursor" ng-click="hideAllNotes = !hideAllNotes">
+						<span ng-hide="hideAllNotes">Hide all notes.</span>
+						<span ng-hide="!hideAllNotes">Show all notes.</span>
+					</a>
 				</p>
 			</div>
+
+			<!-- display version image -->
+
+			<div class="row note-relative hide-mobile" data-ng-controller="NotesController" data-ng-init="find()">
+				<div class="col-lg-12">
+					<div class="img-wrapper">
+						<div class = "centered">
+						<img class="img-version" src="{{version.compared}}" data-ng-click="findCoordinates($event); show.note = !show.note; show.edit = false">
+					</div>
+						<!-- display notes -->
+						<div data-ng-repeat="note in notes" class="col-md-2 tile tile-default" style="position: absolute; left: {{note.coordinates[0]}}px; top: {{note.coordinates[1]}}px; z-index: {{note.zindex}};" data-ng-click="note.zindex = note.zindex + 1" data-ng-hide="hideAllNotes">
+
+							<div ng-hide="show.edit">
+								<span class="note-name">{{note.user.name}}:</span>
+								<div>
+									{{note.content}}
+									<p class="note-icons" data-ng-show="global.user._id == note.user._id">
+										<a class="btn btn-icon" ng-click="findToEdit(note._id);show.edit = !show.edit">
+											<i class="fa fa-edit"></i>
+										</a>
+										<a class="btn btn-icon" data-ng-click="remove(note);">
+											<i class="fa fa-times"></i>
+										</a>
+									</p>
+								</div>
+							</div>
+
+							<!-- edit note -->
+							<div ng-show="show.edit">
+								<span class="note-name">{{note.user.name}}:</span>
+								<form role="form" data-ng-submit="update()">
+									<div class="form-group">
+										<label for="content" class="control-label">Content</label>
+										<textarea data-ng-model="noteToEdit.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required>{{note.content.note}}</textarea>
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-default" data-ng-click="show.edit = false">Edit Note</button>
+									</div>
+								</form>
+							</div>
+
+
+						</div>
+
+						display note during creation
+						<div data-ng-show="show.note" class="note" style="position: absolute; left: {{coordinates.x}}px; top: {{coordinates.y}}px; z-index: 9999;" ng-hide="show.edit">
+							<!-- create note -->
+								<span class="note-name">{{global.user.name}}:</span>
+								<form role="form" data-ng-submit="create()">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name="xcoord" id="xcoord" data-ng-model="coordinates.x" required>
+										<input type="hidden" class="form-control" name="ycoord" id="ycoord" data-ng-model="coordinates.y" required>
+										<label for="content" class="control-label">Content</label>
+										<textarea data-ng-model="content.note" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+									</div>
+
+									<div class="form-group">
+										<button type="submit" class="btn btn-default" data-ng-click="show.note = false">Save Note</button>
+									</div>
+								</form>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row row-info show-mobile" data-ng-controller="NotesController" data-ng-init="find()">
+				<div class="col-sm-12">
+					<p>3DT is read-only on mobile devices. Here are your notes for this version:</p>
+				</div>
+				<div class="col-sm-12 mobile-notes">
+					<div  data-ng-repeat="note in notes">
+						<span class="note-name">{{note.user.name}}:</span>
+						<p>
+							{{note.content}}
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row moveToBack">
+				<div class="col-md-6">
+					<h4> URL tested:</h4>
+					<img class="img-responsive" src = "{{version.screenShot}}"></img>
+				</div>
+				<div class="col-md-6">
+					<h4>File uploaded:</h4>
+					<img class="img-responsive" src="{{version.mockup}}"></img>
+				</div>
+			</div>
+
 		</div>
 	</div>
-
-		<div class = "row moveToBack">
-			<div class = "col-md-6">
-				<h4> URL tested:</h4>
-				<img class = "preview" src = "{{version.screenShot}}"></img>
-			</div>
-			<div class = "col-md-6">
-				<h4>File uploaded:</h4>
-				<img class = "preview" src = "{{version.mockup}}"></img>
-			</div>
-		</div>
 </section>
