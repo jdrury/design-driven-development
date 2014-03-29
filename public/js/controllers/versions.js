@@ -6,7 +6,6 @@ angular.module('mean.versions').controller('VersionsController', ['$scope', '$st
 	// concatenated links
   $scope.projectID = '#!/projects/' + $stateParams.projectId;
 	$scope.formCreate = '/projects/' + $stateParams.projectId + '/versions';
-	$scope.projectCreate = '#!/projects/' + $stateParams.projectId + '/versions/create';
 	$scope.projectView = '#!/projects/' + $stateParams.projectId + '/versions/';
 
   // waits for Express 'create' function to respond with 'content' before redirecting user to new version

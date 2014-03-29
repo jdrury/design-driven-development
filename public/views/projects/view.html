@@ -1,22 +1,28 @@
 <section data-ng-controller="ProjectsController" data-ng-init="findOne()">
+	<div class="layout-content">
 
-	<h2>{{project.title}}</h2>
-	<p class="info">
-		<span>{{project.created | date:'MMM d, yyyy'}}</span> /
-		<span ng-repeat="user in project.users">{{user.name}} </span>
-		<br>
-		<span ng-repeat="user in project.users" data-ng-show="global.user._id == user._id">
+		<div class="layout-header">
+			<ul class="breadcrumb">
+				<li><a href="/">Projects</a></li>
+				<li class="active">{{project.title}}</li>
+			</ul>
+			<div class="page-header">
+				<h1 class="page-title"><i class="fa fa-fw fa-folder"></i> Projects
+					<small>{{project.title}}</small>
+				</h1>
+			</div>
+		</div>
 
-      <a class="btn btn-icon" href="/#!/">
-        <i class="fa fa-toggle-left"></i> Back to All Projects
-      </a>
-			<a class="btn btn-icon" href="/#!/projects/{{project._id}}/edit">
-				<i class="fa fa-edit"></i> Edit Project
-			</a>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tile tile-default">
+					<span>{{project.created | date:'MMMM d, yyyy'}}</span> /
+					<span ng-repeat="user in project.users">{{user.name}} </span> /
+					<a href="/#!/projects/{{project._id}}/versions/create">Upload a new version</a>
+				</div>
+			</div>
+		</div>
 
-		</span>
-	</p>
-
-	<div ng-include="'views/versions/list.html'"></div>
-
+		<div ng-include="'views/versions/list.html'"></div>
+	</div>
 </section>

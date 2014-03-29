@@ -1,23 +1,27 @@
-<section data-ng-controller="VersionsController" data-ng-init="find()">
+<div class="row" data-ng-controller="VersionsController" data-ng-init="find()">
 
-	<a href="{{projectCreate}}">Upload a new version</a></p>
+	<div class="col-lg-6" data-ng-repeat="version in versions">
+	<!-- Panel Default -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{version.created | date: 'MMMM d, yyyy'}}</h3>
 
-	<div class="row row-thumbnails">
-		<div class="col-sm-4 col-thumbnails" data-ng-repeat="version in versions">
-			<div class="version">
-				{{version.percentage}}%
-				<a data-ng-href="{{projectView}}{{version._id}}">
-					<img class="thumbnails" src="{{version.compared}}">
+			<div class="btn-group pull-right">
+				<a href="/#!/projects/{{project._id}}/edit" class="btn btn-default btn-refresh">
+					<i class="fa fa-fw fa-cog"></i>
 				</a>
-				<div class="versioninfo">
-					<span class="versiondate">Uploaded: {{version.created | date:'MMM d, yyyy @ h:mm a'}}</span>
-					<div class="notecount text-center">
-						{{version.noteCount}}<br>notes
-					</div>
-					<div class="clearfix"></div>
-				</div>
 			</div>
 		</div>
-	</div>
 
-</section>
+		<div class="panel">
+			<div class="panel-body">
+				<h3>{{version.percentage}}%</h3>
+				<a data-ng-href="{{projectView}}{{version._id}}">
+					<img class="img-responsive" src="{{version.compared}}">
+				</a>
+				<p>{{version.noteCount}} notes</p>
+			</div>
+		</div>
+
+	</div>
+</div>
