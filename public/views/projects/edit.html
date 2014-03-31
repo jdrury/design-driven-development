@@ -1,4 +1,4 @@
-<section data-ng-controller="ProjectsController" data-ng-init="findOne()">
+<section data-ng-init="findOne()">
 
 	<div class="layout-content" data-ng-show="global.authenticated">
 		<div class="layout-header">
@@ -9,6 +9,9 @@
 			<div class="page-header">
 				<h1 class="page-title"><i class="fa fa-fw fa-folder"></i> Projects
 					<small>Edit</small>
+					<a href="#" class="btn btn-default" ng-click="remove()">
+						<i class="fa fa-fw fa-trash-o"></i>
+					</a>
 				</h1>
 			</div>
 		</div>

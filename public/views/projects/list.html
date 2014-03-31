@@ -1,4 +1,4 @@
-<section data-ng-controller="ProjectsController" data-ng-init="find()">
+<section data-ng-init="find()">
 
 	<div class="col-lg-6" data-ng-repeat="project in projects">
 		<!-- Panel Default -->
@@ -7,9 +7,7 @@
 				<h3 class="panel-title">{{project.created | date: 'MMMM d, yyyy'}}</h3>
 
 				<div class="btn-group pull-right">
-					<a href="#" class="btn btn-default">
-						<i class="fa fa-fw fa-trash-o"></i>
-					</a>
+
 					<a href="/#!/projects/{{project._id}}/edit" class="btn btn-default">
 						<i class="fa fa-fw fa-cog"></i>
 					</a>

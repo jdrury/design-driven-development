@@ -6475,11 +6475,11 @@ hr {
   background: transparent;
 }
 .layout-right-panel-toggle .layout-rightbar {
-  right: -250px;
+  right: 0px;
 }
 @media (max-width: 1200px) {
   .layout-rightbar {
-    right: -250px;
+    right: 0px;
   }
   .layout-right-panel-toggle .layout-rightbar {
     right: 0;
@@ -6487,7 +6487,7 @@ hr {
 }
 @media (max-width: 992px) {
   .layout-rightbar {
-    right: -250px;
+    right: 0px;
   }
   .layout-right-panel-toggle .layout-rightbar {
     right: 0;
@@ -6500,8 +6500,8 @@ hr {
     -o-transition: all 350ms ease;
     transition: all 350ms ease;
     right: 0;
-    -webkit-transform: translate3d(250px, 0, 0);
-    transform: translate3d(250px, 0, 0);
+    -webkit-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
   }
 }
 @media (max-width: 992px) and (-webkit-transform-3d) {
@@ -6514,7 +6514,7 @@ hr {
 //   stagui }> - Topbar
 // ----------------------------- */
 .layout-topbar {
-  right: 250px;
+  right: 0px;
   left: 250px;
   padding: 10px 20px;
   position: fixed;
@@ -6655,7 +6655,7 @@ hr {
     right: 0;
   }
   .layout-right-panel-toggle .layout-topbar {
-    right: 250px;
+    right: 0px;
   }
 }
 @media (max-width: 992px) {
@@ -6669,8 +6669,8 @@ hr {
     right: -250px;
   }
   .layout-right-panel-toggle .layout-topbar {
-    right: 250px;
-    left: -250px;
+    right: 0px;
+    left: 0px;
   }
 }
 @media (max-width: 992px) and (-webkit-transform-3d) {
@@ -6693,8 +6693,8 @@ hr {
   .layout-right-panel-toggle .layout-topbar {
     right: 0;
     left: auto;
-    -webkit-transform: translate3d(-250px, 0, 0);
-    transform: translate3d(-250px, 0, 0);
+    -webkit-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
   }
 }
 @media (max-width: 768px) {
@@ -6719,7 +6719,7 @@ hr {
   padding: 0 20px 20px;
   position: fixed;
   top: 52px;
-  right: 250px;
+  right: 0px;
   left: 250px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -6849,7 +6849,7 @@ hr {
     right: 0;
   }
   .layout-wrapper.layout-right-panel-toggle .layout-content {
-    right: 250px;
+    right: 0px;
   }
 }
 @media (max-width: 992px) {
@@ -6862,8 +6862,8 @@ hr {
     right: -250px;
   }
   .layout-wrapper.layout-right-panel-toggle .layout-content {
-    right: 250px;
-    left: -250px;
+    right: 0px;
+    left: 0px;
   }
 }
 @media (max-width: 992px) and (-webkit-transform-3d) {
@@ -6886,8 +6886,8 @@ hr {
   .layout-wrapper.layout-right-panel-toggle .layout-content {
     right: 0;
     left: 0;
-    -webkit-transform: translate3d(-250px, 0, 0);
-    transform: translate3d(-250px, 0, 0);
+    -webkit-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
   }
 }
 @media (max-width: 768px) {
@@ -26511,7 +26511,7 @@ fieldset[disabled] .fc .fc-button {
  *
  * @version
  * 3.0.83 (July 02 2010)
- *
+ * 
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -26744,7 +26744,7 @@ fieldset[disabled] .fc .fc-button {
  *
  * @version
  * 3.0.83 (July 02 2010)
- *
+ * 
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -26867,7 +26867,7 @@ fieldset[disabled] .fc .fc-button {
  *
  * @version
  * 3.0.83 (July 02 2010)
- *
+ * 
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -27002,7 +27002,7 @@ fieldset[disabled] .fc .fc-button {
  *
  * @version
  * 3.0.83 (July 02 2010)
- *
+ * 
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *

@@ -83,6 +83,7 @@ $scope.selectCollaborator = function(user) {
 			, userToAdd: this.userToAdd
 		});
 		project.$save(function(response) {
+			$scope.find();
 			$location.path('/projects/' + response._id);
 		});
 
@@ -92,23 +93,25 @@ $scope.selectCollaborator = function(user) {
 
 	$scope.remove = function(project) {
 		var r = confirm("Are you sure you want to delete this project?\nThis action can't be undone");
-		console.log(project);
 		if(r == true){
 
-		if (project) {
-			project.$remove();
+			if (project) {
+				project.$remove();
 
-			for (var i in $scope.projects) {
-				if ($scope.projects[i] === project) {
-					$scope.projects.splice(i, 1);
+				for (var i in $scope.projects) {
+					if ($scope.projects[i] === project) {
+						$scope.projects.splice(i, 1);
+					}
 				}
 			}
+			else {
+				$scope.project.$remove(function(){
+					$scope.find();
+					$location.path('/');
+				});
+			}
 		}
-		else {
-			$scope.project.$remove();
-		}
-		$location.path('/');
-		}
+
 	};
 
 	$scope.update = function() {
@@ -118,8 +121,8 @@ $scope.selectCollaborator = function(user) {
 			project.updated = [];
 		}
 		project.updated.push(new Date().getTime());
-
 		project.$update(function() {
+			$scope.find();
 			$location.path('/projects/' + project._id);
 		});
 	};
