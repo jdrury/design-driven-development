@@ -47,14 +47,14 @@ exports.create = function(req, res) {
   var url = req.body.screenShot;
 
   // temporary id number generator
-  var testid = new Date().valueOf();
+  var fileId = version._id;
 
   // set screenshot file name
-  var screenshotName = testid + '-ss.png';
+  var screenshotName = fileId + '-ss.png';
 
   // change user file name to test id
   var fileRename = file.name.split('.');
-  fileRename[0] = testid;
+  fileRename[0] = fileId;
   file.name = fileRename.join('.');
 
   var linkUrl = 'http://s3.amazonaws.com/screenshotsfp/' + screenshotName;
@@ -110,7 +110,7 @@ exports.create = function(req, res) {
             Body: data
           }, function() {
             console.log('uploaded screenshot: ' + screenshotName);
-            runTests(linkUrl, fileUrl, testid, version, res);
+            runTests(linkUrl, fileUrl, fileId, version, res);
           });
         });
       });
@@ -122,7 +122,7 @@ exports.create = function(req, res) {
     });
 };
 
-var runTests = function(linkURL, fileURL, testid, version, res){
+var runTests = function(linkURL, fileURL, fileId, version, res){
   request.get({url: fileURL, encoding: 'binary'}, function(err, response, body){
     fs.writeFile(os.tmpdir()+'/image.png', body, 'binary', function(err){
       fs.createReadStream(os.tmpdir()+'/image.png')
@@ -161,15 +161,15 @@ var runTests = function(linkURL, fileURL, testid, version, res){
             r.on('close', function(){
                 fs.readFile(os.tmpdir()+'out.png', function(err, data) {
                 if (err) { throw err; }
-                var s3 = new AWS.S3({ params: {Bucket: 'screenshotsfp', Key: testid+'-out.png' }});
+                var s3 = new AWS.S3({ params: {Bucket: 'screenshotsfp', Key: fileId+'-out.png' }});
                 s3.putObject({
                   Body: data
                 }, function() {
-                  console.log('uploaded comparison: ' + testid + 'out.png');
+                  console.log('uploaded comparison: ' + fileId + 'out.png');
 
               var percentage = ((1 - (differenceCount/totalPixels)) *100);
               version.percentage = percentage;
-              version.compared = 'http://s3.amazonaws.com/screenshotsfp/'+ testid +'-out.png';
+              version.compared = 'http://s3.amazonaws.com/screenshotsfp/'+ fileId +'-out.png';
                 // save version
                 version.save(function(err) {
                   if (err) {
@@ -202,9 +202,19 @@ var runTests = function(linkURL, fileURL, testid, version, res){
 exports.destroy = function(req, res) {
 	var version = req.version;
 
+	var screenshotName = version.screenShot.split('/');
+	var mockupName = version.mockup.split('/');
+	var comparedName = version.compared.split('/');
+
 	var s3 = new AWS.S3();
-	s3.client.deleteObject({Bucket: 'laurenashpolefp', Key: req.version.file }, function(err, data) {
+	s3.client.deleteObject({Bucket: 'screenshotsfp', Key: screenshotName[screenshotName.length-1] }, function(err, data) {
 		console.log(err, data);
+		s3.client.deleteObject({Bucket: 'screenshotsfp', Key: mockupName[mockupName.length-1] }, function(err, data) {
+			console.log(err, data);
+			s3.client.deleteObject({Bucket: 'screenshotsfp', Key: comparedName[comparedName.length-1] }, function(err, data) {
+				console.log(err, data);
+			});
+		});
 	});
 
 	version.remove(function(err) {
