@@ -92,7 +92,13 @@ exports.create = function(req, res) {
         windowSize: {
           width: widthToUse,
           height: heightToUse
-        }
+        },
+				script: function() {
+					setTimeout(function() {
+						window.callPhantom('takeShot');
+					},2000);
+				 },
+				 takeShotOnCallback: true
       };
 
       // upload screenshot to s3
