@@ -20,7 +20,7 @@
 			<div class="col-md-12">
 				<div class="tile tile-default">
 					<span style="line-height: 30px;">{{version.created | date:'MMMM d, yyyy'}}</span>
-					<a href="/#!/projects/{{project._id}}/versions/create" class="btn btn-default pull-right">Upload a new version</a>
+					<a href="/#!/projects/{{version.project._id}}/versions/create" class="btn btn-default pull-right">Upload a new version</a>
 					<div class="clearfix"></div>
 				</div>
 				<h2 class = "centered"> You are at {{version.percentage}}% compliance. </h2>
