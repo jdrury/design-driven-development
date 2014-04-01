@@ -138,7 +138,7 @@ exports.destroy = function(req, res) {
 			versions.forEach(function(version) {
 
 				var s3 = new AWS.S3();
-				s3.client.deleteObject({Bucket: 'laurenashpolefp', Key: version.file }, function(err, data) {
+				s3.client.deleteObject({Bucket: 'screenshotsfp', Key: version.file }, function(err, data) {
 					console.log(err, data);
 				});
 				version.remove();
