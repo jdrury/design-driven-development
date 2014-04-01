@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 var fs = require('fs');
 var AWS = require('aws-sdk');
-AWS.config.loadFromPath(__dirname + '/aws.json');
+AWS.config.update({"accessKeyId":process.env.AMAZONKEY, "secretAccessKey":process.env.AMAZONACESS, "region": "" })
 
 var pngparse = require('pngparse');
 
