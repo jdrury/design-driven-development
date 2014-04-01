@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/3DT',
+	db: process.env.MONGOLAB_URI,
 	app: {
 		name: 'Design Driven Development Tool'
 	},
