@@ -102,8 +102,8 @@ exports.create = function(req, res) {
       };
 
       // upload screenshot to s3
-      webshot(url, ostemp +"/"+ screenshotName, options, function(err) {
-        fs.readFile(ostemp +"/"+ screenshotName, options, function(err, data) {
+      webshot(url, ostemp + screenshotName, options, function(err) {
+        fs.readFile(ostemp + screenshotName, options, function(err, data) {
           if (err) { throw err; }
           var s3 = new AWS.S3({ params: {Bucket: 'screenshotsfp', Key: screenshotName} });
           s3.putObject({
