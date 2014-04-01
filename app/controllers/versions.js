@@ -19,7 +19,7 @@ var PNG = require('pngjs').PNG;
 var webshot = require('webshot');
 var request = require('request');
 var os = require('os');
-var ostemp = os.tmpdir();
+var ostemp = os.tmpdir() + '/';
 
 
 /**
