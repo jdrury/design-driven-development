@@ -21,6 +21,7 @@ var request = require('request');
 var os = require('os');
 var ostemp = os.tmpdir();
 
+console.log(ostemp)
 /**
  * Find version by id
  */

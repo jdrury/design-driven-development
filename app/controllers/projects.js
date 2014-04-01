@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 var smtpTransport = require('./nodemailer');
 var nodemailer = require('nodemailer');
 var AWS = require('aws-sdk');
-AWS.config.update({"accessKeyId":process.env.AMAZONKEY, "secretAccessKey":process.env.AMAZONACESS, "region": "" })
+AWS.config.loadFromPath(__dirname + '/aws.json');
 
 /**
  * Find project by id
