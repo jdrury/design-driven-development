@@ -10,7 +10,8 @@
     "bootstrap": "3.0.3",
     "angular-bootstrap": "0.10.0",
     "angular-ui-router": "#master",
-    "angular-file-upload": "~0.3.1"
+    "angular-file-upload": "~0.3.1",
+    "ngUpload": "~0.5.10"
   },
   "resolutions": {
     "jquery": "1.8.3"
