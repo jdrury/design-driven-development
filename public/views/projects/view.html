@@ -19,8 +19,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="tile tile-default">
-					<span style="line-height: 30px;">{{project.created | date:'MMMM d, yyyy'}}</span> /
-					<span style="line-height: 30px;" ng-repeat="user in project.users">{{user.name}} </span>
+					<span style="line-height: 30px;">{{project.created | date:'MMMM d, yyyy'}}</span>
+					<span style="line-height: 30px;" ng-repeat="user in project.users"> / {{user.name}}</span>
 					<a href="/#!/projects/{{project._id}}/versions/create" class="btn btn-default pull-right">Upload a new version</a>
 					<div class="clearfix"></div>
 				</div>
