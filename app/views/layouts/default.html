@@ -2,6 +2,40 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
 	{% include '../includes/head.html' %}
 	<body>
+		{% if user == 'null' || landingPage %}
+
+		<div class="landing-wrapper" data-ng-controller="ProjectsController">
+
+			<!-- Topbar -->
+			<div class="landing-topbar" role="navigation">
+				<!-- Toggle Sidebar Btn -->
+
+				<!-- Turned off right toggle by adding class to layout-wrapper and hiding button, fix permanently in css and stagui.js -->
+				<!-- a class="pull-right btn-right-panel" id="rtoggle-btn"><i class="fa fa-fw fa-cog"></i><i class="fa fa-ellipsis-v"></i></a> -->
+
+				<!-- Topbar Navs -->
+				<div data-ng-include="'views/header.html'" data-ng-controller="HeaderController">
+				</div>
+
+				<!-- Topbar Title Container -->
+				<h3 class="topbar-title ellipsis"></h3>
+			</div>
+
+			<nav class="landing-sidebar">
+				<div class="sidebar-header">
+					<!-- Check out image dimensions for line-height
+					<img class="sidebar-brand" src="../img/stagui-logo.svg" height="24" alt="stagui }>" title="stagui }>"> -->
+					<p class="sidebar-brand">3DT</p>
+
+					<div class="btn-group pull-right">
+							<a href="/" class="btn btn-primary"><i class="fa fa-fw fa-home"></i></a>
+							<a class="btn btn-primary"><i class="fa fa-fw fa-repeat"></i></a>
+					</div>
+				</div>
+			</nav>
+
+		{% else %}
+
 		<div class="layout-wrapper layout-right-panel-toggle" data-ng-controller="ProjectsController">
 
 			<!-- Topbar -->
@@ -21,7 +55,9 @@
 			</div>
 
 			<!-- Sidebar -->
-			<nav class="layout-sidebar" data-ng-include="'views/sidebar.html'">
+			<nav class="layout-sidebar">
+				<div data-ng-include="'views/sidebar.html'">
+				</div>
 				<!-- Sidebar Footer -->
 				<div class="sidebar-footer">
 					<p class="pull-left">© <strong>3DT</strong></p>
@@ -29,8 +65,12 @@
 				</div>
 			</nav>
 
+			{% endif %}
+
 			<!-- Rightbar -->
 			{% block content %}{% endblock %}
+
+		</div>
 
 		{% include '../includes/foot.html' %}
 	</body>

@@ -20,7 +20,8 @@ exports.signin = function(req, res) {
 	res.render('users/signin', {
 		showBackground: true,
 		title: 'Signin',
-		message: req.flash('error')
+		message: req.flash('error'),
+		landingPage: true
 	});
 };
 
@@ -31,7 +32,8 @@ exports.signup = function(req, res) {
 	res.render('users/signup', {
 		showBackground: true,
 		title: 'Sign up',
-		user: new User()
+		user: new User(),
+		landingPage: true
 	});
 };
 
