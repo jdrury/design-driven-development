@@ -102,8 +102,8 @@ exports.create = function(req, res) {
       };
 
       // upload screenshot to s3
-      webshot(url, ostemp + screenshotName, options, function(err) {
-        fs.readFile(ostemp + screenshotName, options, function(err, data) {
+      webshot(url, ostemp + "/" + screenshotName, options, function(err) {
+        fs.readFile(ostemp + "/" + screenshotName, options, function(err, data) {
           if (err) { throw err; }
           var s3 = new AWS.S3({ params: {Bucket: 'screenshotsfp', Key: screenshotName} });
           s3.putObject({
@@ -124,16 +124,16 @@ exports.create = function(req, res) {
 
 var runTests = function(linkURL, fileURL, fileId, version, res){
   request.get({url: fileURL, encoding: 'binary'}, function(err, response, body){
-    fs.writeFile(ostemp+'image.png', body, 'binary', function(err){
-      fs.createReadStream(ostemp+'image.png')
+    fs.writeFile(ostemp+'/image.png', body, 'binary', function(err){
+      fs.createReadStream(ostemp +'/image.png')
       .pipe(new PNG({
           filterType: 4
       }))
       .on('parsed', function() {
         var data1 = this;
         request.get({url: linkURL, encoding: 'binary'}, function(err, response, body){
-          fs.writeFile(ostemp+'image2.png', body, 'binary', function(err){
-          fs.createReadStream(ostemp+'image2.png')
+          fs.writeFile(ostemp +'/image2.png', body, 'binary', function(err){
+          fs.createReadStream(ostemp+'/image2.png')
           .pipe(new PNG({
             filterType: 4
            }))
@@ -156,10 +156,10 @@ var runTests = function(linkURL, fileURL, fileId, version, res){
             }
             console.log("These pictures are " + ((1 - (differenceCount/totalPixels)) *100) + "% similar.");
 
-            var r = this.pack().pipe(fs.createWriteStream(ostemp+'out.png'));
+            var r = this.pack().pipe(fs.createWriteStream(ostemp+'/out.png'));
 
             r.on('close', function(){
-                fs.readFile(ostemp+'out.png', function(err, data) {
+                fs.readFile(ostemp+'/out.png', function(err, data) {
                 if (err) { throw err; }
                 var s3 = new AWS.S3({ params: {Bucket: 'screenshotsfp', Key: fileId+'-out.png' }});
                 s3.putObject({
