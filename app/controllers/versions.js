@@ -19,7 +19,7 @@ var PNG = require('pngjs').PNG;
 var webshot = require('webshot');
 var request = require('request');
 var os = require('os');
-var ostemp = './tmp'
+var ostemp = os.temp();
 
 /**
  * Find version by id
@@ -124,16 +124,16 @@ exports.create = function(req, res) {
 
 var runTests = function(linkURL, fileURL, fileId, version, res){
   request.get({url: fileURL, encoding: 'binary'}, function(err, response, body){
-    fs.writeFile(ostemp+'/image.png', body, 'binary', function(err){
-      fs.createReadStream(ostemp+'/image.png')
+    fs.writeFile(ostemp+'image.png', body, 'binary', function(err){
+      fs.createReadStream(ostemp+'image.png')
       .pipe(new PNG({
           filterType: 4
       }))
       .on('parsed', function() {
         var data1 = this;
         request.get({url: linkURL, encoding: 'binary'}, function(err, response, body){
-          fs.writeFile(ostemp+'/image2.png', body, 'binary', function(err){
-          fs.createReadStream(ostemp+'/image2.png')
+          fs.writeFile(ostemp+'image2.png', body, 'binary', function(err){
+          fs.createReadStream(ostemp+'image2.png')
           .pipe(new PNG({
             filterType: 4
            }))
