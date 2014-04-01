@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 var fs = require('fs');
 var AWS = require('aws-sdk');
-AWS.config.update({"accessKeyId":process.env.AMAZONKEY, "secretAccessKey":process.env.AMAZONACESS, "region": "" })
+AWS.config.loadFromPath(__dirname + '/aws.json');
 
 var pngparse = require('pngparse');
 
@@ -19,7 +19,8 @@ var PNG = require('pngjs').PNG;
 var webshot = require('webshot');
 var request = require('request');
 var os = require('os');
-var ostemp = './temp/'
+var ostemp = os.tmpdir();
+
 /**
  * Find version by id
  */
@@ -123,16 +124,16 @@ exports.create = function(req, res) {
 
 var runTests = function(linkURL, fileURL, fileId, version, res){
   request.get({url: fileURL, encoding: 'binary'}, function(err, response, body){
-    fs.writeFile('./temp/image.png', body, 'binary', function(err){
-      fs.createReadStream('./temp/image.png')
+    fs.writeFile(os.tmpdir()+'/image.png', body, 'binary', function(err){
+      fs.createReadStream(os.tmpdir()+'/image.png')
       .pipe(new PNG({
           filterType: 4
       }))
       .on('parsed', function() {
         var data1 = this;
         request.get({url: linkURL, encoding: 'binary'}, function(err, response, body){
-          fs.writeFile('./temp/image2.png', body, 'binary', function(err){
-          fs.createReadStream('./temp/image2.png')
+          fs.writeFile(os.tmpdir()+'/image2.png', body, 'binary', function(err){
+          fs.createReadStream(os.tmpdir()+'/image2.png')
           .pipe(new PNG({
             filterType: 4
            }))
@@ -155,10 +156,10 @@ var runTests = function(linkURL, fileURL, fileId, version, res){
             }
             console.log("These pictures are " + ((1 - (differenceCount/totalPixels)) *100) + "% similar.");
 
-            var r = this.pack().pipe(fs.createWriteStream('./temp/out.png'));
+            var r = this.pack().pipe(fs.createWriteStream(os.tmpdir()+'out.png'));
 
             r.on('close', function(){
-                fs.readFile('./temp/out.png', function(err, data) {
+                fs.readFile(os.tmpdir()+'out.png', function(err, data) {
                 if (err) { throw err; }
                 var s3 = new AWS.S3({ params: {Bucket: 'screenshotsfp', Key: fileId+'-out.png' }});
                 s3.putObject({
