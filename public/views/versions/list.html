@@ -4,8 +4,17 @@
 	<!-- Panel Default -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">{{version.created | date: 'MMMM d, yyyy'}}</h3>
-
+			<h3 class="panel-title" style="line-height: 40px;">{{version.created | date: 'MMMM d, yyyy'}}</h3>
+			<div class="layout-topbar pull-right" style="position: relative; left: 0px; background: none; padding: 0px; height: 40px; min-height: 40px;">
+				<ul class="nav navbar-right">
+					<li>
+						<a href="{{projectView}}{{version._id}}">
+							<i class="fa fa-fw fa-file"></i>
+							<span class="badge">{{version.noteCount}}</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 
 		<div class="panel">
@@ -14,7 +23,7 @@
 				<a data-ng-href="{{projectView}}{{version._id}}">
 					<img class="img-responsive" src="{{version.compared}}">
 				</a>
-				<p>{{version.noteCount}} notes</p>
+
 			</div>
 		</div>
 
