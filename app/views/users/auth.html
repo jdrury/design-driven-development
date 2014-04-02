@@ -3,7 +3,31 @@
 {% block content %}
 	<div class="landing-content">
 
-		<div class="col-sm-offset-1 col-sm-10">
+		<div class="login-wrapper" style="margin-top: 50px;">
+			<div class="login-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="well well-lg">
+							{% block auth %}{% endblock %}
+							<hr style="border: 1px solid #393E47; background: #393E47; margin-bottom: 15px;">
+							<div class="form-group">
+								<a class="btn btn-block btn-lg btn-primary" href="/auth/github"><i class="fa fa-github"></i> Github</a>
+							</div>
+						</div>
+						{% if message && message.length  %}
+							<div class="well well-lg well-danger">
+								<button class="close" data-dismiss="alert">&times;</button>
+								<div class="strong">
+									{{ message }}
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 		<div class="col-sm-offset-1 col-sm-10">
 			<div class="col-sm-5">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-github icon-addon"></i></span>
@@ -23,6 +47,6 @@
 				{% endif %}
 				{% block auth %}{% endblock %}
 			</div>
-		</div>
+		</div> -->
 	</div>
 {% endblock %}
