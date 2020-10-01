@@ -1,6 +1,6 @@
 #Design Driven Development Tool v0.2.5
 
-**Design Driven Development Tool** is a design testing framework for developers. Users input the URL they wish to test and a local file with the original mock-ups. 3DT visits the site, takes a screenshot and compares the screenshot to the original plans. Discrepancies are presented with red highlighting.
+**Design Driven Development Tool** is a design testing framework for developers. It is agile-basd process for creating innovative requirements to build better solutions. Users input the URL they wish to test and a local file with the original mock-ups. 3DT visits the site, takes a screenshot and compares the screenshot to the original plans. Discrepancies are presented with red highlighting.
 
 Accurate. Reliable. Fast. 3DT.
 
